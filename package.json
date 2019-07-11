@@ -16,6 +16,9 @@
     "prepubl¡sh": "./build/scripts/prepare.sh",
     "postpublish": "./build/scripts/release.sh"
   },
+  "publishConfig": {
+    "registry": "http://202.98.157.109:8081/repository/npm-internal/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Toototototo/element-react.git"

@@ -100,6 +100,7 @@ declare module "element-react/next" {
 
 declare namespace ElementReact {
   type typeColor = 'success' | 'info' | 'warning'
+  type SortOrder = 'descend' | 'ascend';
   type I18nLang = any
 
   // i18n
@@ -737,46 +738,59 @@ declare namespace ElementReact {
   }
 
   // Table
-
   export type strOrNum = string | number;
 
   interface TableColumn {
-    label?: string
-    prop?: string
-    property?: string
-    type?: string
-    minWidth?: number
-    width?: number
-    align?: string
-    sortable?: boolean
-    sortMethod?: () => void
-    resizable?: boolean
-    formatter?: () => void
-    selectable?: boolean
-    fixed?: boolean | string
-    filterMethod?: () => void
-    filters?: Object[]
-    render?: (data?: Object, column?: Object, index?: number) => void
+    type?: string,
+    columnKey?: string,
+    label?: string | React.ReactNode,
+    prop?: string,
+    property?: string,
+    width?: number | string,
+    minWidth?: number | string,
+    fixed?: boolean | ('left' | 'right'),
+    render?: (row: Object, column: TableColumn, index: number) => React.ReactNode,
+    renderHeader?: () => void,
+    sortable?: boolean | 'custom',
+    sortMethod?: (a: any, b: any, sortOrder?: SortOrder) => number,
+    resizable: boolean,
+    align?: 'left' | 'center' | 'right',
+    headerAlign?: 'left' | 'center' | 'right',
+    className?: string,
+    labelClassName?: string,
+    selectable?: (row: Object, index: number) => boolean,
+    reserveSelection?: boolean,
+    filters?: Array<{ text: any, value: any }>,
+    filterPlacement?: string,
+    filterMultiple?: boolean,
+    filterMethod?: (value: any, row: Object) => boolean,
+    filteredValue?: Array<strOrNum> | strOrNum,
+    subColumns?: Array<TableColumn>
   }
 
-  interface TableProps extends ElementReactLibs.ComponentProps<{}> {
+  type TableProps = ElementReactLibs.ComponentProps<{}> & {
     columns?: TableColumn[]
-    data?: Object[]
+    data?: any[]
+    currentRowKey?: string | number | string[] | number[]
     height?: number
+    maxHeight?: number
     stripe?: boolean
     border?: boolean
     fit?: boolean
-
-    rowClassName?(row?, index?): void
-
-    style?: Object
+    showHeader?: boolean
+    rowClassName?: ((row?: any, index?: number) => string) | string
+    rowStyle?: React.CSSProperties | ((row?: any, index?: number) => React.CSSProperties)
     highlightCurrentRow?: boolean
-
-    onCurrentChange?(): void
-
-    onSelectAll?(): void
-
-    onSelectChange?(): void
+    rowKey?: string | ((row: any) => string)
+    emptyText?: string | React.ReactNode
+    defaultExpandAll?:boolean
+    expandRowKeys?: string[] | number[]
+    showSummary?: boolean
+    sumText?: React.ReactNode | string
+    summaryMethod?: ((params: { columns: TableColumn[], data: any[] }) => React.ReactNode | string)
+    onCurrentChange?: () => void
+    onSelectAll?: () => void
+    onSelectChange?: () => void
   }
 
   export class Table extends ElementReactLibs.Component<TableProps, {}> {

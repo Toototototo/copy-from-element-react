@@ -31,6 +31,7 @@
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "import/no-named-as-default-member": 0,
     "import/prefer-default-export": 0,
+    "import/no-cycle": 0,
     "import/no-extraneous-dependencies": [1, {"devDependencies": ["**/__test__/**/*.js", "**/__test__/**/*.jsx", "**/*_test.jsx", "**/*_test.js"]}],
     "no-empty": 1,
     "no-console": 1,
