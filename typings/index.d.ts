@@ -29,6 +29,7 @@ declare module "element-react" {
   export import Checkbox = ElementReact.Checkbox;
   export import Slider = ElementReact.Slider;
   export import Table = ElementReact.Table;
+  export import TableColumn = ElementReact.TableColumn;
   export import Switch = ElementReact.Switch;
   export import Form = ElementReact.Form;
   export import Upload = ElementReact.Upload;
@@ -783,14 +784,15 @@ declare namespace ElementReact {
     highlightCurrentRow?: boolean
     rowKey?: string | ((row: any) => string)
     emptyText?: string | React.ReactNode
-    defaultExpandAll?:boolean
+    defaultExpandAll?: boolean
     expandRowKeys?: string[] | number[]
     showSummary?: boolean
     sumText?: React.ReactNode | string
     summaryMethod?: ((params: { columns: TableColumn[], data: any[] }) => React.ReactNode | string)
     onCurrentChange?: () => void
-    onSelectAll?: () => void
-    onSelectChange?: () => void
+    onSelectAll?: (selectedRowKeys: string[] | number[]) => void
+    onSelectChange?: (selectedRowKeys: string[] | number[]) => void
+    onSelect?: (selectedRowKeys: string[] | number[], row: any) => void
   }
 
   export class Table extends ElementReactLibs.Component<TableProps, {}> {
