@@ -471,7 +471,7 @@ declare namespace ElementReact {
   }
 
   export class Tree extends ElementReactLibs.Component<TreeProps, {}> {
-    filter(...args): void
+    filter(...args: any): void
 
     getCheckedNodes(leafOnly?: boolean): any[]
 
@@ -720,7 +720,7 @@ declare namespace ElementReact {
 
     formatTooltip?(): void
 
-    onChange?(value): void
+    onChange?(value: any): void
   }
 
   export class Slider extends ElementReactLibs.Component<SliderProps, {}> {
@@ -1210,9 +1210,9 @@ declare namespace ElementReactLibs {
   }
 
   class Component<P, S> extends React.Component<P, S> {
-    classNames?(...args): any
+    classNames?(...args: any): any
 
-    className?(...args): any
+    className?(...args: any): any
 
     style?(agrs?: any): any
   }
