@@ -111,7 +111,7 @@ export default class Option extends Component {
           onMouseEnter={this.hoverItem.bind(this)}
           onClick={this.selectOptionClick.bind(this)}
         >
-          { this.props.children || <span>{this.currentLabel()}</span> }
+          {this.props.children || <span>{this.currentLabel()}</span>}
         </li>
       </View>
     )

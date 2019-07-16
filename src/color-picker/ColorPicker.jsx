@@ -5,14 +5,14 @@ import ClickOutside from 'react-click-outside';
 import { Component, PropTypes } from '../../libs';
 import PickerDropdown from './components/PickerDropdown';
 import Color from './color';
-import type { ColorType, ColorPickerState } from './Types';
+import type { ColorPickerState, ColorType } from './Types';
 
 class ColorPicker extends Component {
-  state: ColorPickerState;
-
   static defaultProps = {
-    onChange() {}
+    onChange() {
+    }
   };
+  state: ColorPickerState;
 
   constructor(props: Object) {
     super(props);
@@ -123,8 +123,8 @@ class ColorPicker extends Component {
               style={{ backgroundColor: displayedColor }}
             />
             {!value &&
-              !showPanelColor &&
-              <span className="el-color-picker__empty el-icon-close" />}
+            !showPanelColor &&
+            <span className="el-color-picker__empty el-icon-close" />}
           </span>
           <span className="el-color-picker__icon el-icon-caret-bottom" />
         </div>

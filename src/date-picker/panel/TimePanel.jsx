@@ -19,6 +19,11 @@ const mapPropsToState = (props) => {
 
 export default class TimePanel extends PopperBase {
 
+  constructor(props: TimePanelProps) {
+    super(props)
+    this.state = mapPropsToState(props)
+  }
+
   static get propTypes() {
     return Object.assign({},
       {
@@ -44,11 +49,6 @@ export default class TimePanel extends PopperBase {
     return {
       popperMixinOption: {}
     }
-  }
-
-  constructor(props: TimePanelProps) {
-    super(props)
-    this.state = mapPropsToState(props)
   }
 
   componentWillReceiveProps(nextProps: any) {
@@ -114,11 +114,15 @@ export default class TimePanel extends PopperBase {
           <button
             type="button"
             className="el-time-panel__btn cancel"
-            onClick={() => this.props.onCancel()}>{$t('el.datepicker.cancel')}</button>
+            onClick={() => this.props.onCancel()}>
+            {$t('el.datepicker.cancel')}
+          </button>
           <button
             type="button"
             className="el-time-panel__btn confirm"
-            onClick={() => this.handleConfirm()}>{$t('el.datepicker.confirm')}</button>
+            onClick={() => this.handleConfirm()}>
+            {$t('el.datepicker.confirm')}
+          </button>
         </div>
       </div>
     );

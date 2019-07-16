@@ -5,10 +5,7 @@ import { Component, PropTypes } from '../../libs';
 import Checkbox from '../checkbox';
 import FilterPannel from './FilterPannel';
 
-import type {
-  TableHeaderProps,
-  _Column,
-} from './Types';
+import type { _Column, TableHeaderProps, } from './Types';
 
 const _document = (document: any);
 
@@ -243,7 +240,8 @@ export default class TableHeader extends Component<TableHeaderProps> {
             <col width={column.realWidth} style={{ width: column.realWidth }} key={index} />
           ))}
           {!fixed && (
-            <col width={layout.scrollY ? layout.gutterWidth : 0} style={{ width: layout.scrollY ? layout.gutterWidth : 0 }} />
+            <col width={layout.scrollY ? layout.gutterWidth : 0}
+              style={{ width: layout.scrollY ? layout.gutterWidth : 0 }} />
           )}
         </colgroup>
         <thead>
@@ -254,69 +252,70 @@ export default class TableHeader extends Component<TableHeaderProps> {
                   colSpan={column.colSpan}
                   rowSpan={column.rowSpan}
                   className={this.className(
-                    tableStoreState.sortColumn === column && tableStoreState.sortOrder,
-                    column.headerAlign,
-                    column.className,
-                    column.labelClassName,
-                    column.columnKey,
-                    {
-                      'is-hidden': rowIndex === 0 && this.isCellHidden(cellIndex, columns),
-                      'is-leaf': !column.subColumns,
-                      'is-sortable': column.sortable,
-                    }
-                  )}
+                  tableStoreState.sortColumn === column && tableStoreState.sortOrder,
+                  column.headerAlign,
+                  column.className,
+                  column.labelClassName,
+                  column.columnKey,
+                  {
+                    'is-hidden': rowIndex === 0 && this.isCellHidden(cellIndex, columns),
+                    'is-leaf': !column.subColumns,
+                    'is-sortable': column.sortable,
+                  }
+                )}
                   onMouseMove={this.handleMouseMove.bind(this, column)}
                   onMouseDown={this.handleMouseDown.bind(this, column)}
                   onMouseOut={this.handleMouseOut}
                   onClick={this.handleHeaderClick.bind(this, column)}
                   key={cellIndex}
-                >
+              >
                   <div className="cell">
                     {this.renderHeader(column)}
                     {column.sortable && (
-                      <span
-                        className="caret-wrapper"
-                        onClick={this.handleSortClick.bind(this, column, null)}
-                      >
-                        <i
-                          className="sort-caret ascending"
-                          onClick={this.handleSortClick.bind(this, column, 'ascending')}
+                    <span
+                      className="caret-wrapper"
+                      onClick={this.handleSortClick.bind(this, column, null)}
+                    >
+                      <i
+                        className="sort-caret ascending"
+                        onClick={this.handleSortClick.bind(this, column, 'ascending')}
                         />
-                        <i
-                          className="sort-caret descending"
-                          onClick={this.handleSortClick.bind(this, column, 'descending')}
+                      <i
+                        className="sort-caret descending"
+                        onClick={this.handleSortClick.bind(this, column, 'descending')}
                         />
-                      </span>
-                    )}
+                    </span>
+                  )}
                     {column.filterable && (
-                      <FilterPannel
-                        visible={column.filterOpened}
-                        multiple={column.filterMultiple}
-                        filters={column.filters}
-                        filteredValue={column.filteredValue}
-                        placement={column.filterPlacement}
-                        onFilterChange={this.changeFilteredValue.bind(this, column)}
-                        toggleFilter={this.handleFilterClick.bind(this, column)}
-                      >
-                        <span
-                          className="el-table__column-filter-trigger"
-                          onClick={this.handleFilterClick.bind(this, column)}
+                    <FilterPannel
+                      visible={column.filterOpened}
+                      multiple={column.filterMultiple}
+                      filters={column.filters}
+                      filteredValue={column.filteredValue}
+                      placement={column.filterPlacement}
+                      onFilterChange={this.changeFilteredValue.bind(this, column)}
+                      toggleFilter={this.handleFilterClick.bind(this, column)}
+                    >
+                      <span
+                        className="el-table__column-filter-trigger"
+                        onClick={this.handleFilterClick.bind(this, column)}
                         >
-                          <i className={this.classNames('el-icon-arrow-down', { 'el-icon-arrow-up': column.filterOpened })} />
-                        </span>
-                      </FilterPannel>
-                    )}
+                        <i
+                          className={this.classNames('el-icon-arrow-down', { 'el-icon-arrow-up': column.filterOpened })} />
+                      </span>
+                    </FilterPannel>
+                  )}
                   </div>
                 </th>
-              ))}
+            ))}
               {!fixed && (
-                <th
-                  className="gutter"
-                  style={{ width: layout.scrollY ? layout.gutterWidth : 0 }}
-                />
-              )}
+              <th
+                className="gutter"
+                style={{ width: layout.scrollY ? layout.gutterWidth : 0 }}
+              />
+            )}
             </tr>
-          ))}
+        ))}
         </thead>
       </table>
     );

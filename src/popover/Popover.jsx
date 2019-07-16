@@ -10,8 +10,6 @@ type State = {
 };
 
 export default class Popover extends Component {
-  state: State;
-
   static defaultProps = {
     visibleArrow: true,
     transition: 'fade-in-linear',
@@ -19,6 +17,7 @@ export default class Popover extends Component {
     placement: 'bottom',
     width: 150
   }
+  state: State;
 
   constructor(props: Object) {
     super(props);
@@ -45,8 +44,8 @@ export default class Popover extends Component {
 
       document.addEventListener('click', (e: Event): void => {
         if (!this.element || this.element.contains(e.target) ||
-            !this.reference || this.reference.contains(e.target) ||
-            !popper || popper.contains(e.target)) return;
+          !this.reference || this.reference.contains(e.target) ||
+          !popper || popper.contains(e.target)) return;
 
         this.setState({
           showPopper: false
@@ -59,14 +58,22 @@ export default class Popover extends Component {
       popper.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
       popper.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
     } else if (trigger === 'manual') {
-        this.setState({ showPopper: this.props.visible });
+      this.setState({ showPopper: this.props.visible });
     } else {
       if (this.reference.nodeName === 'INPUT' || this.reference.nodeName === 'TEXTAREA') {
-        this.reference.addEventListener('focus', () => { this.setState({ showPopper: true })});
-        this.reference.addEventListener('blur', () => { this.setState({ showPopper: false })});
+        this.reference.addEventListener('focus', () => {
+          this.setState({ showPopper: true })
+        });
+        this.reference.addEventListener('blur', () => {
+          this.setState({ showPopper: false })
+        });
       } else {
-        this.reference.addEventListener('mousedown', () => { this.setState({ showPopper: true })});
-        this.reference.addEventListener('mouseup', () => { this.setState({ showPopper: false })});
+        this.reference.addEventListener('mousedown', () => {
+          this.setState({ showPopper: true })
+        });
+        this.reference.addEventListener('mouseup', () => {
+          this.setState({ showPopper: false })
+        });
       }
     }
   }
@@ -125,14 +132,15 @@ export default class Popover extends Component {
       <span>
         <Transition name={transition} onEnter={this.onEnter.bind(this)} onAfterLeave={this.onAfterLeave.bind(this)}>
           <View show={this.state.showPopper}>
-            <div ref="popper" className={this.className('el-popover', popperClass)} style={this.style({ width: Number(width) })}>
-              { title && <div className="el-popover__title">{title}</div> }
-              { content }
-              { visibleArrow && <div ref="arrow" className="popper__arrow"/>}
+            <div ref="popper" className={this.className('el-popover', popperClass)}
+              style={this.style({ width: Number(width) })}>
+              {title && <div className="el-popover__title">{title}</div>}
+              {content}
+              {visibleArrow && <div ref="arrow" className="popper__arrow" />}
             </div>
           </View>
         </Transition>
-        { React.cloneElement(React.Children.only(this.props.children), { ref: 'reference' }) }
+        {React.cloneElement(React.Children.only(this.props.children), { ref: 'reference' })}
       </span>
     )
   }

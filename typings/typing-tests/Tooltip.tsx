@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { Tooltip } from 'element-react'
-import { Tooltip as TooltipNext } from 'element-react/next'
+import * as React from 'react';
+import { Tooltip } from 'element-react';
+import { Tooltip as TooltipNext } from 'element-react/next';
 
 class Component extends React.Component<{}, {}> {
   render() {
     return (
       <div>
-        <Tooltip className="className" style={{ width: 100 }}>
+        <Tooltip className="className" style={{width: 100}}>
           <div>内容</div>
         </Tooltip>
         <Tooltip effect="dark" placement="top">
@@ -42,11 +42,12 @@ class Component extends React.Component<{}, {}> {
         <Tooltip placement="right-start">
           <div>内容</div>
         </Tooltip>
-        <Tooltip effect="light" placement="right-end" disabled={true} transition="fade-in-linear" visibleArrow={true} openDelay={200} manual={false} visible={true}>
+        <Tooltip effect="light" placement="right-end" disabled={true} transition="fade-in-linear" visibleArrow={true}
+                 openDelay={200} manual={false} visible={true}>
           <div>内容</div>
         </Tooltip>
 
-        <TooltipNext className="className" style={{ width: 100 }}>
+        <TooltipNext className="className" style={{width: 100}}>
           <div>内容</div>
         </TooltipNext>
         <TooltipNext effect="dark" placement="top">
@@ -82,10 +83,11 @@ class Component extends React.Component<{}, {}> {
         <TooltipNext placement="right-start">
           <div>内容</div>
         </TooltipNext>
-        <TooltipNext effect="light" placement="right-end" disabled={true} transition="fade-in-linear" visibleArrow={true} openDelay={200} manual={false} visible={true}>
+        <TooltipNext effect="light" placement="right-end" disabled={true} transition="fade-in-linear"
+                     visibleArrow={true} openDelay={200} manual={false} visible={true}>
           <div>内容</div>
         </TooltipNext>
       </div>
-    )
+    );
   }
 }

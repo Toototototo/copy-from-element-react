@@ -8,13 +8,18 @@ import TimeSelectPanel from './panel/TimeSelectPanel'
 import type { TimeSelectProps, ValidDateType } from './Types';
 
 export default class TimeSelect extends BasePicker {
+  constructor(props: TimeSelectProps) {
+    // props, type, state
+    super(props, 'timeselect', {});
+  }
+
   static get propTypes() {
     let result: any = Object.assign({}, {
-      start: PropTypes.string,
-      end: PropTypes.string,
-      step: PropTypes.string,
-      minTime: PropTypes.instanceOf(Date),
-    },
+        start: PropTypes.string,
+        end: PropTypes.string,
+        step: PropTypes.string,
+        minTime: PropTypes.instanceOf(Date),
+      },
       BasePicker.propTypes)
 
     return result;
@@ -25,20 +30,14 @@ export default class TimeSelect extends BasePicker {
     return result;
   }
 
-
-  constructor(props: TimeSelectProps) {
-    // props, type, state
-    super(props, 'timeselect', {});
-  }
-
   isDateValid(value: ValidDateType) {
     return super.isDateValid(value) && TimeSelectPanel.isValid(this.dateToStr(value), this.panelProps())
   }
 
-  panelProps(props: ?TimeSelectProps){
+  panelProps(props: ?TimeSelectProps) {
     const ps = props || this.props
     const minTime = this.dateToStr(this.props.minTime)
-    return {...ps, minTime}
+    return { ...ps, minTime }
   }
 
   pickerPanel(state: any, props: TimeSelectProps) {
@@ -51,8 +50,8 @@ export default class TimeSelect extends BasePicker {
         dateParser={(str) => {
           const r = this.parseDate(str)
           return r
-        } }
-        />
+        }}
+      />
     )
   }
 }

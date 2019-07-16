@@ -1,16 +1,18 @@
-import * as React from 'react'
-import { Rate } from 'element-react'
-import { Rate as RateNext } from 'element-react/next'
+import * as React from 'react';
+import { Rate } from 'element-react';
+import { Rate as RateNext } from 'element-react/next';
 
 class Component extends React.Component<{}, {}> {
-  onChange = () => { }
+  onChange = () => {
+  };
+
   render() {
     return (
       <div>
-        <Rate className="className" style={{ width: 100 }} />
+        <Rate className="className" style={{width: 100}} />
         <Rate
-          colors={['#99A9BF', '#F7BA2A', '#FF9900']}
-          texts={['极差', '失望', '一般', '满意', '惊喜']}
+          colors={[ '#99A9BF', '#F7BA2A', '#FF9900' ]}
+          texts={[ '极差', '失望', '一般', '满意', '惊喜' ]}
           showText={true}
           textColor="red"
           disabled={true}
@@ -22,16 +24,16 @@ class Component extends React.Component<{}, {}> {
           max={5}
           voidColor="blue"
           disabledVoidColor="gray"
-          iconClasses={['el1', 'el2']}
+          iconClasses={[ 'el1', 'el2' ]}
           voidIconClass="el4"
           disabledVoidIconClass="el5"
           allowHalf={true}
         />
 
-        <RateNext className="className" style={{ width: 100 }} />
+        <RateNext className="className" style={{width: 100}} />
         <RateNext
-          colors={['#99A9BF', '#F7BA2A', '#FF9900']}
-          texts={['极差', '失望', '一般', '满意', '惊喜']}
+          colors={[ '#99A9BF', '#F7BA2A', '#FF9900' ]}
+          texts={[ '极差', '失望', '一般', '满意', '惊喜' ]}
           showText={true}
           textColor="red"
           disabled={true}
@@ -43,12 +45,12 @@ class Component extends React.Component<{}, {}> {
           max={5}
           voidColor="blue"
           disabledVoidColor="gray"
-          iconClasses={['el1', 'el2']}
+          iconClasses={[ 'el1', 'el2' ]}
           voidIconClass="el4"
           disabledVoidIconClass="el5"
           allowHalf={true}
         />
       </div>
-    )
+    );
   }
 }

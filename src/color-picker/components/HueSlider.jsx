@@ -3,7 +3,7 @@
 import React from 'react';
 import { Component, PropTypes } from '../../../libs';
 import draggable from '../draggable';
-import type { HueSliderState, DragOptions } from '../Types';
+import type { DragOptions, HueSliderState } from '../Types';
 
 export default class HueSlider extends Component {
   state: HueSliderState;
@@ -58,8 +58,8 @@ export default class HueSlider extends Component {
       top = Math.max(thumb.offsetHeight / 2, top);
       hue = Math.round(
         (top - thumb.offsetHeight / 2) /
-          (rect.height - thumb.offsetHeight) *
-          360
+        (rect.height - thumb.offsetHeight) *
+        360
       );
     }
     color.set('hue', hue);

@@ -17,7 +17,7 @@ const Pre = props => {
 
 const Next = props => {
   const disabled = props.internalCurrentPage === props.internalPageCount ||
-    props.internalPageCount === 0
+  props.internalPageCount === 0
     ? 'disabled'
     : '';
 
@@ -57,9 +57,11 @@ class Sizes extends Component {
 
 const Total = props => {
   return typeof props.total === 'number'
-    ? <span className="el-pagination__total">
+    ? (
+      <span className="el-pagination__total">
         {locale.t('el.pagination.total', { total: props.total })}
       </span>
+)
     : <span />;
 };
 
@@ -69,7 +71,8 @@ class Jumper extends Component {
     jumper(target.value);
   }
 
-  handleFocus() {}
+  handleFocus() {
+  }
 
   render() {
     return (

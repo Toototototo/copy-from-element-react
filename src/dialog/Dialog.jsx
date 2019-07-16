@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import { Component, View, Transition, PropTypes } from '../../libs';
+import { Component, PropTypes, Transition, View } from '../../libs';
 import { cleanScrollBar } from '../table/utils';
 
 type State = {
@@ -9,8 +9,6 @@ type State = {
 }
 
 export default class Dialog extends Component {
-  state: State;
-
   static defaultProps = {
     visible: false,
     title: '',
@@ -22,6 +20,7 @@ export default class Dialog extends Component {
     closeOnPressEscape: true,
     showClose: true
   }
+  state: State;
 
   constructor(props: Object) {
     super(props);
@@ -112,7 +111,7 @@ export default class Dialog extends Component {
               <div
                 ref="dialog"
                 style={this.style(size === 'full' ? {} : { 'top': top })}
-                className={this.className("el-dialog", `el-dialog--${ size }`, customClass)}
+                className={this.className("el-dialog", `el-dialog--${size}`, customClass)}
               >
                 <div className="el-dialog__header">
                   <span className="el-dialog__title">{title}</span>

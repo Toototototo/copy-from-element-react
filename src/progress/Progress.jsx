@@ -100,10 +100,11 @@ export default class Progress extends Component {
               style={{ width: `${percentage}%` }}
             >
               {showText &&
-                textInside &&
-                <div className="el-progress-bar__innerText">
-                  {`${percentage}%`}
-                </div>}
+              textInside && (
+              <div className="el-progress-bar__innerText">
+                {`${percentage}%`}
+              </div>
+)}
             </div>
           </div>
         </div>
@@ -136,13 +137,14 @@ export default class Progress extends Component {
       );
     }
     const progressInfo = showText &&
-      !textInside &&
+      !textInside && (
       <div
         className="el-progress__text"
         style={{ fontSize: `${this.progressTextSize()}px` }}
       >
         {status ? <i className={this.iconClass()} /> : `${percentage}%`}
-      </div>;
+      </div>
+);
 
     return (
       <div

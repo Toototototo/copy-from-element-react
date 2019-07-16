@@ -75,10 +75,10 @@ export default class FormItem extends Component {
 
       return;
     }
-    
+
     setTimeout(() => {
       this.validate('change');
-      
+
     });
   }
 
@@ -192,7 +192,9 @@ export default class FormItem extends Component {
 
   fieldValue(): mixed {
     const model = this.parent().props.model;
-    if (!model || !this.props.prop) { return; }
+    if (!model || !this.props.prop) {
+      return;
+    }
     const temp = this.props.prop.split(':');
     return temp.length > 1 ? model[temp[0]][temp[1]] : model[this.props.prop];
   }
@@ -211,9 +213,9 @@ export default class FormItem extends Component {
           label && (
             <label className="el-form-item__label" style={this.labelStyle()}>
               {
-                typeof(label) === 'string'? 
-                label + this.parent().props.labelSuffix :
-                label
+                typeof (label) === 'string' ?
+                  label + this.parent().props.labelSuffix :
+                  label
               }
             </label>
           )
@@ -221,7 +223,7 @@ export default class FormItem extends Component {
         <div className="el-form-item__content" style={this.contentStyle()}>
           {this.props.children}
           <Transition name="el-zoom-in-top">
-            { error && <div className="el-form-item__error">{error}</div> }
+            {error && <div className="el-form-item__error">{error}</div>}
           </Transition>
         </div>
       </div>

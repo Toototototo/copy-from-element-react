@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
-import Button from '../';
+import Button from "..";
 
 describe('Button test', () => {
   it('create', () => {

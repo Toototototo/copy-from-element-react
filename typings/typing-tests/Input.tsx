@@ -1,13 +1,15 @@
-import * as React from 'react'
-import { Input } from 'element-react'
-import { Input as InputNext } from 'element-react/next'
+import * as React from 'react';
+import { Input } from 'element-react';
+import { Input as InputNext } from 'element-react/next';
 
 class Component extends React.Component<{}, {}> {
-  onClose = () => { }
+  onClose = () => {
+  };
+
   render() {
     return (
       <div>
-        <Input className="className" style={{ width: 100 }} />
+        <Input className="className" style={{width: 100}} />
         <Input type="text" icon={(<div>icon</div>)} size="mini" />
         <Input size="small" />
         <Input
@@ -27,7 +29,7 @@ class Component extends React.Component<{}, {}> {
           rows={2}
         />
 
-        <InputNext className="className" style={{ width: 100 }} />
+        <InputNext className="className" style={{width: 100}} />
         <InputNext type="text" icon={(<div>icon</div>)} size="mini" />
         <InputNext size="small" />
         <InputNext
@@ -47,7 +49,7 @@ class Component extends React.Component<{}, {}> {
           rows={2}
         />
       </div>
-    )
+    );
   }
 }
 

@@ -5,10 +5,7 @@ import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 import TableFooter from './TableFooter';
 
-import type {
-  TableProps,
-  TableState,
-} from './Types';
+import type { TableProps, TableState, } from './Types';
 
 // let tableIdSeed = 1;
 
@@ -101,7 +98,9 @@ export default class Table extends Component<TableProps, TableState> {
   }
 
   bindRef(key: string) {
-    return (node: Object) => { this[key] = node; }
+    return (node: Object) => {
+      this[key] = node;
+    }
   }
 
   render() {
@@ -257,7 +256,8 @@ export default class Table extends Component<TableProps, TableState> {
             style={{ width: layout.scrollY ? layout.gutterWidth : '0', height: layout.headerHeight }}
           />
         )}
-        <div className="el-table__column-resize-proxy" ref={this.bindRef('resizeProxy')} style={{ visibility: 'hidden' }} />
+        <div className="el-table__column-resize-proxy" ref={this.bindRef('resizeProxy')}
+          style={{ visibility: 'hidden' }} />
       </div>
     )
   }

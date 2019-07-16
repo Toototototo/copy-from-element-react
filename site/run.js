@@ -43,15 +43,15 @@ new WebpackDevServer(webpack({
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?.+)?$/,
-        loader : 'file-loader'
+        loader: 'file-loader'
       },
       {
         test: /\.(jpe?g|png|gif)(\?.+)?$/,
-        loader : 'url-loader'
+        loader: 'url-loader'
       },
       {
         test: /\.md$/,
-        loader : 'raw-loader'
+        loader: 'raw-loader'
       }
     ]
   },

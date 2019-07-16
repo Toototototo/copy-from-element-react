@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { Tabs, Icon, Button } from '../../../src';
+import { Button, Icon, Tabs } from "../..";
 
 test('Basic usage', () => {
   const state = {
@@ -9,7 +9,7 @@ test('Basic usage', () => {
   };
 
   const tabs = mount(
-    <Tabs activeName="2" onTabClick={ (tab) => state.name = tab.props.name }>
+    <Tabs activeName="2" onTabClick={(tab) => state.name = tab.props.name}>
       <Tabs.Pane label="用户管理" name="1">用户管理</Tabs.Pane>
       <Tabs.Pane label="配置管理" name="2">配置管理</Tabs.Pane>
       <Tabs.Pane label="角色管理" name="3">角色管理</Tabs.Pane>
@@ -63,7 +63,13 @@ test('Border card', () => {
 });
 
 test('Custom Tab', () => {
-  const label = <span><Icon name="date" /> 用户管理</span>;
+  const label = (
+    <span>
+      <Icon name="date" />
+      {' '}
+用户管理
+    </span>
+);
   const tabs = mount(
     <Tabs type="border-card" activeName="1">
       <Tabs.Pane label={label} name="1">用户管理</Tabs.Pane>

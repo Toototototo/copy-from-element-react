@@ -1,14 +1,16 @@
-import * as React from 'react'
-import { Button } from 'element-react'
-import { Button as ButtonNext } from 'element-react/next'
+import * as React from 'react';
+import { Button } from 'element-react';
+import { Button as ButtonNext } from 'element-react/next';
 
 class Component extends React.Component<{}, {}> {
-  onClick = () => { }
+  onClick = () => {
+  };
+
   render() {
     return (
       <div>
         <Button.Group>
-          <Button className="className" style={{ width: 100 }}>按钮</Button>
+          <Button className="className" style={{width: 100}}>按钮</Button>
           <Button>按钮</Button>
           <Button onClick={this.onClick}>按钮</Button>
           <Button type="success">成功按钮</Button>
@@ -28,7 +30,7 @@ class Component extends React.Component<{}, {}> {
         </Button.Group>
 
         <ButtonNext.Group>
-          <ButtonNext className="className" style={{ width: 100 }}>按钮</ButtonNext>
+          <ButtonNext className="className" style={{width: 100}}>按钮</ButtonNext>
           <ButtonNext>按钮</ButtonNext>
           <ButtonNext onClick={this.onClick}>按钮</ButtonNext>
           <ButtonNext type="success">成功按钮</ButtonNext>
@@ -47,6 +49,6 @@ class Component extends React.Component<{}, {}> {
           <ButtonNext plain={true}>按钮</ButtonNext>
         </ButtonNext.Group>
       </div>
-    )
+    );
   }
 }

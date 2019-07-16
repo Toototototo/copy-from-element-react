@@ -39,12 +39,11 @@ type AutoCompleteDefaultProps = {
 };
 
 class AutoComplete extends Component {
-  props: Props;
-  state: State;
-
   static defaultProps: AutoCompleteDefaultProps = {
     triggerOnFocus: true,
   };
+  props: Props;
+  state: State;
 
   constructor(props: Props) {
     super(props);
@@ -95,7 +94,8 @@ class AutoComplete extends Component {
     this.setState({ inputValue: value });
 
     if (!this.props.triggerOnFocus && !value) {
-      this.setState({ suggestions: [] }); return;
+      this.setState({ suggestions: [] });
+      return;
     }
 
     if (this.props.onChange) {

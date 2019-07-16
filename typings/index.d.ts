@@ -1,7 +1,3 @@
-// TypeScript Version: 2.3
-
-/// <reference types="react" />
-
 declare module "element-react" {
   export import i18n = ElementReact.i18n;
   export import Alert = ElementReact.Alert;
@@ -117,14 +113,14 @@ declare namespace ElementReact {
 
   // Alert
   interface AlertProps extends ElementReactLibs.ComponentProps<{}> {
-    onClose?(): void
-
     title: string
     description?: string
     type?: typeColor | 'error'
     closable?: boolean
     closeText?: string
     showIcon?: boolean
+
+    onClose?(): void
   }
 
   export class Alert extends ElementReactLibs.Component<AlertProps, {}> {
@@ -132,8 +128,6 @@ declare namespace ElementReact {
 
   // Button
   interface ButtonProps extends ElementReactLibs.ComponentProps<{}> {
-    onClick?(e: React.SyntheticEvent<HTMLButtonElement>): void
-
     type?: typeColor | 'danger' | 'primary' | 'text'
     size?: 'large' | 'small' | 'mini'
     icon?: string
@@ -141,6 +135,8 @@ declare namespace ElementReact {
     loading?: boolean
     disabled?: boolean
     plain?: boolean
+
+    onClick?(e: React.SyntheticEvent<HTMLButtonElement>): void
   }
 
   class ButtonGroup extends ElementReactLibs.Component<{}, {}> {
@@ -240,10 +236,9 @@ declare namespace ElementReact {
     confirmButtonClass?: string
     inputPlaceholder?: string
     inputPattern?: RegExp
+    inputErrorMessage?: string
 
     inputValidator?(): string | boolean
-
-    inputErrorMessage?: string
   }
 
   export const MessageBox: {
@@ -263,12 +258,11 @@ declare namespace ElementReact {
     type?: typeColor | 'error'
     iconClass?: string
     duration?: number
+    offset?: number
 
     onClick?(): void
 
     onClose?(): void
-
-    offset?: number
   }
 
   type NotificationFunction = (options: string | NotificationOptions, type?: typeColor | 'error') => void
@@ -284,12 +278,11 @@ declare namespace ElementReact {
   // Radio
   interface RadioProps extends ElementReactLibs.ComponentProps<{}> {
     value: string | number | boolean
-
-    onChange?(value?: string | number | boolean): void
-
     disabled?: boolean
     checked?: boolean
     name?: string
+
+    onChange?(value?: string | number | boolean): void
   }
 
   interface RadioGroupProps extends ElementReactLibs.ComponentProps<{}> {
@@ -333,9 +326,9 @@ declare namespace ElementReact {
 
     onCancel?(): void
 
-    onOpen?(...args): any
+    onOpen?(...args: any): any
 
-    opClose?(...args): any
+    opClose?(...args: any): any
   }
 
   interface DialogBodyProps extends ElementReactLibs.ComponentProps<{}> {
@@ -363,9 +356,6 @@ declare namespace ElementReact {
     textColor?: string
     disabled?: boolean
     value?: number
-
-    onChange?(value?: number): void
-
     textTemplate?: string
     lowThreshold?: number
     highThreshold?: number
@@ -376,6 +366,8 @@ declare namespace ElementReact {
     voidIconClass?: string
     disabledVoidIconClass?: string
     allowHalf?: boolean
+
+    onChange?(value?: number): void
   }
 
   export class Rate extends ElementReactLibs.Component<RateProps, {}> {
@@ -449,11 +441,6 @@ declare namespace ElementReact {
     data?: any[]
     emptyText?: string
     expandOnClickNode?: boolean
-
-    filterNodeMethod?(value?, data?, node?): boolean
-
-    renderContent?(nodeModel?, data?, store?): React.ReactElement<any>
-
     isShowCheckbox?: boolean
     accordion?: boolean
     indent?: number,
@@ -466,17 +453,21 @@ declare namespace ElementReact {
     lazy?: boolean
     highlightCurrent?: boolean
 
-    load?(node?, resolve?): void
+    filterNodeMethod?(value?: any, data?: any, node?: any): boolean
 
-    onCheckChange?(data?, checked?: boolean, indeterminate?): void
+    renderContent?(nodeModel?: any, data?: any, store?: any): React.ReactElement<any>
 
-    onNodeClicked?(data?, node?): void
+    load?(node?: any, resolve?: any): void
 
-    onCurrentChange?(data?, node?): void
+    onCheckChange?(data?: any, checked?: boolean, indeterminate?: any): void
 
-    onNodeExpand?(data?, nodeModel?, node?): void
+    onNodeClicked?(data?: any, node?: any): void
 
-    onNodeCollapse?(data?, nodeModel?, node?): void
+    onCurrentChange?(data?: any, node?: any): void
+
+    onNodeExpand?(data?: any, nodeModel?: any, node?: any): void
+
+    onNodeCollapse?(data?: any, nodeModel?: any, node?: any): void
   }
 
   export class Tree extends ElementReactLibs.Component<TreeProps, {}> {
@@ -514,6 +505,15 @@ declare namespace ElementReact {
     // type === 'textarea'
     autosize?: boolean | Object
     rows?: number
+    // autoComplete
+    autoComplete?: string
+    // form related
+    form?: string
+    validating?: boolean
+    max?: string | number
+    min?: string | number
+    step?: string | number
+    resize?: 'none' | 'both' | 'horizontal' | 'vertical'
 
     // event
     onFocus?(e?: React.SyntheticEvent<HTMLInputElement>): void
@@ -528,19 +528,7 @@ declare namespace ElementReact {
 
     onMouseLeave?(e?: React.SyntheticEvent<HTMLDivElement>): void
 
-    // autoComplete
-    autoComplete?: string
-
-    inputSelect?(item?): void
-
-    // form related
-    form?: string
-    validating?: boolean
-
-    max?: string | number
-    min?: string | number
-    step?: string | number
-    resize?: 'none' | 'both' | 'horizontal' | 'vertical'
+    inputSelect?(item?: any): void
   }
 
   export class Input extends ElementReactLibs.Component<InputProps, {}> {
@@ -687,7 +675,7 @@ declare namespace ElementReact {
     indeterminate?: boolean
     focus?: boolean
 
-    onChange?(value?): void
+    onChange?(value?: any): void
   }
 
   interface CheckboxGroupProps extends ElementReactLibs.ComponentProps<{}> {
@@ -698,7 +686,7 @@ declare namespace ElementReact {
     textColor?: string
     value?: any
 
-    onChange?(value?): void
+    onChange?(value?: any): void
   }
 
   interface CheckboxButtonProps extends ElementReactLibs.ComponentProps<{}> {
@@ -866,22 +854,21 @@ declare namespace ElementReact {
     listType?: 'none' | 'text' | 'picture' | 'picture-card'
     tip?: React.ReactElement<any>
     trigger?: React.ReactElement<any>
-
-    beforeUpload?(file?): boolean | Promise<any>
-
-    onRemove?(file?, fileList?: any[]): void
-
-    onPreview?(file?): void
-
-    onProgress?(event?, file?, fileList?: any[]): void
-
-    onSuccess?(response?, file?, fileList?: any[]): void
-
-    onError?(err?, response?, file?): void
-
-    onChange?(file?, fileList?: any[]): void
-
     className?: string
+
+    beforeUpload?(file?: any): boolean | Promise<any>
+
+    onRemove?(file?: any, fileList?: any[]): void
+
+    onPreview?(file?: any): void
+
+    onProgress?(event?: any, file?: any, fileList?: any[]): void
+
+    onSuccess?(response?: any, file?: any, fileList?: any[]): void
+
+    onError?(err?: any, response?: any, file?: any): void
+
+    onChange?(file?: any, fileList?: any[]): void
   }
 
   export class Upload extends ElementReactLibs.Component<UploadProps, {}> {
@@ -910,15 +897,14 @@ declare namespace ElementReact {
     filterable?: boolean
     loading?: boolean
     remote?: boolean
+    multiple?: boolean
+    placeholder?: string
 
     remoteMethod?(): void
 
     filterMethod?(): void
 
-    multiple?: boolean
-    placeholder?: string
-
-    onChange?(value?): void
+    onChange?(value?: any): void
   }
 
   interface SelectOptionProps extends ElementReactLibs.ComponentProps<{}> {
@@ -956,7 +942,7 @@ declare namespace ElementReact {
 
     onClick?(): void
 
-    onCommand?(command?: string, instance?): void
+    onCommand?(command?: string, instance?: any): void
   }
 
   interface DropdownMenuProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1022,16 +1008,15 @@ declare namespace ElementReact {
     size?: 'large' | 'small' | 'mini'
     value?: string
     triggerOnFocus?: boolean
-
-    fetchSuggestions?(queryString?: string, callback?: (data?: any[]) => void): void
-
-    onSelect?(item?): void
-
-    onIconClick?(): void
-
     icon?: React.ReactElement<any> | string
     append?: React.ReactElement<any>
     prepend?: React.ReactElement<any>
+
+    fetchSuggestions?(queryString?: string, callback?: (data?: any[]) => void): void
+
+    onSelect?(item?: any): void
+
+    onIconClick?(): void
   }
 
   export class AutoComplete extends ElementReactLibs.Component<AutoCompleteProps, {}> {
@@ -1127,11 +1112,11 @@ declare namespace ElementReact {
   }
 
   interface CollapseItemProps extends ElementReactLibs.ComponentProps<{}> {
-    onClick?(item?): void
-
     isActive?: boolean
     title?: string | React.ReactElement<any>
     name?: string | number
+
+    onClick?(item?: any): void
   }
 
   class CollapseItem extends ElementReactLibs.Component<CollapseItemProps, {}> {
@@ -1176,7 +1161,7 @@ declare namespace ElementReact {
 
     activeItemChange?(param?: any[]): void
 
-    onChange?(value?): void
+    onChange?(value?: any): void
   }
 
   export class Cascader extends ElementReactLibs.Component<CascaderProps, {}> {
@@ -1188,14 +1173,8 @@ declare namespace ElementReact {
     titles?: string[]
     buttonTexts?: string[]
     filterPlaceholder?: string
-
-    filterMethod?(): void
-
     leftDefaultChecked?: any[]
     rightDefaultChecked?: any[]
-
-    renderContent?(h?, option?): void
-
     value?: any[]
     footerFormat?: {
       noChecked?: string
@@ -1207,11 +1186,14 @@ declare namespace ElementReact {
       label?: string
       disabled?: boolean
     }
-
-    onChange?(value?, drection?: string, movedKeys?: any[]): void
-
     leftFooter?: React.ReactElement<any>
     rightFooter?: React.ReactElement<any>
+
+    filterMethod?(): void
+
+    renderContent?(h?: any, option?: any): void
+
+    onChange?(value?: any, drection?: string, movedKeys?: any[]): void
   }
 
   export class Transfer extends ElementReactLibs.Component<TransferProps, {}> {
@@ -1232,7 +1214,7 @@ declare namespace ElementReactLibs {
 
     className?(...args): any
 
-    style?(agrs?): any
+    style?(agrs?: any): any
   }
 
   interface DatePickerBaseProps extends ComponentProps<{}> {
@@ -1242,14 +1224,13 @@ declare namespace ElementReactLibs {
     isReadOnly?: boolean
     isDisabled?: boolean
     placeholder?: string
+    value?: dateType | dateType[]
 
     onFocus?(self?: any): void
 
     onBlur?(self?: any): void
 
-    onChange?(value?): void
-
-    value?: dateType | dateType[]
+    onChange?(value?: any): void
   }
 
   interface DatePanelProps extends DatePickerBaseProps {
@@ -1260,12 +1241,11 @@ declare namespace ElementReactLibs {
     format?: string
     shortcuts?: any[]
     selectionMode?: SelectionMode
-
-    disabledDate?(date?: Date, type?: SelectionMode): boolean
-
     firstDayOfWeek?: number
     getPopperRefElement?: any
     popperMixinOption?: any
+
+    disabledDate?(date?: Date, type?: SelectionMode): boolean
   }
 
   class DatePickerBaseComponet<P, S> extends React.Component<P, S> {

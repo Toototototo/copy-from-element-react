@@ -4,7 +4,7 @@ import React from 'react';
 import { Component, PropTypes } from '../../libs';
 import ajax from './ajax';
 import Cover from './Cover';
-import type { RawFile, _File } from './Types';
+import type { _File, RawFile } from './Types';
 
 export default class AjaxUpload extends Component {
   static defaultProps = {
@@ -32,7 +32,7 @@ export default class AjaxUpload extends Component {
 
   uploadFiles(files: FileList): void {
     const { multiple, limit, onExceed, fileList } = this.props;
-    if(limit && fileList.length + files.length > limit){
+    if (limit && fileList.length + files.length > limit) {
       onExceed && onExceed(files, fileList)
       return;
     }
@@ -88,7 +88,7 @@ export default class AjaxUpload extends Component {
       onSuccess,
       onError
     } = this.props;
-    const {httpRequest = ajax} = this.props
+    const { httpRequest = ajax } = this.props
     const req = httpRequest({
       headers,
       withCredentials,
@@ -100,13 +100,13 @@ export default class AjaxUpload extends Component {
       onSuccess: res => onSuccess(res, file),
       onError: err => onError(err, file)
     });
-    if(req && req.then){
+    if (req && req.then) {
       req.then(onSuccess, onError)
     }
   }
 
   handleClick(): void {
-    if(!this.props.disabled){
+    if (!this.props.disabled) {
       this.refs.input.click();
     }
   }
@@ -122,9 +122,11 @@ export default class AjaxUpload extends Component {
         onClick={() => this.handleClick()}
       >
         {drag
-          ? <Cover disabled={disabled} onFile={file => this.uploadFiles(file)}>
+          ? (
+            <Cover disabled={disabled} onFile={file => this.uploadFiles(file)}>
               {this.props.children}
             </Cover>
+)
           : this.props.children}
         <input
           className="el-upload__input"

@@ -7,7 +7,7 @@ export default class DialogFooter extends Component {
   render(): React.DOM {
     return (
       <div style={this.style()} className={this.className('el-dialog__footer')}>
-        { this.props.children }
+        {this.props.children}
       </div>
     )
   }

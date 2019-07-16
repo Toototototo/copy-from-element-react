@@ -1,26 +1,26 @@
-import { MessageBox } from 'element-react'
-import { MessageBox as MessageBoxNext } from 'element-react/next'
+import { MessageBox } from 'element-react';
+import { MessageBox as MessageBoxNext } from 'element-react/next';
 
-MessageBox.alert('这是一段内容')
-MessageBox.alert('这是一段内容', 'title')
+MessageBox.alert('这是一段内容');
+MessageBox.alert('这是一段内容', 'title');
 MessageBox.alert('这是一段内容', {
-  title: 'title'
-})
+  title: 'title',
+});
 MessageBox.alert('这是一段内容', 'title', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.alert('这是一段内容', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.alert('这是一段内容', {
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBox.alert('这是一段内容', {
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBox.alert('这是一段内容', {
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBox.alert('这是一段内容', {
   modal: 'alert',
   type: 'error',
@@ -37,31 +37,31 @@ MessageBox.alert('这是一段内容', {
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});
 
-MessageBox.confirm('这是一段内容')
-MessageBox.confirm('这是一段内容', 'title')
+MessageBox.confirm('这是一段内容');
+MessageBox.confirm('这是一段内容', 'title');
 MessageBox.confirm('这是一段内容', {
-  title: 'title'
-})
+  title: 'title',
+});
 MessageBox.confirm('这是一段内容', 'title', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.confirm('这是一段内容', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.confirm('这是一段内容', {
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBox.confirm('这是一段内容', {
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBox.confirm('这是一段内容', {
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBox.confirm('这是一段内容', {
   modal: 'confirm',
   type: 'error',
@@ -78,31 +78,31 @@ MessageBox.confirm('这是一段内容', {
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});
 
-MessageBox.prompt('这是一段内容')
-MessageBox.prompt('这是一段内容', 'title')
+MessageBox.prompt('这是一段内容');
+MessageBox.prompt('这是一段内容', 'title');
 MessageBox.prompt('这是一段内容', {
-  title: 'title'
-})
+  title: 'title',
+});
 MessageBox.prompt('这是一段内容', 'title', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.prompt('这是一段内容', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.prompt('这是一段内容', {
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBox.prompt('这是一段内容', {
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBox.prompt('这是一段内容', {
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBox.prompt('这是一段内容', {
   modal: 'prompt',
   type: 'error',
@@ -119,27 +119,27 @@ MessageBox.prompt('这是一段内容', {
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});
 
-MessageBox.msgbox()
+MessageBox.msgbox();
 MessageBox.msgbox({
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.msgbox({
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBox.msgbox({
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBox.msgbox({
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBox.msgbox({
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBox.msgbox({
   modal: 'prompt',
   type: 'error',
@@ -156,32 +156,32 @@ MessageBox.msgbox({
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});
 
 
-MessageBoxNext.alert('这是一段内容')
-MessageBoxNext.alert('这是一段内容', 'title')
+MessageBoxNext.alert('这是一段内容');
+MessageBoxNext.alert('这是一段内容', 'title');
 MessageBoxNext.alert('这是一段内容', {
-  title: 'title'
-})
+  title: 'title',
+});
 MessageBoxNext.alert('这是一段内容', 'title', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.alert('这是一段内容', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.alert('这是一段内容', {
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBoxNext.alert('这是一段内容', {
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBoxNext.alert('这是一段内容', {
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBoxNext.alert('这是一段内容', {
   modal: 'alert',
   type: 'error',
@@ -198,31 +198,31 @@ MessageBoxNext.alert('这是一段内容', {
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});
 
-MessageBoxNext.confirm('这是一段内容')
-MessageBoxNext.confirm('这是一段内容', 'title')
+MessageBoxNext.confirm('这是一段内容');
+MessageBoxNext.confirm('这是一段内容', 'title');
 MessageBoxNext.confirm('这是一段内容', {
-  title: 'title'
-})
+  title: 'title',
+});
 MessageBoxNext.confirm('这是一段内容', 'title', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.confirm('这是一段内容', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.confirm('这是一段内容', {
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBoxNext.confirm('这是一段内容', {
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBoxNext.confirm('这是一段内容', {
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBoxNext.confirm('这是一段内容', {
   modal: 'confirm',
   type: 'error',
@@ -239,31 +239,31 @@ MessageBoxNext.confirm('这是一段内容', {
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});
 
-MessageBoxNext.prompt('这是一段内容')
-MessageBoxNext.prompt('这是一段内容', 'title')
+MessageBoxNext.prompt('这是一段内容');
+MessageBoxNext.prompt('这是一段内容', 'title');
 MessageBoxNext.prompt('这是一段内容', {
-  title: 'title'
-})
+  title: 'title',
+});
 MessageBoxNext.prompt('这是一段内容', 'title', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.prompt('这是一段内容', {
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.prompt('这是一段内容', {
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBoxNext.prompt('这是一段内容', {
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBoxNext.prompt('这是一段内容', {
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBoxNext.prompt('这是一段内容', {
   modal: 'prompt',
   type: 'error',
@@ -280,27 +280,27 @@ MessageBoxNext.prompt('这是一段内容', {
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});
 
-MessageBoxNext.msgbox()
+MessageBoxNext.msgbox();
 MessageBoxNext.msgbox({
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.msgbox({
-  type: 'success'
-})
+  type: 'success',
+});
 MessageBoxNext.msgbox({
-  type: 'warning'
-})
+  type: 'warning',
+});
 MessageBoxNext.msgbox({
-  type: 'info'
-})
+  type: 'info',
+});
 MessageBoxNext.msgbox({
-  inputValidator: () => false
-})
+  inputValidator: () => false,
+});
 MessageBoxNext.msgbox({
   modal: 'prompt',
   type: 'error',
@@ -317,7 +317,7 @@ MessageBoxNext.msgbox({
   inputPlaceholder: 'string',
   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
   inputValidator() {
-    return 'error string'
+    return 'error string';
   },
-  inputErrorMessage: 'error string'
-})
+  inputErrorMessage: 'error string',
+});

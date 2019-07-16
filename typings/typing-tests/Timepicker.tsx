@@ -1,11 +1,13 @@
-import * as React from 'react'
-import { TimeSelect, TimePicker, TimeRangePicker } from 'element-react'
+import * as React from 'react';
+import { TimePicker, TimeRangePicker, TimeSelect } from 'element-react';
 
 class Component extends React.Component<{}, {}> {
   state = {
-    value: new Date()
-  }
-  onChange = () => { }
+    value: new Date(),
+  };
+  onChange = () => {
+  };
+
   render() {
     return (
       <div>
@@ -30,10 +32,10 @@ class Component extends React.Component<{}, {}> {
           onChange={this.onChange}
           rangeSeparator="@"
           placeholder="选择时间"
-          value={[this.state.value, this.state.value]}
+          value={[ this.state.value, this.state.value ]}
         />
       </div>
-    )
+    );
   }
 }
 

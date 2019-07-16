@@ -317,15 +317,21 @@ class Cascader extends Component {
       })}>
         <span
           onClick={this.handleClick.bind(this)}
-          onMouseEnter={() => { this.setState({ inputHover: true }) }}
-          onMouseLeave={() => { this.setState({ inputHover: false }) }}
+          onMouseEnter={() => {
+            this.setState({ inputHover: true })
+          }}
+          onMouseLeave={() => {
+            this.setState({ inputHover: false })
+          }}
         >
           <Input
             ref="input"
             readOnly={!filterable}
             placeholder={currentLabels.length ? undefined : this.placeholder()}
             value={inputValue}
-            onChange={value => { this.setState({ inputValue: value }) }}
+            onChange={value => {
+              this.setState({ inputValue: value })
+            }}
             onKeyUp={this.debouncedInputChange.bind(this)}
             size={size}
             disabled={disabled}
@@ -337,11 +343,11 @@ class Cascader extends Component {
                 />
               ) : (
                 <i
-                    className={this.classNames('el-input__icon el-icon-caret-bottom', {
-                      'is-reverse': menuVisible
-                    })}
-                  />
-                )
+                  className={this.classNames('el-input__icon el-icon-caret-bottom', {
+                    'is-reverse': menuVisible
+                  })}
+                />
+              )
             }
           />
           <View show={currentLabels.length}>
@@ -402,7 +408,8 @@ Cascader.defaultProps = {
     value: 'value',
     disabled: 'disabled'
   },
-  beforeFilter: () => (() => { })
+  beforeFilter: () => (() => {
+  })
 }
 
 export default ClickOutside(Cascader);

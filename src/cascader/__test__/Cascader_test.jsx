@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import Cascader from '../';
+import Cascader from "..";
 
 const options = [{
   value: 'zhinan',
@@ -81,7 +81,7 @@ test('disabled', () => {
     }]
   }];
   const component = mount(
-    <Cascader options={options}  />
+    <Cascader options={options} />
   );
 
   clickShowPopper(component);

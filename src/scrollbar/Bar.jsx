@@ -1,7 +1,7 @@
 import React from 'react';
-import { PropTypes, Component } from '../../libs';
-import { BAR_MAP, renderThumbStyle} from './util';
-import {on, off} from '../../libs/utils/dom';
+import { Component, PropTypes } from '../../libs';
+import { BAR_MAP, renderThumbStyle } from './util';
+import { off, on } from '../../libs/utils/dom';
 
 export class Bar extends Component {
   constructor(props) {
@@ -70,12 +70,12 @@ export class Bar extends Component {
       <div
         ref={root => this.rootRef = root}
         className={this.classNames('el-scrollbar__bar', `is-${this.bar.key}`)}
-        onMouseDown={ this.clickTrackHandler } >
+        onMouseDown={this.clickTrackHandler}>
         <div
           ref={thumb => this.thumbRef = thumb}
           className="el-scrollbar__thumb"
-          onMouseDown={ this.clickThumbHandler }
-          style={ renderThumbStyle({ size, move, bar: this.bar }) }>
+          onMouseDown={this.clickThumbHandler}
+          style={renderThumbStyle({ size, move, bar: this.bar })}>
         </div>
       </div>
     );

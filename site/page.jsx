@@ -35,11 +35,13 @@ export default class App extends React.Component {
 
   componentDidUpdate(props, state) {
     if (state.locale != this.state.locale) {
-      switch(this.state.locale) {
+      switch (this.state.locale) {
         case 'en-US':
-          i18n.use(en); break;
+          i18n.use(en);
+          break;
         default:
-          i18n.use(zh); break;
+          i18n.use(zh);
+          break;
       }
     }
   }
@@ -109,18 +111,22 @@ export default class App extends React.Component {
             </h1>
             <ul className="nav">
               <li className="nav-item">
-                <a href={`http://element.eleme.io/#/${this.state.locale}/guide/design`} target="_blank" rel="noopener noreferrer">{this.getLocale('misc.guide')}</a>
+                <a href={`http://element.eleme.io/#/${this.state.locale}/guide/design`} target="_blank"
+                   rel="noopener noreferrer">{this.getLocale('misc.guide')}</a>
               </li>
               <li className="nav-item">
                 <a className="active">{this.getLocale('misc.component')}</a>
               </li>
               <li className="nav-item">
-                <a href={`http://element.eleme.io/#/${this.state.locale}/resource`} target="_blank" rel="noopener noreferrer">{this.getLocale('misc.resource')}</a>
+                <a href={`http://element.eleme.io/#/${this.state.locale}/resource`} target="_blank"
+                   rel="noopener noreferrer">{this.getLocale('misc.resource')}</a>
               </li>
               <li className="nav-item">
-                <span className={classnames('nav-lang', { active: this.state.locale === 'zh-CN'})} onClick={this.setLocale.bind(this, 'zh-CN')}>中文</span>
+                <span className={classnames('nav-lang', { active: this.state.locale === 'zh-CN' })}
+                      onClick={this.setLocale.bind(this, 'zh-CN')}>中文</span>
                 <span> / </span>
-                <span className={classnames('nav-lang', { active: this.state.locale === 'en-US'})} onClick={this.setLocale.bind(this, 'en-US')}>En</span>
+                <span className={classnames('nav-lang', { active: this.state.locale === 'en-US' })}
+                      onClick={this.setLocale.bind(this, 'en-US')}>En</span>
               </li>
             </ul>
           </div>
@@ -135,7 +141,8 @@ export default class App extends React.Component {
                     Object.keys(pages.documents).map(page => {
                       return (
                         <li className="nav-item" key={page}>
-                          <a href={`#/${this.state.locale}/${page}`} className={page === this.state.page ? 'active' : ''}>{this.getLocale(`page.${page}`)}</a>
+                          <a href={`#/${this.state.locale}/${page}`}
+                             className={page === this.state.page ? 'active' : ''}>{this.getLocale(`page.${page}`)}</a>
                         </li>
                       )
                     })
@@ -154,7 +161,8 @@ export default class App extends React.Component {
                             Object.keys(pages.components[group]).map(page => {
                               return (
                                 <li key={page} className="nav-item">
-                                  <a href={`#/${this.state.locale}/${page}`} className={page === this.state.page ? 'active' : ''}>{this.getLocale(`page.${page}`)}</a>
+                                  <a href={`#/${this.state.locale}/${page}`}
+                                     className={page === this.state.page ? 'active' : ''}>{this.getLocale(`page.${page}`)}</a>
                                 </li>
                               )
                             })
@@ -168,7 +176,7 @@ export default class App extends React.Component {
             </ul>
           </nav>
           <div className="content">
-            { this.getComponent(this.state.page) }
+            {this.getComponent(this.state.page)}
             <ScrollToTop showUnder={210}>
               <div className="page-component-up">
                 <i className="el-icon-caret-top"></i>
@@ -180,9 +188,12 @@ export default class App extends React.Component {
           <div className="container">
             <div className="footer-main">
               <p className="footer-main-title">Element-React</p>
-              <a href="https://github.com/eleme/element-react/issues" target="_blank" rel="noopener noreferrer" className="footer-main-link">{this.getLocale('misc.feedback')}</a>
-              <a href="https://github.com/eleme/element-react/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="footer-main-link">{this.getLocale('misc.contribution')}</a>
-              <a href={`http://element.eleme.io/#/${this.state.locale}/component/${this.state.page}`} target="_blank" rel="noopener noreferrer" className="footer-main-link">Element</a>
+              <a href="https://github.com/eleme/element-react/issues" target="_blank" rel="noopener noreferrer"
+                 className="footer-main-link">{this.getLocale('misc.feedback')}</a>
+              <a href="https://github.com/eleme/element-react/blob/master/CONTRIBUTING.md" target="_blank"
+                 rel="noopener noreferrer" className="footer-main-link">{this.getLocale('misc.contribution')}</a>
+              <a href={`http://element.eleme.io/#/${this.state.locale}/component/${this.state.page}`} target="_blank"
+                 rel="noopener noreferrer" className="footer-main-link">Element</a>
             </div>
             <div className="footer-social">
               <a href="//github.com/eleme/element-react" target="_blank" rel="noopener noreferrer">

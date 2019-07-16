@@ -3,13 +3,13 @@
 import React from 'react';
 import { debounce } from 'throttle-debounce';
 
-import { PropTypes, Component, CollapseTransition } from '../../libs';
-import { watchPropertyChange, IDGenerator } from '../../libs/utils';
+import { CollapseTransition, Component, PropTypes } from '../../libs';
+import { IDGenerator, watchPropertyChange } from '../../libs/utils';
 import Checkbox from '../checkbox';
 
 
-function NodeContent({context, renderContent}) {
-  const {nodeModel, treeNode} = context.props;
+function NodeContent({ context, renderContent }) {
+  const { nodeModel, treeNode } = context.props;
 
   if (typeof renderContent === 'function') {
     return renderContent(nodeModel, nodeModel.data, treeNode.store);
@@ -74,7 +74,7 @@ export default class Node extends Component {
     if (nodeModel.data != null) {
       this.watchers[
         this.idGen.next()
-      ] = watchPropertyChange(nodeModel.data, childrenKey, () => {
+        ] = watchPropertyChange(nodeModel.data, childrenKey, () => {
         nodeModel.updateChildren();
         this.setState({}); //force update view
       });
@@ -133,7 +133,7 @@ export default class Node extends Component {
     const { nodeModel, treeNode } = this.props;
 
     treeNode.setCurrentNode(this);
-    if (treeNode.props.expandOnClickNode){
+    if (treeNode.props.expandOnClickNode) {
       this.handleExpandIconClick()
     }
   }
@@ -142,7 +142,7 @@ export default class Node extends Component {
     if (evt) evt.stopPropagation();
 
     const { nodeModel, parent } = this.props;
-    const {onNodeCollapse, onNodeExpand} = this.props.treeNode.props;
+    const { onNodeCollapse, onNodeExpand } = this.props.treeNode.props;
 
     if (nodeModel.isLeaf) return;
 
@@ -152,7 +152,7 @@ export default class Node extends Component {
       onNodeCollapse(nodeModel.data, nodeModel, this)
     } else {
       nodeModel.expand(() => {
-        this.setState({childNodeRendered: true }, () => {
+        this.setState({ childNodeRendered: true }, () => {
           onNodeExpand(nodeModel.data, nodeModel, this)
         });
         parent.closeSiblings(nodeModel)
@@ -160,21 +160,21 @@ export default class Node extends Component {
     }
   }
 
-  closeSiblings(exclude: any){
-    const {treeNode, nodeModel} = this.props;
+  closeSiblings(exclude: any) {
+    const { treeNode, nodeModel } = this.props;
     if (!treeNode.props.accordion) return;
     if (nodeModel.isLeaf || !nodeModel.childNodes || !nodeModel.childNodes.length) return;
 
-    nodeModel.childNodes.filter(e=> e !== exclude).forEach(e=>e.collapse());
+    nodeModel.childNodes.filter(e => e !== exclude).forEach(e => e.collapse());
     this.refresh();
   }
 
-  refresh(){
+  refresh() {
     this.setState({})
   }
 
   handleUserClick(): void {
-    let {nodeModel, checkStrictly} = this.props.treeNode;
+    let { nodeModel, checkStrictly } = this.props.treeNode;
     if (nodeModel.indeterminate) {
       nodeModel.setChecked(nodeModel.checked, !checkStrictly);
     }
@@ -198,7 +198,7 @@ export default class Node extends Component {
           'is-current': treeNode.getCurrentNode() === this,
           'is-hidden': !nodeModel.visible
         })}
-        style={{display: nodeModel.visible ? '': 'none'}}
+        style={{ display: nodeModel.visible ? '' : 'none' }}
       >
         <div
           className="el-tree-node__content"
@@ -211,15 +211,16 @@ export default class Node extends Component {
             })}
             onClick={this.handleExpandIconClick.bind(this)}
           />
-          {isShowCheckbox &&
-            <Checkbox
-              checked={nodeModel.checked}
-              onChange={this.handleCheckChange.bind(this)}
-              indeterminate={nodeModel.indeterminate}
-              onClick={this.handleUserClick.bind(this)}
-            />}
+          {isShowCheckbox && (
+          <Checkbox
+            checked={nodeModel.checked}
+            onChange={this.handleCheckChange.bind(this)}
+            indeterminate={nodeModel.indeterminate}
+            onClick={this.handleUserClick.bind(this)}
+          />
+)}
           {nodeModel.loading &&
-            <span className="el-tree-node__loading-icon el-icon-loading"> </span>}
+          <span className="el-tree-node__loading-icon el-icon-loading"> </span>}
           <NodeContent
             nodeModel={nodeModel}
             renderContent={treeNode.props.renderContent}
@@ -250,5 +251,6 @@ Node.propTypes = {
 Node.defaultProps = {
   nodeModel: {},
   options: {},
-  onCheckChange() {},
+  onCheckChange() {
+  },
 };

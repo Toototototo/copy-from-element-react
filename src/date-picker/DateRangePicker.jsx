@@ -9,10 +9,14 @@ import DateRangePanel from './panel/DateRangePanel'
 import type { DateRangePickerProps } from './Types';
 
 export default class DateRangePicker extends BasePicker {
+  constructor(props: DateRangePickerProps) {
+    super(props, 'daterange', {})
+  }
+
   static get propTypes() {
     return Object.assign(
       {},
-      {rangeSeparator: PropTypes.string},
+      { rangeSeparator: PropTypes.string },
       BasePicker.propTypes,
       // default value is been defined in ./constants file
       pick(DateRangePanel.propTypes,
@@ -24,14 +28,10 @@ export default class DateRangePicker extends BasePicker {
     return result;
   }
 
-  constructor(props: DateRangePickerProps) {
-    super(props, 'daterange', {})
-  }
-
-  getFormatSeparator(){
+  getFormatSeparator() {
     return this.props.rangeSeparator
   }
-  
+
   pickerPanel(state: any, props: DateRangePickerProps) {
     let value = state.value
     if (value instanceof Date) {

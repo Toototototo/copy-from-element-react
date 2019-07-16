@@ -9,8 +9,6 @@ type State = {
 }
 
 export default class Tooltip extends Component {
-  state: State;
-
   static defaultProps = {
     effect: "dark",
     placement: "bottom",
@@ -20,6 +18,7 @@ export default class Tooltip extends Component {
     openDelay: 0,
     manual: false
   }
+  state: State;
 
   constructor(props: Object) {
     super(props);
@@ -77,17 +76,18 @@ export default class Tooltip extends Component {
     const { effect, content, disabled, transition, visibleArrow } = this.props;
 
     return (
-      <div style={this.style()} className={this.className('el-tooltip')} onMouseEnter={this.showPopper.bind(this)} onMouseLeave={this.hidePopper.bind(this)}>
+      <div style={this.style()} className={this.className('el-tooltip')} onMouseEnter={this.showPopper.bind(this)}
+        onMouseLeave={this.hidePopper.bind(this)}>
         <div ref="reference" className="el-tooltip__rel">
-          <div>{ this.props.children }</div>
+          <div>{this.props.children}</div>
         </div>
         {
           !disabled && (
             <Transition name={transition} onEnter={this.onEnter.bind(this)} onAfterLeave={this.onAfterLeave.bind(this)}>
-              <View show={this.state.showPopper} >
-                <div ref="popper" className={ this.classNames("el-tooltip__popper", `is-${effect}`) }>
-                  <div>{ content }</div>
-                  { visibleArrow && <div ref="arrow" className="popper__arrow"/> }
+              <View show={this.state.showPopper}>
+                <div ref="popper" className={this.classNames("el-tooltip__popper", `is-${effect}`)}>
+                  <div>{content}</div>
+                  {visibleArrow && <div ref="arrow" className="popper__arrow" />}
                 </div>
               </View>
             </Transition>

@@ -1,11 +1,11 @@
 /* eslint react/prop-types: ["off"] */
 
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import sinon from 'sinon'
 
-import { DatePicker, DateRangePicker } from '../'
-import { mockRAf, nativeEvent } from './utils'
+import { DatePicker, DateRangePicker } from ".."
+import { mockRAf } from './utils'
 
 
 describe('DatePicker tests', function () {
@@ -14,7 +14,8 @@ describe('DatePicker tests', function () {
     let minProps = {
       value: null,
       placeholder: '',
-      onChange: () => { },
+      onChange: () => {
+      },
     }
 
     function mountDefault(props = {}) {
@@ -65,7 +66,7 @@ describe('DatePicker tests', function () {
 
       w.find('input').simulate('focus');
 
-      let condition = Array.from(document.querySelectorAll('.el-date-table td.normal.disabled')).map(node => node.innerHTML).some(t=>t==1)
+      let condition = Array.from(document.querySelectorAll('.el-date-table td.normal.disabled')).map(node => node.innerHTML).some(t => t == 1)
       expect(condition).toBeTruthy()
     })
 
@@ -117,8 +118,10 @@ describe('DatePicker tests', function () {
   describe('DateRangePicker test', function () {
     let minProps = {
       value: [],
-      onChange() { },
+      onChange() {
+      },
     }
+
     function mountDefault(props = {}) {
       return mount(
         <DateRangePicker

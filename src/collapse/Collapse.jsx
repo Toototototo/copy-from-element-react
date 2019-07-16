@@ -8,12 +8,12 @@ type State = {
 };
 
 export default class Collapse extends Component {
-  state: State;
-
   static defaultProps = {
     value: [],
-    onChange() {}
+    onChange() {
+    }
   };
+  state: State;
 
   constructor(props: Object) {
     super(props);
@@ -22,7 +22,7 @@ export default class Collapse extends Component {
     };
   }
 
-  componentWillReceiveProps (nextProps: Object) {
+  componentWillReceiveProps(nextProps: Object) {
     this.setActiveNames(nextProps.value)
   }
 

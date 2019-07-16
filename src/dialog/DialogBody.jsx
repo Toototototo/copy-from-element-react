@@ -7,7 +7,7 @@ export default class DialogBody extends Component {
   render(): React.DOM {
     return (
       <div style={this.style()} className={this.className('el-dialog__body')}>
-        { this.props.children }
+        {this.props.children}
       </div>
     )
   }

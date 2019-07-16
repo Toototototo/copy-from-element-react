@@ -9,6 +9,11 @@ import type { TimeRangePickerProps } from './Types';
 
 
 export default class TimeRangePicker extends BasePicker {
+  constructor(props: TimeRangePickerProps) {
+    super(props, 'timerange', {})
+    this._onSelectionChange = debounce(200, this.onSelectionChange.bind(this))
+  }
+
   static get propTypes() {
     let result: any = Object.assign({}, { rangeSeparator: PropTypes.string },
       BasePicker.propTypes)
@@ -18,11 +23,6 @@ export default class TimeRangePicker extends BasePicker {
   static get defaultProps() {
     let result: any = Object.assign({}, BasePicker.defaultProps)
     return result;
-  }
-
-  constructor(props: TimeRangePickerProps) {
-    super(props, 'timerange', {})
-    this._onSelectionChange = debounce(200, this.onSelectionChange.bind(this))
   }
 
   onSelectionChange(start: number, end: number) {

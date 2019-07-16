@@ -10,6 +10,22 @@ import type { DatePickerProps } from './Types';
 
 
 export default class DatePicker extends BasePicker {
+  constructor(props: DatePickerProps) {
+    let type = 'date'
+    switch (props.selectionMode) {
+      case SELECTION_MODES.YEAR:
+        type = 'year';
+        break;
+      case SELECTION_MODES.MONTH:
+        type = 'month';
+        break;
+      case SELECTION_MODES.WEEK:
+        type = 'week';
+        break;
+    }
+    super(props, type, {})
+  }
+
   static get propTypes() {
     return Object.assign(
       {},
@@ -21,19 +37,6 @@ export default class DatePicker extends BasePicker {
   static get defaultProps() {
     let result: any = Object.assign({}, BasePicker.defaultProps)
     return result;
-  }
-
-  constructor(props: DatePickerProps) {
-    let type = 'date'
-    switch (props.selectionMode) {
-      case SELECTION_MODES.YEAR:
-        type = 'year'; break;
-      case SELECTION_MODES.MONTH:
-        type = 'month'; break;
-      case SELECTION_MODES.WEEK:
-        type = 'week'; break;
-    }
-    super(props, type, {})
   }
 
   pickerPanel(state: any, props: DatePickerProps) {

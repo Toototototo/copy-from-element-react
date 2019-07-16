@@ -6,11 +6,10 @@ import Cover from './Cover';
 import type { IframeUploadState } from './Types';
 
 export default class IframeUpload extends Component {
-  state: IframeUploadState;
-
   static defaultProps = {
     name: 'file'
   };
+  state: IframeUploadState;
 
   constructor(props: Object) {
     super(props);
@@ -130,9 +129,11 @@ export default class IframeUpload extends Component {
           <span ref="data" />
         </form>
         {drag
-          ? <Cover onFile={file => this.uploadFiles(file)}>
+          ? (
+            <Cover onFile={file => this.uploadFiles(file)}>
               {this.props.children}
             </Cover>
+)
           : this.props.children}
       </div>
     );

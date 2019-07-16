@@ -8,7 +8,8 @@ function alert(message, title, props) {
     props = title;
   }
 
-  props = Object.assign({ title, message,
+  props = Object.assign({
+    title, message,
     modal: 'alert',
     closeOnPressEscape: false,
     closeOnClickModal: false
@@ -22,7 +23,8 @@ function confirm(message, title, props) {
     props = title;
   }
 
-  props = Object.assign({ title, message,
+  props = Object.assign({
+    title, message,
     modal: 'confirm',
     showCancelButton: true
   }, props);
@@ -35,7 +37,8 @@ function prompt(message, title, props) {
     props = title;
   }
 
-  props = Object.assign({ title, message,
+  props = Object.assign({
+    title, message,
     modal: 'prompt',
     showCancelButton: true,
     showInput: true

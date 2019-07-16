@@ -32,7 +32,7 @@ export default class TreeStore {
 
   filter(value) {
     const filterNodeMethod = this.filterNodeMethod;
-    const traverse = function(node) {
+    const traverse = function (node) {
       const childNodes = node.root ? node.root.childNodes : node.childNodes;
 
       childNodes.forEach((child) => {
@@ -143,7 +143,7 @@ export default class TreeStore {
 
   getCheckedNodes(leafOnly = false) {
     const checkedNodes = [];
-    const traverse = function(node) {
+    const traverse = function (node) {
       const childNodes = node.root ? node.root.childNodes : node.childNodes;
 
       childNodes.forEach((child) => {
@@ -225,7 +225,7 @@ export default class TreeStore {
 
         if (leafOnly) {
           node.setChecked(false, false);
-          const traverse = function(node) {
+          const traverse = function (node) {
             const childNodes = node.childNodes;
 
             childNodes.forEach((child) => {

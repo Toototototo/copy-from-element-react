@@ -1,4 +1,4 @@
-import { formatDate, parseDate, getWeekNumber, getDateOfISOWeek, deconstructDate } from './utils';
+import { deconstructDate, formatDate, getDateOfISOWeek, getWeekNumber, parseDate } from './utils';
 
 export const RANGE_SEPARATOR = ' - ';
 export const DEFAULT_FORMATS = {
@@ -109,7 +109,8 @@ export const TYPE_VALUE_RESOLVER_MAP = {
             wn = weekno(matcher, text)
             if (!wn.isValid) return ''
             break;
-          default: throw new Error('never reach here')
+          default:
+            throw new Error('never reach here')
         }
         return getDateOfISOWeek(wn.week, date.getFullYear())
       }
@@ -170,7 +171,7 @@ export const TYPE_VALUE_RESOLVER_MAP = {
 
 export const PLACEMENT_MAP = {
   left: 'bottom-start',
-  // in git version 8de9d2ce, this been changed to 
+  // in git version 8de9d2ce, this been changed to
   // center: 'bottom',
   // due to it's close relation to popper, I dont have enought confidence to update it right now
   center: 'bottom-center',

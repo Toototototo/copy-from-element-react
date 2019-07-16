@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { Button, Tooltip } from '../../../src';
+import { Button, Tooltip } from "../..";
 
 test('Basic Usage', () => {
   const tooltip = shallow(
@@ -40,12 +40,22 @@ test('Theme', () => {
 
 test('More Content', () => {
   const tooltip = mount(
-    <Tooltip placement="top" content={<div>multiple lines<br />second line</div>}>
+    <Tooltip placement="top" content={(
+      <div>
+multiple lines
+        <br />
+second line
+      </div>
+)}>
       <Button>Top center</Button>
     </Tooltip>
   );
 
-  expect(tooltip.contains(<div>multiple lines<br />second line</div>)).toBe(true);
+  expect(tooltip.contains(<div>
+multiple lines
+    <br />
+second line
+                          </div>)).toBe(true);
 });
 
 test('Advanced usage', () => {
@@ -54,8 +64,12 @@ test('Advanced usage', () => {
   };
 
   const tooltip = mount(
-    <Tooltip disabled={ state.disabled } content="click to close tooltip function" placement="bottom" effect="light">
-      <Button onClick={ () => {state.disabled = true}}>{`click to ${state.disabled ? 'active' : 'close' } tooltip function`}</Button>
+    <Tooltip disabled={state.disabled} content="click to close tooltip function" placement="bottom" effect="light">
+      <Button onClick={() => {
+        state.disabled = true
+      }}>
+        {`click to ${state.disabled ? 'active' : 'close'} tooltip function`}
+      </Button>
     </Tooltip>
   );
 

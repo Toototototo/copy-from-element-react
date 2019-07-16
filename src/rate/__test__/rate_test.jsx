@@ -1,14 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { Rate } from '../../../src';
+import { Rate } from "../..";
 
 test('Basic usage', () => {
   const state1 = {
     value: 0
   };
 
-  let testCallBack = (value)=> {
+  let testCallBack = (value) => {
     state1.value = value;
   };
   const component1 = mount(

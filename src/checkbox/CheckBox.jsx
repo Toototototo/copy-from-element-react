@@ -45,7 +45,7 @@ export default class Checkbox extends Component {
   onChange(e: SyntheticEvent<any>): void {
     if (e.target instanceof HTMLInputElement) {
       const { label } = this.state;
-      const { trueLabel, falseLabel} = this.props;
+      const { trueLabel, falseLabel } = this.props;
 
       const checked = e.target.checked;
       const group = this.context.ElCheckboxGroup;

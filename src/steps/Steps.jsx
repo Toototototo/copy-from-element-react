@@ -60,8 +60,8 @@ export default class Steps extends Component {
           const style = direction === 'horizontal'
             ? { width: computedSpace }
             : {
-                height: index === children.length - 1 ? 'auto' : computedSpace
-              };
+              height: index === children.length - 1 ? 'auto' : computedSpace
+            };
           const status = this.calStatus(index);
           const lineStyle = this.calcProgress(status, index);
           return React.cloneElement(child, {

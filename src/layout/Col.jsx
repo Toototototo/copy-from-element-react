@@ -22,8 +22,8 @@ export default class Col extends Component {
       if (this.props[prop] >= 0) {
         classList.push(
           prop !== 'span'
-          ? `el-col-${prop}-${this.props[prop]}`
-          : `el-col-${this.props[prop]}`
+            ? `el-col-${prop}-${this.props[prop]}`
+            : `el-col-${this.props[prop]}`
         );
       }
     });
@@ -34,8 +34,8 @@ export default class Col extends Component {
         Object.keys(props).forEach(prop => {
           classList.push(
             prop !== 'span'
-            ? `el-col-${size}-${prop}-${props[prop]}`
-            : `el-col-${size}-${props[prop]}`
+              ? `el-col-${size}-${prop}-${props[prop]}`
+              : `el-col-${size}-${props[prop]}`
           );
         });
       } else if (this.props[size] >= 0) {

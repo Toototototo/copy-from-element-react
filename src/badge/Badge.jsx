@@ -34,8 +34,8 @@ export default class Badge extends Component {
 
     return (
       <div style={this.style()} className={this.className('el-badge')}>
-        { children }
-        <sup className={ className }>{ content }</sup>
+        {children}
+        <sup className={className}>{content}</sup>
       </div>
     )
   }

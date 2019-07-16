@@ -17,11 +17,10 @@ type State = {
 }
 
 export default class SliderButton extends Component {
-  state: State;
-
   static defaultProps = {
     value: 0
   }
+  state: State;
 
   constructor(props: Object) {
     super(props);

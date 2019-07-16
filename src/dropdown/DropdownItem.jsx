@@ -19,7 +19,7 @@ export default class DropdownItem extends Component {
           'el-dropdown-menu__item--divided': divided
         })} onClick={this.handleClick.bind(this)}
       >
-        { this.props.children }
+        {this.props.children}
       </li>
     )
   }

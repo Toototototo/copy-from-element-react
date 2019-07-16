@@ -66,7 +66,10 @@ PickerDropdown.propTypes = {
 };
 
 PickerDropdown.defaultProps = {
-  onPick() {},
-  onClear() {},
-  onChange() {}
+  onPick() {
+  },
+  onClear() {
+  },
+  onChange() {
+  }
 };

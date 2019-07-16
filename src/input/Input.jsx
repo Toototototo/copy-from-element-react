@@ -10,8 +10,6 @@ type State = {
 }
 
 export default class Input extends Component {
-  state: State;
-
   static defaultProps = {
     type: 'text',
     autosize: false,
@@ -19,6 +17,7 @@ export default class Input extends Component {
     trim: false,
     autoComplete: 'off'
   }
+  state: State;
 
   constructor(props: Object) {
     super(props);
@@ -77,7 +76,7 @@ export default class Input extends Component {
 
   handleTrim(): void {
     this.refs.input.value = this.refs.input.value.trim()
-    if(this.props.onChange) {
+    if (this.props.onChange) {
       // this's for controlled components
       this.props.onChange(this.refs.input.value.trim())
     }
@@ -106,7 +105,8 @@ export default class Input extends Component {
   }
 
   render(): React.DOM {
-    const { type, size, prepend, append, icon, autoComplete, validating, rows, onMouseEnter, onMouseLeave, trim,
+    const {
+      type, size, prepend, append, icon, autoComplete, validating, rows, onMouseEnter, onMouseLeave, trim,
       ...otherProps
     } = this.props;
 
@@ -134,7 +134,7 @@ export default class Input extends Component {
     if (type === 'textarea') {
       return (
         <div style={this.style()} className={this.className(classname)}>
-          <textarea { ...otherProps }
+          <textarea {...otherProps}
             ref="textarea"
             className="el-textarea__inner"
             style={this.state.textareaStyle}
@@ -142,15 +142,22 @@ export default class Input extends Component {
             onChange={this.handleChange.bind(this)}
             onFocus={this.handleFocus.bind(this)}
             onBlur={this.handleBlur.bind(this)}
-          ></textarea>
+          >
+          </textarea>
         </div>
       )
     } else {
       return (
-        <div style={this.style()} className={this.className(classname)} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-          { prepend && <div className="el-input-group__prepend">{prepend}</div> }
-          { typeof icon === 'string' ? <i className={`el-input__icon el-icon-${icon}`} onClick={this.handleIconClick.bind(this)}>{prepend}</i> : icon }
-          <input { ...otherProps }
+        <div style={this.style()} className={this.className(classname)} onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}>
+          {prepend && <div className="el-input-group__prepend">{prepend}</div>}
+          {typeof icon === 'string' ? (
+            <i className={`el-input__icon el-icon-${icon}`}
+              onClick={this.handleIconClick.bind(this)}>
+              {prepend}
+            </i>
+) : icon}
+          <input {...otherProps}
             ref="input"
             type={type}
             className="el-input__inner"
@@ -159,8 +166,8 @@ export default class Input extends Component {
             onFocus={this.handleFocus.bind(this)}
             onBlur={this.handleBlur.bind(this)}
           />
-          { validating && <i className="el-input__icon el-icon-loading"></i> }
-          { append && <div className="el-input-group__append">{append}</div> }
+          {validating && <i className="el-input__icon el-icon-loading"></i>}
+          {append && <div className="el-input-group__append">{append}</div>}
         </div>
       )
     }
@@ -188,7 +195,7 @@ Input.propTypes = {
   append: PropTypes.node,
 
   // type === 'textarea'
-  autosize: PropTypes.oneOfType([ PropTypes.bool, PropTypes.object ]),
+  autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   rows: PropTypes.number,
   resize: PropTypes.oneOf(['none', 'both', 'horizontal', 'vertical']),
 

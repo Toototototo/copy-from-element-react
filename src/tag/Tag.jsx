@@ -25,7 +25,7 @@ export default class Tag extends Component {
   render() {
     const { type, hit, closable, closeTransition, color } = this.props;
 
-    return(
+    return (
       <Transition name={closeTransition ? '' : 'el-zoom-in-center'}>
         <View key={this.state.visible} show={this.state.visible}>
           <span
@@ -37,7 +37,7 @@ export default class Tag extends Component {
             })}
           >
             {this.props.children}
-            { closable && <i className="el-tag__close el-icon-close" onClick={this.handleClose.bind(this)}></i> }
+            {closable && <i className="el-tag__close el-icon-close" onClick={this.handleClose.bind(this)}></i>}
           </span>
         </View>
       </Transition>

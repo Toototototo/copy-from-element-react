@@ -1,22 +1,24 @@
-import * as React from 'react'
-import { Layout } from 'element-react'
-import { Layout as LayoutNext } from 'element-react/next'
+import * as React from 'react';
+import { Layout } from 'element-react';
+import { Layout as LayoutNext } from 'element-react/next';
 
 class Component extends React.Component<{}, {}> {
   render() {
     return (
       <div>
-        <Layout.Row className="className" style={{ width: 100 }}>
-          <Layout.Col span="6" className="className" style={{ width: 100 }}><div className="grid-content bg-purple"></div></Layout.Col>
+        <Layout.Row className="className" style={{width: 100}}>
+          <Layout.Col span="6" className="className" style={{width: 100}}>
+            <div className="grid-content bg-purple"></div>
+          </Layout.Col>
         </Layout.Row>
         <Layout.Row gutter={2}>
-          <Layout.Col span="6" >111</Layout.Col>
+          <Layout.Col span="6">111</Layout.Col>
         </Layout.Row>
         <Layout.Row gutter="2">
-          <Layout.Col span="6" >111</Layout.Col>
+          <Layout.Col span="6">111</Layout.Col>
         </Layout.Row>
         <Layout.Row type="flex">
-          <Layout.Col span="6" >111</Layout.Col>
+          <Layout.Col span="6">111</Layout.Col>
         </Layout.Row>
         <Layout.Row justify="start">
           <Layout.Col span="6">111</Layout.Col>
@@ -52,17 +54,19 @@ class Component extends React.Component<{}, {}> {
         </Layout.Row>
 
 
-        <LayoutNext.Row className="className" style={{ width: 100 }}>
-          <LayoutNext.Col span="6" className="className" style={{ width: 100 }}><div className="grid-content bg-purple"></div></LayoutNext.Col>
+        <LayoutNext.Row className="className" style={{width: 100}}>
+          <LayoutNext.Col span="6" className="className" style={{width: 100}}>
+            <div className="grid-content bg-purple"></div>
+          </LayoutNext.Col>
         </LayoutNext.Row>
         <LayoutNext.Row gutter={2}>
-          <LayoutNext.Col span="6" >111</LayoutNext.Col>
+          <LayoutNext.Col span="6">111</LayoutNext.Col>
         </LayoutNext.Row>
         <LayoutNext.Row gutter="2">
-          <LayoutNext.Col span="6" >111</LayoutNext.Col>
+          <LayoutNext.Col span="6">111</LayoutNext.Col>
         </LayoutNext.Row>
         <LayoutNext.Row type="flex">
-          <LayoutNext.Col span="6" >111</LayoutNext.Col>
+          <LayoutNext.Col span="6">111</LayoutNext.Col>
         </LayoutNext.Row>
         <LayoutNext.Row justify="start">
           <LayoutNext.Col span="6">111</LayoutNext.Col>
@@ -97,6 +101,6 @@ class Component extends React.Component<{}, {}> {
           {/*TODO: add xs|sm|md|lg test*/}
         </LayoutNext.Row>
       </div>
-    )
+    );
   }
 }

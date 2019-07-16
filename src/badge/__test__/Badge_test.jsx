@@ -1,14 +1,13 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
+import { mount, shallow } from 'enzyme';
 
-import Badge from '../';
-import { Button, Dropdown } from '../../';
+import Badge from "..";
+import { Button, Dropdown } from "../..";
 
 describe('Badge Test', () => {
   it('Basic usage', () => {
     const w = mount(
-      <Badge value={ 12 }>
+      <Badge value={12}>
         <Button size="small">TEST</Button>
       </Badge>
     );
@@ -21,16 +20,19 @@ describe('Badge Test', () => {
       <Dropdown trigger="click" menu={(
         <Dropdown.Menu>
           <Dropdown.Item className="clearfix">
-            <span>评论</span><Badge className="mark" value={ 12 } />
+            <span>评论</span>
+            <Badge className="mark" value={12} />
           </Dropdown.Item>
           <Dropdown.Item className="clearfix">
-            <span>回复</span><Badge className="mark" value={ 3 } />
+            <span>回复</span>
+            <Badge className="mark" value={3} />
           </Dropdown.Item>
         </Dropdown.Menu>
-        )}
+      )}
       >
         <span className="el-dropdown-link">
-          点我查看<i className="el-icon-caret-bottom el-icon--right"></i>
+          点我查看
+          <i className="el-icon-caret-bottom el-icon--right"></i>
         </span>
       </Dropdown>
     );
@@ -42,17 +44,17 @@ describe('Badge Test', () => {
 
   it('Max value', () => {
     const w1 = shallow(
-      <Badge value={ 200 } max={ 99 }>
+      <Badge value={200} max={99}>
         <Button size="small">TEST</Button>
       </Badge>
     );
     const w2 = shallow(
-      <Badge value={ 99 } max={ 99 }>
+      <Badge value={99} max={99}>
         <Button size="small">TEST</Button>
       </Badge>
     );
     const w3 = shallow(
-      <Badge value={ 1 } max={ 99 }>
+      <Badge value={1} max={99}>
         <Button size="small">TEST</Button>
       </Badge>
     );
@@ -63,12 +65,12 @@ describe('Badge Test', () => {
 
   it('Custom content', () => {
     const w1 = shallow(
-      <Badge value={ 'new' }>
+      <Badge value="new">
         <Button size="small">TEST</Button>
       </Badge>
     );
     const w2 = shallow(
-      <Badge value={ 'hot' }>
+      <Badge value="hot">
         <Button size="small">TEST</Button>
       </Badge>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
-import { Switch, Tooltip } from '../../../src';
+import { mount } from 'enzyme';
+import { Switch, Tooltip } from "../..";
 
 test('Basic usage', () => {
   const switch1 = mount(
@@ -16,7 +16,7 @@ test('Basic usage', () => {
   expect(switch1.find('label.el-switch').hasClass('is-checked')).toEqual(true);
 
   // switch off
-  switch1.find('input').simulate('change', {target: {value: false}});
+  switch1.find('input').simulate('change', { target: { value: false } });
 
   expect(switch1.find('label.el-switch .el-switch__label').at(0).text()).toEqual('');
   expect(switch1.find('label.el-switch .el-switch__label').at(1).text()).toEqual('');
@@ -37,7 +37,7 @@ test('Basic usage', () => {
   expect(switch2.find('label.el-switch .el-switch__label').at(1).prop('style').display).toEqual('none');
 
   // switch off
-  switch2.find('input[type="checkbox"]').simulate('change', {target: {value: false}});
+  switch2.find('input[type="checkbox"]').simulate('change', { target: { value: false } });
 
   expect(switch2.find('label.el-switch').at(0).hasClass('is-checked')).toEqual(false);
   expect(switch2.find('label.el-switch .el-switch__label').at(0).text()).toEqual('ON');
@@ -52,7 +52,7 @@ test('Extended value types', () => {
     value: 100
   };
 
-  let testCallBack = (value)=> {
+  let testCallBack = (value) => {
     state.value = value;
   };
 
@@ -60,9 +60,12 @@ test('Extended value types', () => {
     <div>
       <Tooltip
         placement="top"
-        content={
-          <div>Switch value: {state.value}</div>
-        }>
+        content={(
+          <div>
+Switch value:
+            {state.value}
+          </div>
+)}>
         <Switch
           value={state.value}
           onColor="#13ce66"
@@ -82,7 +85,7 @@ test('Extended value types', () => {
   expect(state.value).toBe(100);
 
   // switch off
-  component.find('input[type="checkbox"]').simulate('change', {target: {value: false}});
+  component.find('input[type="checkbox"]').simulate('change', { target: { value: false } });
 
   expect(component.find('label.el-switch.el-switch--wide').at(0).hasClass('is-checked')).toEqual(false);
   expect(component.find('div .el-switch__label').at(0).text()).toEqual('ON');

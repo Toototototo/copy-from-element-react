@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
-import Input from '../';
+import Input from "..";
 
 // const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 

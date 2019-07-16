@@ -5,11 +5,9 @@ import { Component, PropTypes } from '../../libs';
 import UploadList from './UploadList';
 import iFrameUpload from './iFrameUpload';
 import AjaxUpload from './AjaxUpload';
-import type { UploadState, RawFile, _File, _ProgressEvent } from './Types';
+import type { _File, _ProgressEvent, RawFile, UploadState } from './Types';
 
 export default class Upload extends Component {
-  state: UploadState;
-
   static defaultProps = {
     headers: {},
     name: 'file',
@@ -19,13 +17,20 @@ export default class Upload extends Component {
     showFileList: true,
     autoUpload: true,
     disabled: false,
-    onRemove() {},
-    onPreview() {},
-    onProgress() {},
-    onSuccess() {},
-    onError() {},
-    onChange() {}
+    onRemove() {
+    },
+    onPreview() {
+    },
+    onProgress() {
+    },
+    onSuccess() {
+    },
+    onError() {
+    },
+    onChange() {
+    }
   };
+  state: UploadState;
 
   constructor(props: Object) {
     super(props);

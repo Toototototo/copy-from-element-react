@@ -9,7 +9,8 @@ declare module 'classnames' {
 }
 
 declare module 'react-click-outside' {
-  declare module.exports: any;
+  declare module .exports: any
+;
 }
 
 declare module 'throttle-debounce' {

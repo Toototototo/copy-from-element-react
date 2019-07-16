@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import { Component, PropTypes, CollapseTransition } from '../../libs';
+import { CollapseTransition, Component, PropTypes } from '../../libs';
 
 export default class CollapseItem extends Component {
   constructor(props: Object) {

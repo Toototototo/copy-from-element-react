@@ -5,10 +5,14 @@ import { PropTypes } from '../../../libs';
 import { scrollIntoView } from '../../../libs/utils/dom';
 
 import { Scrollbar } from '../../scrollbar'
-import type {TimeSelectPanelProps } from '../Types';
+import type { TimeSelectPanelProps } from '../Types';
 import { PopperBase } from './PopperBase'
 
 export default class TimeSelectPanel extends PopperBase {
+
+  constructor(props: TimeSelectPanelProps) {
+    super(props);
+  }
 
   static get propTypes() {
     return Object.assign({
@@ -25,10 +29,6 @@ export default class TimeSelectPanel extends PopperBase {
       getPopperRefElement: PropTypes.func,
       popperMixinOption: PropTypes.object
     }, PopperBase.propTypes)
-  }
-
-  constructor(props: TimeSelectPanelProps) {
-    super(props);
   }
 
   handleClick(item: any) {
@@ -71,10 +71,13 @@ export default class TimeSelectPanel extends PopperBase {
               return (
                 <div key={idx}
                   className={this.classNames('time-select-item',
-                    { selected: value === item.value, disabled: item.disabled }
-                  )}
+                       { selected: value === item.value, disabled: item.disabled }
+                     )}
                   disabled={item.disabled}
-                  onClick={() => this.handleClick(item)}>{item.value}</div>)
+                  onClick={() => this.handleClick(item)}>
+                  {item.value}
+                </div>
+)
             })
           }
         </Scrollbar>
@@ -109,7 +112,8 @@ TimeSelectPanel.defaultProps = {
   end: '18:00',
   step: '00:30',
   minTime: '',
-  onPicked() { },
+  onPicked() {
+  },
   popperMixinOption: {},
 };
 

@@ -1,8 +1,16 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": [ "airbnb", "eslint:recommended", "plugin:flowtype/recommended" ],
-  "plugins": [ "react", "jsx-a11y", "flowtype" ],
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "flowtype"
+  ],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -32,15 +40,40 @@
     "import/no-named-as-default-member": 0,
     "import/prefer-default-export": 0,
     "import/no-cycle": 0,
-    "import/no-extraneous-dependencies": [1, {"devDependencies": ["**/__test__/**/*.js", "**/__test__/**/*.jsx", "**/*_test.jsx", "**/*_test.js"]}],
+    "import/no-extraneous-dependencies": [
+      1,
+      {
+        "devDependencies": [
+          "**/__test__/**/*.js",
+          "**/__test__/**/*.jsx",
+          "**/*_test.jsx",
+          "**/*_test.js"
+        ]
+      }
+    ],
     "no-empty": 1,
     "no-console": 1,
     "react/sort-comp": 0,
     "react/prefer-stateless-function": 0,
-    "react/prop-types": [1, { "ignore": ["children", "key"] }],
+    "react/prop-types": [
+      1,
+      {
+        "ignore": [
+          "children",
+          "key"
+        ]
+      }
+    ],
     "react/no-find-dom-node": 0,
     "react/no-unused-prop-types": 1,
-    "react/forbid-prop-types": [1, { "forbid": ["array"] }],
+    "react/forbid-prop-types": [
+      1,
+      {
+        "forbid": [
+          "array"
+        ]
+      }
+    ],
     "react/no-array-index-key": 0
   }
 }

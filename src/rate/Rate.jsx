@@ -278,19 +278,23 @@ export default class Rate extends Component {
               }
             >
               {this.showDecimalIcon(k)
-                ? <i
+                ? (
+                  <i
                     style={this.decimalStyle()}
                     className={`el-rate__decimal ${this.decimalIconClass()}`}
-                  />
+                />
+)
                 : null}
 
             </i>
           </span>
         ))}
         {showText
-          ? <span className="el-rate__text" style={{ color: textColor }}>
+          ? (
+            <span className="el-rate__text" style={{ color: textColor }}>
               {this.showText()}
             </span>
+)
           : null}
 
       </div>

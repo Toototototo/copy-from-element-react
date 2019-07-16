@@ -23,6 +23,18 @@ export default class InputNumber extends Component {
     };
   }
 
+  get isValid(): boolean {
+    return this.state.value !== '' && !isNaN(Number(this.state.value));
+  }
+
+  get minDisabled(): boolean {
+    return !this.isValid || (this.state.value - Number(this.props.step) < this.props.min);
+  }
+
+  get maxDisabled(): boolean {
+    return !this.isValid || (this.state.value + Number(this.props.step) > this.props.max);
+  }
+
   componentWillReceiveProps(props: Object) {
     if (props.value != this.props.value) {
       this.setState({ value: props.value });
@@ -78,27 +90,15 @@ export default class InputNumber extends Component {
     }
   }
 
-  get isValid(): boolean {
-    return this.state.value !== '' && !isNaN(Number(this.state.value));
-  }
-
-  get minDisabled(): boolean {
-    return  !this.isValid || (this.state.value - Number(this.props.step) < this.props.min);
-  }
-
-  get maxDisabled(): boolean {
-    return  !this.isValid || (this.state.value + Number(this.props.step) > this.props.max);
-  }
-
   increase(): void {
-    const { step, max, disabled, min} = this.props;
+    const { step, max, disabled, min } = this.props;
     let { value, inputActive } = this.state;
 
     if (this.maxDisabled) {
       inputActive = false;
     } else {
       if (value + Number(step) > max || disabled) return;
-      if (value + Number(step) < min ) value = min - Number(step);
+      if (value + Number(step) < min) value = min - Number(step);
 
       value = accAdd(step, value);
     }

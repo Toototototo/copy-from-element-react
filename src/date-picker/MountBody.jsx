@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 export class MountBody extends Component {
@@ -14,14 +14,14 @@ export class MountBody extends Component {
     document.body.removeChild(this.tnode)
   }
 
-  contains(evt){
+  contains(evt) {
     let parent = this.tnode.childNodes[0]
     let rect = parent.getBoundingClientRect()
-    let isContain = (evt.clientX >= rect.left && evt.clientX <= rect.right) && (evt.clientY >= rect.top && evt.clientY <= rect.bottom )
+    let isContain = (evt.clientX >= rect.left && evt.clientX <= rect.right) && (evt.clientY >= rect.top && evt.clientY <= rect.bottom)
     return isContain
   }
 
-  render(){
+  render() {
     return null
   }
 }

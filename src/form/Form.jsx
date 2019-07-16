@@ -64,16 +64,21 @@ export default class Form extends Component {
   validateField(prop: string, cb: Function): void {
     const field = this.state.fields.filter(field => field.props.prop === prop)[0];
 
-    if (!field) { throw new Error('must call validateField with valid prop string!'); }
+    if (!field) {
+      throw new Error('must call validateField with valid prop string!');
+    }
 
     field.validate('', cb);
   }
 
   render(): React.DOM {
     return (
-      <form style={this.style()} className={this.className('el-form', this.props.labelPosition && `el-form--label-${this.props.labelPosition}`, {
-        'el-form--inline': this.props.inline
-      })} onSubmit={this.props.onSubmit}>{this.props.children}</form>
+      <form style={this.style()}
+        className={this.className('el-form', this.props.labelPosition && `el-form--label-${this.props.labelPosition}`, {
+              'el-form--inline': this.props.inline
+            })} onSubmit={this.props.onSubmit}>
+        {this.props.children}
+      </form>
     )
   }
 }

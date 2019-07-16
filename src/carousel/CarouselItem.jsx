@@ -31,26 +31,26 @@ export default class CarouselItem extends Component {
     };
   }
 
-  componentWillMount(): void {
-    this.parent().addItem(this);
-  }
-
-  componentWillUnmount(): void {
-    this.parent().removeItem(this);
-  }
-
   get isFlat(): boolean {
     return this.parent().props.type === 'flatcard';
   }
 
   get CARD_SCALE(): number {
-     return this.isFlat ? 1 : 0.83;
+    return this.isFlat ? 1 : 0.83;
   }
 
   get calculateWidth(): ?string {
     if (this.isFlat) {
       return parseInt(100 / 3) + '%';
     }
+  }
+
+  componentWillMount(): void {
+    this.parent().addItem(this);
+  }
+
+  componentWillUnmount(): void {
+    this.parent().removeItem(this);
   }
 
   processIndex(index: number, activeIndex: number, length: number): number {
@@ -132,9 +132,9 @@ export default class CarouselItem extends Component {
           })}
           onClick={this.handleItemClick.bind(this)}
           style={{
-            msTransform: `translateX(${ translate }px) scale(${ scale })`,
-            WebkitTransform: `translateX(${ translate }px) scale(${ scale })`,
-            transform: `translateX(${ translate }px) scale(${ scale })`
+            msTransform: `translateX(${translate}px) scale(${scale})`,
+            WebkitTransform: `translateX(${translate}px) scale(${scale})`,
+            transform: `translateX(${translate}px) scale(${scale})`
           }}>
           {
             this.parent().iscard && (

@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import { Component, PropTypes, Transition, View } from '../../libs';
-import { Progress } from '../../src';
+import { Progress } from "..";
 
 export default class UploadList extends Component {
   constructor(props: Object) {
@@ -12,7 +12,7 @@ export default class UploadList extends Component {
     const { onPreview, onRemove } = this.context;
     const { listType, fileList } = this.props;
     const isFinished = status => status === 'success';
-    if(listType === 'none') return null;
+    if (listType === 'none') return null;
     return (
       <ul
         className={this.classNames({
@@ -29,18 +29,20 @@ export default class UploadList extends Component {
             key={file.uid}
           >
             {['picture-card', 'picture'].includes(listType) &&
-            isFinished(file.status) &&
+            isFinished(file.status) && (
             <img
               className="el-upload-list__item-thumbnail"
               src={file.url}
               alt=""
-            />}
+            />
+)}
 
             <a
               className="el-upload-list__item-name"
               onClick={() => onPreview(file)}
             >
-              <i className="el-icon-document" />{file.name}
+              <i className="el-icon-document" />
+              {file.name}
             </a>
             <label
               className="el-upload-list__item-status-label"
@@ -61,22 +63,22 @@ export default class UploadList extends Component {
               className="el-upload-list__item-actions"
               show={listType === 'picture-card' && isFinished(file.status)}
             >
-                <span>
-                  <span
-                    onClick={() => onPreview(file)}
-                    className="el-upload-list__item-preview"
+              <span>
+                <span
+                  onClick={() => onPreview(file)}
+                  className="el-upload-list__item-preview"
                   >
-                    <i className="el-icon-view" />
-                  </span>
-                  <span
-                    className="el-upload-list__item-delete"
-                    onClick={() => onRemove(file)}
-                  >
-                    <i className="el-icon-delete2" />
-                  </span>
+                  <i className="el-icon-view" />
                 </span>
+                <span
+                  className="el-upload-list__item-delete"
+                  onClick={() => onRemove(file)}
+                  >
+                  <i className="el-icon-delete2" />
+                </span>
+              </span>
             </View>
-            {file.status === 'uploading' &&
+            {file.status === 'uploading' && (
             <Progress
               strokeWidth={listType === 'picture-card' ? 6 : 2}
               type={listType === 'picture-card' ? 'circle' : 'line'}
@@ -84,7 +86,8 @@ export default class UploadList extends Component {
               status={
                 isFinished(file.status) && file.showProgress ? 'success' : ''
               }
-            />}
+            />
+)}
           </li>
         ))}
       </ul>
@@ -93,7 +96,7 @@ export default class UploadList extends Component {
 
   render(): React.DOM {
     return (
-      <Transition name="list">{ this.uploadList() }</Transition>
+      <Transition name="list">{this.uploadList()}</Transition>
     )
   }
 }

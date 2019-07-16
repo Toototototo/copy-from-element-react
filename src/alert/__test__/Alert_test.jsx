@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import sinon from 'sinon';
 
-import Alert from '../';
+import Alert from "..";
 
 describe('Alert test', () => {
   it('type', () => {
@@ -16,14 +16,14 @@ describe('Alert test', () => {
 
   it('default closable', () => {
     const w = mount(
-      <Alert title="TEST" closable={true}/>
+      <Alert title="TEST" closable={true} />
     );
     expect(w.find('i.el-alert__closebtn').prop('style')).toEqual({});
   })
 
   it('disable close', () => {
     const w = mount(
-      <Alert title="TEST" closable={false}/>
+      <Alert title="TEST" closable={false} />
     );
     expect(w.find('i.el-alert__closebtn').prop('style').display).toBe('none');
   });
@@ -38,7 +38,7 @@ describe('Alert test', () => {
   it('onClose', () => {
     const onClose = sinon.spy();
     const w = mount(
-      <Alert title="TEST" onClose={onClose}/>
+      <Alert title="TEST" onClose={onClose} />
     );
     w.find('i.el-alert__closebtn').simulate('click');
     setTimeout(() => {

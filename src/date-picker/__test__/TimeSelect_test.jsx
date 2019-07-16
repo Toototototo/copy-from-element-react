@@ -1,7 +1,7 @@
 /* eslint react/prop-types: ["off"] */
 
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import sinon from 'sinon'
 
 import TimeSelect from '../TimeSelect'
@@ -19,13 +19,14 @@ describe('TimePicker test', function () {
     step: '00:15',
     end: '18:30',
     maxTime: '12:30',
-    onChange() { },
+    onChange() {
+    },
     value: null,
     placeholder: 'Select time'
   }
 
 
-  function mountDefault(props={}){
+  function mountDefault(props = {}) {
     return mount(
       <TimeSelect
         {...minProps}
@@ -33,6 +34,7 @@ describe('TimePicker test', function () {
       />
     )
   }
+
   it('should render without exploding', () => {
     let w = shallow(
       <TimeSelect
@@ -83,7 +85,7 @@ describe('TimePicker test', function () {
     expect(w.find('i.el-input__icon').exists()).toBe(false)
   })
 
-  it('isDisabled should work', ()=>{
+  it('isDisabled should work', () => {
     let w = mount(
       <TimeSelect
         {...minProps}
@@ -93,7 +95,7 @@ describe('TimePicker test', function () {
     expect(w.find('input').props().disabled).toBe(true)
   })
 
-  it('onFocus & onBlur should work', ()=>{
+  it('onFocus & onBlur should work', () => {
     let onFocus = sinon.spy();
     let onBlur = sinon.spy()
     let w = mountDefault({
@@ -129,7 +131,8 @@ describe('TimePicker test', function () {
             start="08:30"
             step="00:15"
             end="18:30"
-            onChange={() => { }}
+            onChange={() => {
+            }}
             value={endDate}
             minTime={startDate}
             placeholder="选择时间"
@@ -138,10 +141,12 @@ describe('TimePicker test', function () {
       )
 
       let w = mount(
-        <Ts startDate={startDate} onChange={(d) => { startDate = d }} />
+        <Ts startDate={startDate} onChange={(d) => {
+          startDate = d
+        }} />
       )
 
-      expect(w).toBeTruthy() 
+      expect(w).toBeTruthy()
       // todo: fix this test, find a way to trigger click outside w node, since the panel node is dynamically inserted into body node.
       // not w(wrapper) node
 

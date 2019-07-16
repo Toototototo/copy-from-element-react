@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import {Component, PropTypes, View, Transition} from '../../libs'
+import { Component, PropTypes, Transition, View } from '../../libs'
 
 type State = {
   value: boolean | number | string,
@@ -93,7 +93,7 @@ export default class Switch extends Component {
 
   handleButtonTransform() {
     const { value, coreWidth, buttonStyle } = this.state;
-    buttonStyle.transform = value === this.props.onValue ? `translate(${ coreWidth - 20 }px, 2px)` : 'translate(2px, 2px)';
+    buttonStyle.transform = value === this.props.onValue ? `translate(${coreWidth - 20}px, 2px)` : 'translate(2px, 2px)';
 
     this.setState({ buttonStyle });
   }
@@ -106,9 +106,9 @@ export default class Switch extends Component {
       <label
         style={this.style()}
         className={this.className('el-switch', {
-          'is-disabled' : disabled,
-          'el-switch--wide' : this.hasText(),
-          'is-checked' : value === onValue
+          'is-disabled': disabled,
+          'el-switch--wide': this.hasText(),
+          'is-checked': value === onValue
         })}>
 
         <View show={disabled}>
@@ -117,7 +117,7 @@ export default class Switch extends Component {
 
         <input
           className={this.className('el-switch__input', {
-            'allow-focus' : allowFocus
+            'allow-focus': allowFocus
           })}
           type="checkbox"
           checked={value === onValue}
@@ -130,7 +130,8 @@ export default class Switch extends Component {
         />
 
         <span className="el-switch__core" ref="core" style={{ 'width': coreWidth + 'px' }}>
-          <span className="el-switch__button" style={Object.assign({}, buttonStyle)} onClick={this.setFocus.bind(this)}/>
+          <span className="el-switch__button" style={Object.assign({}, buttonStyle)}
+            onClick={this.setFocus.bind(this)} />
         </span>
 
         <Transition name="label-fade">
@@ -139,8 +140,8 @@ export default class Switch extends Component {
               className="el-switch__label el-switch__label--left"
               style={{ 'width': coreWidth + 'px' }}
             >
-              { onIconClass && <i className={onIconClass} /> }
-              { !onIconClass && onText && <span>{onText}</span> }
+              {onIconClass && <i className={onIconClass} />}
+              {!onIconClass && onText && <span>{onText}</span>}
             </div>
           </View>
         </Transition>
@@ -151,8 +152,8 @@ export default class Switch extends Component {
               className="el-switch__label el-switch__label--right"
               style={{ 'width': coreWidth + 'px' }}
             >
-              { offIconClass && <i className={offIconClass} /> }
-              { !offIconClass && offText && <span>{offText}</span> }
+              {offIconClass && <i className={offIconClass} />}
+              {!offIconClass && offText && <span>{offText}</span>}
             </div>
           </View>
         </Transition>

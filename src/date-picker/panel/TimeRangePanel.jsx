@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { PropTypes } from '../../../libs';
-import { limitRange, parseDate } from '../utils';
+import { parseDate } from '../utils';
 import TimeSpinner from '../basic/TimeSpinner';
 import Locale from '../../locale';
 import type { TimeRangePanelProps } from '../Types';
@@ -53,6 +53,18 @@ const mapPropsToState = props => {
 export default class TimeRangePanel extends PopperBase {
   state: any;
 
+  constructor(props: TimeRangePanelProps) {
+    super(props);
+
+    this.state = Object.assign(
+      {
+        visible: false,
+        width: 0
+      },
+      mapPropsToState(props)
+    );
+  }
+
   static get propTypes() {
     return Object.assign(
       {
@@ -77,18 +89,6 @@ export default class TimeRangePanel extends PopperBase {
     return {
       popperMixinOption: {}
     };
-  }
-
-  constructor(props: TimeRangePanelProps) {
-    super(props);
-
-    this.state = Object.assign(
-      {
-        visible: false,
-        width: 0
-      },
-      mapPropsToState(props)
-    );
   }
 
   componentWillReceiveProps(nextProps: any) {

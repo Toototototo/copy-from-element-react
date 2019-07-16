@@ -49,11 +49,13 @@ export default class Step extends Component {
           <span className="el-step__icon">
             {status !== 'success' && status !== 'error'
               ? iconNode
-              : <i
+              : (
+                <i
                   className={
-                    'el-icon-' + (status === 'success' ? 'check' : 'close')
-                  }
-                />}
+                  'el-icon-' + (status === 'success' ? 'check' : 'close')
+                }
+              />
+)}
           </span>
         </div>
         <div className="el-step__main">

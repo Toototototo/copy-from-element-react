@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Checkbox from '../';
+import Checkbox from "..";
 
 test('isChecked should work', () => {
   const wrapper = mount(
@@ -83,7 +83,7 @@ test('should limited to max and min value', () => {
   const Input = document.createElement('input');
 
   //test max
-  Input.checked= true;
+  Input.checked = true;
   wrapper.find('input[type="checkbox"]').forEach(e => {
     if (!e.prop('checked')) {
       e.simulate('change', { target: Input });

@@ -1,26 +1,27 @@
-import * as React from 'react'
-import { Form } from 'element-react'
-import { Form as FormNext } from 'element-react/next'
+import * as React from 'react';
+import { Form } from 'element-react';
+import { Form as FormNext } from 'element-react/next';
 
 class Component extends React.Component<{}, {}> {
   state = {
     form: {
       user: '',
-      region: ''
+      region: '',
     },
     rules: {
       email: [
-        { required: true, message: '请输入邮箱地址', trigger: 'blur' },
-        { type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change' }
-      ]
-    }
-  }
+        {required: true, message: '请输入邮箱地址', trigger: 'blur'},
+        {type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change'},
+      ],
+    },
+  };
+
   render() {
-    const { form, rules } = this.state
+    const {form, rules} = this.state;
     return (
       <div>
-        <Form className="className" style={{ width: 100 }}>
-          <Form.Item className="className" style={{ width: 100 }}>
+        <Form className="className" style={{width: 100}}>
+          <Form.Item className="className" style={{width: 100}}>
             <div>哈哈</div>
           </Form.Item>
         </Form>
@@ -41,8 +42,8 @@ class Component extends React.Component<{}, {}> {
           </Form.Item>
         </Form>
 
-        <FormNext className="className" style={{ width: 100 }}>
-          <FormNext.Item className="className" style={{ width: 100 }}>
+        <FormNext className="className" style={{width: 100}}>
+          <FormNext.Item className="className" style={{width: 100}}>
             <div>哈哈</div>
           </FormNext.Item>
         </FormNext>
@@ -63,19 +64,21 @@ class Component extends React.Component<{}, {}> {
           </FormNext.Item>
         </FormNext>
       </div>
-    )
+    );
   }
 }
 
 class FormComponent extends Form {
-  cb = () => { }
+  cb = () => {
+  };
+
   componentDidMount() {
-    this.validate()
-    this.validate(this.cb)
+    this.validate();
+    this.validate(this.cb);
 
-    this.validateField('email')
-    this.validateField('email', this.cb)
+    this.validateField('email');
+    this.validateField('email', this.cb);
 
-    this.resetFields()
+    this.resetFields();
   }
 }

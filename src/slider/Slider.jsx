@@ -33,12 +33,6 @@ export default class Slider extends Component {
     }
   }
 
-  getChildContext(): Object {
-    return {
-      component: this
-    };
-  }
-
   get initValue() {
     const { value, min, max } = this.props;
     let initValue = value;
@@ -48,6 +42,12 @@ export default class Slider extends Component {
       initValue = Math.min(max, Math.max(min, value));
     }
     return initValue;
+  }
+
+  getChildContext(): Object {
+    return {
+      component: this
+    };
   }
 
   componentWillMount(): void {
@@ -108,7 +108,6 @@ export default class Slider extends Component {
       return firstValue !== oldValue;
     }
   }
-
 
 
   setValues(): void {
@@ -223,7 +222,7 @@ export default class Slider extends Component {
   /* Computed Methods */
 
   sliderSize(): number {
-    const {vertical} = this.props;
+    const { vertical } = this.props;
     return parseInt(vertical ? this.slider.current.offsetHeight : this.slider.current.offsetWidth, 10);
   }
 

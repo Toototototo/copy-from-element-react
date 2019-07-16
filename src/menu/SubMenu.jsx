@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { PropTypes, View, Transition, CollapseTransition } from '../../libs';
+import { CollapseTransition, PropTypes, Transition, View } from '../../libs';
 
 import MixinComponent from './MixinComponent';
 
@@ -87,9 +87,9 @@ export default class SubMenu extends MixinComponent {
         <div ref="submenu-title" className="el-submenu__title">
           {this.props.title}
           <i className={this.classNames('el-submenu__icon-arrow', {
-              'el-icon-arrow-down': this.rootMenu().props.mode === 'vertical',
-              'el-icon-caret-bottom': this.rootMenu().props.mode === 'horizontal'
-            })}>
+            'el-icon-arrow-down': this.rootMenu().props.mode === 'vertical',
+            'el-icon-caret-bottom': this.rootMenu().props.mode === 'horizontal'
+          })}>
           </i>
         </div>
         {

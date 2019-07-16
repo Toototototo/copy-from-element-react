@@ -1,231 +1,251 @@
-import * as React from 'react'
-import { Notification } from 'element-react'
-import { Notification as NotificationNext } from 'element-react/next'
+import * as React from 'react';
+import { Notification } from 'element-react';
+import { Notification as NotificationNext } from 'element-react/next';
 
-Notification('message')
-Notification('message', 'success')
-Notification('message', 'warning')
-Notification('message', 'info')
-Notification('message', 'error')
-Notification.success('message')
-Notification.warning('message')
-Notification.info('message')
-Notification.error('message')
-Notification.close()
+Notification('message');
+Notification('message', 'success');
+Notification('message', 'warning');
+Notification('message', 'info');
+Notification('message', 'error');
+Notification.success('message');
+Notification.warning('message');
+Notification.info('message');
+Notification.error('message');
+Notification.close();
 Notification({
-  message: 'message'
-})
+  message: 'message',
+});
 Notification({
-  title: 'title'
-})
+  title: 'title',
+});
 Notification({
-  type: 'success'
-})
+  type: 'success',
+});
 Notification({
-  type: 'warning'
-})
+  type: 'warning',
+});
 Notification({
-  type: 'info'
-})
+  type: 'info',
+});
 Notification({
   message: 'message',
   title: 'string',
   type: 'error',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 
 Notification.success({
-  message: 'message'
-})
+  message: 'message',
+});
 Notification.success({
-  title: 'title'
-})
+  title: 'title',
+});
 Notification.success({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 Notification.warning({
-  message: 'message'
-})
+  message: 'message',
+});
 Notification.warning({
-  title: 'title'
-})
+  title: 'title',
+});
 Notification.warning({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 Notification.info({
-  message: 'message'
-})
+  message: 'message',
+});
 Notification.info({
-  title: 'title'
-})
+  title: 'title',
+});
 Notification.info({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 Notification.error({
-  message: 'message'
-})
+  message: 'message',
+});
 Notification.error({
-  title: 'title'
-})
+  title: 'title',
+});
 Notification.error({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 
 
-NotificationNext('message')
-NotificationNext('message', 'success')
-NotificationNext('message', 'warning')
-NotificationNext('message', 'info')
-NotificationNext('message', 'error')
-NotificationNext.success('message')
-NotificationNext.warning('message')
-NotificationNext.info('message')
-NotificationNext.error('message')
-NotificationNext.close()
+NotificationNext('message');
+NotificationNext('message', 'success');
+NotificationNext('message', 'warning');
+NotificationNext('message', 'info');
+NotificationNext('message', 'error');
+NotificationNext.success('message');
+NotificationNext.warning('message');
+NotificationNext.info('message');
+NotificationNext.error('message');
+NotificationNext.close();
 NotificationNext({
-  message: 'message'
-})
+  message: 'message',
+});
 NotificationNext({
-  title: 'title'
-})
+  title: 'title',
+});
 NotificationNext({
-  type: 'success'
-})
+  type: 'success',
+});
 NotificationNext({
-  type: 'warning'
-})
+  type: 'warning',
+});
 NotificationNext({
-  type: 'info'
-})
+  type: 'info',
+});
 NotificationNext({
   message: 'message',
   title: 'string',
   type: 'error',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 
 NotificationNext.success({
-  message: 'message'
-})
+  message: 'message',
+});
 NotificationNext.success({
-  title: 'title'
-})
+  title: 'title',
+});
 NotificationNext.success({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 NotificationNext.warning({
-  message: 'message'
-})
+  message: 'message',
+});
 NotificationNext.warning({
-  title: 'title'
-})
+  title: 'title',
+});
 NotificationNext.warning({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 NotificationNext.info({
-  message: 'message'
-})
+  message: 'message',
+});
 NotificationNext.info({
-  title: 'title'
-})
+  title: 'title',
+});
 NotificationNext.info({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 NotificationNext.error({
-  message: 'message'
-})
+  message: 'message',
+});
 NotificationNext.error({
-  title: 'title'
-})
+  title: 'title',
+});
 NotificationNext.error({
   message: 'message',
   title: 'string',
   iconClass: 'string',
   duration: 0,
-  onClick() { },
-  onClose() { },
-  offset: 10
-})
+  onClick() {
+  },
+  onClose() {
+  },
+  offset: 10,
+});
 
 
-const element = (<div>text</div>)
+const element = (<div>text</div>);
 Notification({
-  message: element
-})
+  message: element,
+});
 Notification.success({
-  message: element
-})
+  message: element,
+});
 Notification.warning({
-  message: element
-})
+  message: element,
+});
 Notification.info({
-  message: element
-})
+  message: element,
+});
 Notification.error({
-  message: element
-})
+  message: element,
+});
 NotificationNext({
-  message: element
-})
+  message: element,
+});
 NotificationNext.success({
-  message: element
-})
+  message: element,
+});
 NotificationNext.warning({
-  message: element
-})
+  message: element,
+});
 NotificationNext.info({
-  message: element
-})
+  message: element,
+});
 NotificationNext.error({
-  message: element
-})
+  message: element,
+});

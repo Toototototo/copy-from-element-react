@@ -7,7 +7,7 @@ import { PropTypes } from '../../libs';
 import BasePicker from './BasePicker'
 import TimePanel from './panel/TimePanel'
 
-import { TYPE_VALUE_RESOLVER_MAP, DEFAULT_FORMATS } from './constants'
+import { DEFAULT_FORMATS, TYPE_VALUE_RESOLVER_MAP } from './constants'
 import type { TimePickerProps } from './Types';
 
 function converSelectRange(props) {
@@ -24,6 +24,11 @@ function converSelectRange(props) {
 }
 
 export default class TimePicker extends BasePicker {
+  constructor(props: TimePickerProps) {
+    super(props, 'time', {})
+    this._onSelectionChange = debounce(200, this.onSelectionChange.bind(this))
+  }
+
   // why this is used, goto: http://exploringjs.com/es6/ch_classes.html
   static get propTypes() {
     let result: any = Object.assign({}, {
@@ -39,13 +44,8 @@ export default class TimePicker extends BasePicker {
   }
 
   static get defaultProps() {
-    let result: any =  Object.assign({}, BasePicker.defaultProps)
+    let result: any = Object.assign({}, BasePicker.defaultProps)
     return result;
-  }
-
-  constructor(props: TimePickerProps) {
-    super(props, 'time', {})
-    this._onSelectionChange = debounce(200, this.onSelectionChange.bind(this))
   }
 
   onSelectionChange(start: number, end: number) {
@@ -58,11 +58,11 @@ export default class TimePicker extends BasePicker {
       <TimePanel
         {...props}
         currentDate={state.value}
-        onCancel={()=>this.setState({pickerVisible: false})}
+        onCancel={() => this.setState({ pickerVisible: false })}
         onPicked={this.onPicked.bind(this)}
         onSelectRangeChange={this._onSelectionChange}
         selectableRange={converSelectRange(props)}
-        />
+      />
     )
   }
 }

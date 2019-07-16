@@ -2,7 +2,7 @@
 
 export type ValidDateType = Date | Date[] | null
 export type DisableDateFunc = (date: Date, type: ?string)=>boolean
-export type Shortcut = {text: string, onClick: ()=>void}
+export type Shortcut = { text: string, onClick: ()=>void }
 
 
 // ---------- basic
@@ -16,7 +16,7 @@ export type DateTableProps = {
   date: Date,
   onPick: (any: any, bool: boolean)=>void,
   onChangeRange: ?(any: any)=>void,
-  rangeState: ?{endDate: Date, selecting: boolean },
+  rangeState: ?{ endDate: Date, selecting: boolean },
   firstDayOfWeek: number
 }
 
@@ -38,7 +38,7 @@ export type TimeSpinnerProps = {
   isShowSeconds: boolean,
   //[[datefrom, dateend]...]
   selectableRange: TimeSpinnerSelectableRange,
-  onChange: (e: {TimeTypes: number})=>void,
+  onChange: (e: { TimeTypes: number })=>void,
   onSelectRangeChange: TimeSpinnerOnSelectRangeChange
 }
 
@@ -130,7 +130,7 @@ export interface BasePickerProps {
   value: Date | Date[]
 }
 
-export type DatePickerProps =  BasePickerProps & {
+export type DatePickerProps = BasePickerProps & {
   value: ?Date,
   isShowTime: boolean,
   showWeekNumber: boolean,

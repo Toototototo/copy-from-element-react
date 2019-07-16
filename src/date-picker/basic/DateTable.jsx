@@ -1,18 +1,18 @@
 //@flow
 import React from 'react'
 
-import { PropTypes, Component } from '../../../libs';
+import { Component, PropTypes } from '../../../libs';
 import {
-  toDate,
-  getFirstDayOfMonth,
-  getDayCountOfMonth,
-  getWeekNumber,
-  getStartDateOfMonth,
   DAY_DURATION,
-  SELECTION_MODES,
   deconstructDate,
+  getDayCountOfMonth,
+  getFirstDayOfMonth,
+  getOffsetToWeekOrigin,
+  getStartDateOfMonth,
+  getWeekNumber,
   hasClass,
-  getOffsetToWeekOrigin
+  SELECTION_MODES,
+  toDate
 } from '../utils'
 import Locale from '../../locale'
 
@@ -358,14 +358,14 @@ export default class DateTable extends Component {
         className={this.classNames('el-date-table', { 'is-week-mode': selectionMode === 'week' })}>
         <tbody>
 
-        <tr>
-          {showWeekNumber && <th>{$t('el.datepicker.week')}</th>}
-          {
+          <tr>
+            {showWeekNumber && <th>{$t('el.datepicker.week')}</th>}
+            {
             this.WEEKS().map((e, idx) => <th key={idx}>{$t(`el.datepicker.weeks.${e}`)}</th>)
           }
-        </tr>
+          </tr>
 
-        {
+          {
           this.getMarkedRangeRows().map((row, idx) => {
             return (
               <tr

@@ -44,6 +44,14 @@ export default class Carousel extends Component {
     this.resetItemPosition = this._resetItemPosition.bind(this)
   }
 
+  get iscard(): boolean {
+    const { type } = this.props;
+    if (type) {
+      return type === 'card' || type === 'flatcard';
+    }
+    return false;
+  }
+
   getChildContext(): Context {
     return {
       component: this
@@ -208,14 +216,6 @@ export default class Carousel extends Component {
     }
   }
 
-  get iscard(): boolean {
-    const { type } = this.props;
-    if (type) {
-      return type === 'card' || type === 'flatcard';
-    }
-    return false;
-  }
-
   render(): React.DOM {
     const { height, arrow, indicatorPosition } = this.props;
     const { hover, activeIndex, items } = this.state;
@@ -228,7 +228,7 @@ export default class Carousel extends Component {
       >
         <div
           className="el-carousel__container"
-          style={{height: height}}>
+          style={{ height: height }}>
           <Transition name="carousel-arrow-left">
             {
               arrow !== 'never' && (

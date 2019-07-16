@@ -91,7 +91,7 @@ export default class Suggestions extends Component {
                   return (
                     <li
                       key={index}
-                      className={this.classNames({'highlighted': highlightedIndex === index})}
+                      className={this.classNames({ 'highlighted': highlightedIndex === index })}
                       onClick={this.onSelect.bind(this, item)}>
                       {
                         !customItem ? item.value : React.createElement(customItem, {

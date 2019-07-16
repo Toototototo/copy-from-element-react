@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { PropTypes, Component } from '../../../libs';
-import { hasClass, deconstructDate, SELECTION_MODES } from '../utils'
+import { Component, PropTypes } from '../../../libs';
+import { deconstructDate, hasClass, SELECTION_MODES } from '../utils'
 import Locale from '../../locale'
 
 
 export default class MonthTable extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
 
   getCellStyle(month) {
-    const {date, disabledDate, value} = this.props
+    const { date, disabledDate, value } = this.props
     const style = {};
     const ndate = new Date(date)
     ndate.setMonth(month);
@@ -42,22 +42,22 @@ export default class MonthTable extends Component {
       <table onClick={this.handleMonthTableClick.bind(this)} className="el-month-table">
         <tbody>
           {
-            months.map((key, idx) => {
-              return (
-                <td className={this.classNames(this.getCellStyle(idx))} key={idx}>
-                  <a className="cell">{$t(`el.datepicker.months.${key}`)}</a>
-                </td>
-              )
-            }).reduce((col, item) => {
-              let tararr
-              if (!(Array.isArray(col[0]) && col[0].length !== 4)) {
-                col.unshift([])
-              }
-              tararr = col[0]
-              tararr.push(item)
-              return col
-            }, []).reverse().map((e, idx) => <tr key={idx}>{e}</tr>)
-          }
+          months.map((key, idx) => {
+            return (
+              <td className={this.classNames(this.getCellStyle(idx))} key={idx}>
+                <a className="cell">{$t(`el.datepicker.months.${key}`)}</a>
+              </td>
+            )
+          }).reduce((col, item) => {
+            let tararr
+            if (!(Array.isArray(col[0]) && col[0].length !== 4)) {
+              col.unshift([])
+            }
+            tararr = col[0]
+            tararr.push(item)
+            return col
+          }, []).reverse().map((e, idx) => <tr key={idx}>{e}</tr>)
+        }
         </tbody>
       </table>
     );

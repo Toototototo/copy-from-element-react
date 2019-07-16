@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import { PropTypes, Component } from '../../libs';
+import { Component, PropTypes } from '../../libs';
 import { require_condition } from '../../libs/utils';
 import Node from './Node';
 import Locale from '../locale';
@@ -19,7 +19,8 @@ export default class Tree extends Component {
     super(props);
     const {
       data, lazy, options, load, defaultCheckedKeys, defaultExpandedKeys, currentNodeKey, nodeKey,
-      checkStrictly, autoExpandParent, defaultExpandAll, filterNodeMethod } = this.props;
+      checkStrictly, autoExpandParent, defaultExpandAll, filterNodeMethod
+    } = this.props;
     this.state = {
       store: new TreeStore({
         key: nodeKey, data, lazy, props: options, load, currentNodeKey, checkStrictly,
@@ -30,15 +31,7 @@ export default class Tree extends Component {
 
   }
 
-  componentWillReceiveProps(nextProps: Object): void {
-    if (nextProps.data instanceof Array && this.props.data !== nextProps.data) {
-      this.root.setData(nextProps.data);
-      this.setState({}); //force update
-    }
-  }
-
-
-  get root(): any{
+  get root(): any {
     return this.state.store.root;
   }
 
@@ -46,6 +39,12 @@ export default class Tree extends Component {
     return this.state.store
   }
 
+  componentWillReceiveProps(nextProps: Object): void {
+    if (nextProps.data instanceof Array && this.props.data !== nextProps.data) {
+      this.root.setData(nextProps.data);
+      this.setState({}); //force update
+    }
+  }
 
   filter(value: any) {
     if (!this.props.filterNodeMethod) throw new Error('[Tree] filterNodeMethod is required when filter');
@@ -53,7 +52,7 @@ export default class Tree extends Component {
     this.refresh();
   }
 
-  refresh(){
+  refresh() {
     this.setState({})
   }
 
@@ -95,23 +94,23 @@ export default class Tree extends Component {
   setCurrentNode(node: Object): void {
     require_condition(node != null);
 
-    let {onCurrentChange, onNodeClicked} = this.props;
+    let { onCurrentChange, onNodeClicked } = this.props;
     this.store.setCurrentNode(node);
     this.setState({
       currentNode: node
-    }, ()=>{
+    }, () => {
       let nodeModel = node.props.nodeModel;
       onCurrentChange(nodeModel.data, node)
       onNodeClicked(nodeModel.data, node)
     });
   }
 
-  closeSiblings(exclude: any){
-    const {accordion} = this.props;
+  closeSiblings(exclude: any) {
+    const { accordion } = this.props;
     if (!accordion) return;
     if (!this.root.childNodes || !this.root.childNodes.length) return;
 
-    this.root.childNodes.filter(e=> e !== exclude).forEach(e=>e.collapse());
+    this.root.childNodes.filter(e => e !== exclude).forEach(e => e.collapse());
     this.refresh();
   }
 
@@ -126,8 +125,8 @@ export default class Tree extends Component {
       emptyText
     } = this.props;
 
-    const renderEmptyText = ()=>{
-      if (!this.root.childNodes || this.root.childNodes.length === 0){
+    const renderEmptyText = () => {
+      if (!this.root.childNodes || this.root.childNodes.length === 0) {
         return (
           <div className="el-tree__empty-block">
             <span className="el-tree__empty-text">{emptyText}</span>
@@ -147,7 +146,7 @@ export default class Tree extends Component {
           return (
             <Node
               ref="cnode"
-              key={this.getNodeKey(e,idx)}
+              key={this.getNodeKey(e, idx)}
               nodeModel={e}
               options={options}
               renderContent={renderContent}
@@ -210,9 +209,14 @@ Tree.defaultProps = {
   emptyText: Locale.t('el.tree.emptyText'),
   indent: 16,
   options: { children: 'children', label: 'label', icon: 'icon' },
-  onCheckChange() {},
-  onNodeClicked() {},
-  onCurrentChange(){},
-  onNodeExpand(){},
-  onNodeCollapse(){},
+  onCheckChange() {
+  },
+  onNodeClicked() {
+  },
+  onCurrentChange() {
+  },
+  onNodeExpand() {
+  },
+  onNodeCollapse() {
+  },
 };

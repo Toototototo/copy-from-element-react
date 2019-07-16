@@ -1,64 +1,74 @@
-import * as React from 'react'
-import { Table } from 'element-react'
-import { Table as TableNext } from 'element-react/next'
+import * as React from 'react';
+import { Table } from 'element-react';
+import { Table as TableNext } from 'element-react/next';
+import TableColumn = ElementReact.TableColumn;
 
-class Component extends React.Component<{}, {}> {
-  state = {
+declare interface IComponentState {
+  columns: TableColumn[]
+  data: any[],
+}
+
+class Component extends React.Component<any, IComponentState> {
+  state: IComponentState = {
     columns: [
       {
         label: "日期",
         prop: "date",
-        width: 180
+        width: 180,
+        resizable: true,
       },
       {
         label: "姓名",
         prop: "name",
-        width: 180
+        width: 180,
+        resizable: true,
       },
       {
         label: "地址",
-        prop: "address"
-      }
+        prop: "address",
+        resizable: true,
+      },
     ],
-    data: [{
+    data: [ {
       date: '2016-05-02',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1518 弄'
+      address: '上海市普陀区金沙江路 1518 弄',
     }, {
       date: '2016-05-04',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1517 弄'
+      address: '上海市普陀区金沙江路 1517 弄',
     }, {
       date: '2016-05-01',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1519 弄'
+      address: '上海市普陀区金沙江路 1519 弄',
     }, {
       date: '2016-05-03',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1516 弄'
+      address: '上海市普陀区金沙江路 1516 弄',
     }, {
       date: '2016-05-02',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1518 弄'
+      address: '上海市普陀区金沙江路 1518 弄',
     }, {
       date: '2016-05-04',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1517 弄'
+      address: '上海市普陀区金沙江路 1517 弄',
     }, {
       date: '2016-05-01',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1519 弄'
+      address: '上海市普陀区金沙江路 1519 弄',
     }, {
       date: '2016-05-03',
       name: '王小虎',
-      address: '上海市普陀区金沙江路 1516 弄'
-    }]
-  }
+      address: '上海市普陀区金沙江路 1516 弄',
+    } ],
+  };
+
   render() {
-    const { columns, data } = this.state
+    const {columns, data} = this.state;
     return (
       <div>
-        <Table className="className" style={{ width: 100 }} />
+        <Table className="className" style={{width: 100}} />
         <Table
           columns={columns}
           data={data}
@@ -66,7 +76,7 @@ class Component extends React.Component<{}, {}> {
           height={250}
         />
 
-        <TableNext className="className" style={{ width: 100 }} />
+        <TableNext className="className" style={{width: 100}} />
         <TableNext
           columns={columns}
           data={data}
@@ -74,7 +84,7 @@ class Component extends React.Component<{}, {}> {
           height={250}
         />
       </div>
-    )
+    );
   }
 }
 

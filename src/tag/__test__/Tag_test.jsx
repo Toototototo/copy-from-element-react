@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 
-import Tag from '../';
+import Tag from "..";
 
 describe('Tag test', () => {
   it('type', () => {

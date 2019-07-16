@@ -53,8 +53,8 @@ export default class AlphaSlider extends Component {
         'alpha',
         Math.round(
           (left - thumb.offsetWidth / 2) /
-            (rect.width - thumb.offsetWidth) *
-            100
+          (rect.width - thumb.offsetWidth) *
+          100
         )
       );
     } else {
@@ -65,8 +65,8 @@ export default class AlphaSlider extends Component {
         'alpha',
         Math.round(
           (top - thumb.offsetHeight / 2) /
-            (rect.height - thumb.offsetHeight) *
-            100
+          (rect.height - thumb.offsetHeight) *
+          100
         )
       );
     }

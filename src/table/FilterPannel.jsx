@@ -20,7 +20,9 @@ export default class FilterPannel extends Component<FilterProps, FilterState> {
     super(props);
 
     this.container = getPopupContainer();
-    ['handleClickOutside', 'onEnter', 'onAfterLeave'].forEach(fn => { this[fn] = this[fn].bind(this) });
+    ['handleClickOutside', 'onEnter', 'onAfterLeave'].forEach(fn => {
+      this[fn] = this[fn].bind(this)
+    });
 
     this.state = {
       filteredValue: props.filteredValue,
@@ -56,7 +58,7 @@ export default class FilterPannel extends Component<FilterProps, FilterState> {
     })
   }
 
-  changeFilteredValue(value)  {
+  changeFilteredValue(value) {
     this.props.onFilterChange(value);
     this.props.toggleFilter();
   }
@@ -89,7 +91,8 @@ export default class FilterPannel extends Component<FilterProps, FilterState> {
     if (multiple) {
       content = [(
         <div className="el-table-filter__content" key="content">
-          <Checkbox.Group value={filteredValue || []} onChange={this.handleFiltersChange.bind(this)} className="el-table-filter__checkbox-group">
+          <Checkbox.Group value={filteredValue || []} onChange={this.handleFiltersChange.bind(this)}
+            className="el-table-filter__checkbox-group">
             {filters && filters.map(filter => (
               <Checkbox value={filter.value} label={filter.text} key={filter.value} />
             ))}
@@ -137,9 +140,13 @@ export default class FilterPannel extends Component<FilterProps, FilterState> {
       >
         <View show={visible}>
           <div
-            className={'el-table-filter'}
-            ref={(dom) => { this.poper = dom; }}
-            onClick={(e) => { e.nativeEvent.stopImmediatePropagation() }}  // prevent document click event
+            className="el-table-filter"
+            ref={(dom) => {
+              this.poper = dom;
+            }}
+            onClick={(e) => {
+              e.nativeEvent.stopImmediatePropagation()
+            }}  // prevent document click event
           >
             {content}
           </div>
@@ -147,9 +154,12 @@ export default class FilterPannel extends Component<FilterProps, FilterState> {
       </Transition>
     )
   }
+
   render() {
     return React.cloneElement(this.props.children, {
-      ref: (dom) => { this.refer = dom; }
+      ref: (dom) => {
+        this.refer = dom;
+      }
     });
   }
 }

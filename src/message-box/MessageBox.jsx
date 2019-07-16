@@ -144,7 +144,7 @@ export default class MessageBox extends Component {
                         {
                           showClose && (
                             <button type="button" className="el-message-box__headerbtn" aria-label="Close"
-                                    onClick={this.handleAction.bind(this, 'cancel')}>
+                              onClick={this.handleAction.bind(this, 'cancel')}>
                               <i className="el-message-box__close el-icon-close" />
                             </button>
                           )
@@ -157,7 +157,7 @@ export default class MessageBox extends Component {
                       <div className="el-message-box__content">
                         <div className={this.classNames('el-message-box__status', this.typeClass())} />
                         <div className="el-message-box__message"
-                             style={{ marginLeft: this.typeClass() ? '50px' : '0' }}>
+                          style={{ marginLeft: this.typeClass() ? '50px' : '0' }}>
                           <div>{message}</div>
                         </div>
                         <View show={showInput}>
@@ -173,7 +173,9 @@ export default class MessageBox extends Component {
                             />
                             <div className="el-message-box__errormsg" style={{
                               visibility: editorErrorMessage ? 'visible' : 'hidden'
-                            }}>{editorErrorMessage}</div>
+                            }}>
+                              {editorErrorMessage}
+                            </div>
                           </div>
                         </View>
                       </div>
@@ -182,11 +184,15 @@ export default class MessageBox extends Component {
                   <div className="el-message-box__btns">
                     <View show={showCancelButton}>
                       <Button className={cancelButtonClass}
-                              onClick={this.handleAction.bind(this, 'cancel')}>{this.cancelButtonText()}</Button>
+                        onClick={this.handleAction.bind(this, 'cancel')}>
+                        {this.cancelButtonText()}
+                      </Button>
                     </View>
                     <View show={showConfirmButton}>
                       <Button className={this.classNames('el-button--primary', confirmButtonClass)}
-                              onClick={this.handleAction.bind(this, 'confirm')}>{this.confirmButtonText()}</Button>
+                        onClick={this.handleAction.bind(this, 'confirm')}>
+                        {this.confirmButtonText()}
+                      </Button>
                     </View>
                   </div>
                 </div>

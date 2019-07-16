@@ -106,7 +106,9 @@ export type TableStoreState = {
   defaultExpandAll: boolean,
 };
 
-export type TableLayoutProps = TableStoreProps & { tableStoreState: TableStoreState, renderExpanded?: (row: Object, rowIndex: number) => Object };
+export type TableLayoutProps =
+  TableStoreProps
+  & { tableStoreState: TableStoreState, renderExpanded?: (row: Object, rowIndex: number) => Object };
 
 export type TableLayoutState = {
   height?: strOrNum,

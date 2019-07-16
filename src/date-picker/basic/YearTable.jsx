@@ -1,18 +1,18 @@
 //@flow
 import React from 'react'
 
-import { PropTypes, Component } from '../../../libs';
-import { hasClass, deconstructDate, SELECTION_MODES } from '../utils'
+import { Component, PropTypes } from '../../../libs';
+import { deconstructDate, hasClass, SELECTION_MODES } from '../utils'
 
-import type {YearTableProps} from '../Types';
+import type { YearTableProps } from '../Types';
 
 export default class YearTable extends Component {
-  constructor(props: YearTableProps){
+  constructor(props: YearTableProps) {
     super(props)
   }
 
   getCellStyle(year: number) {
-    const {disabledDate, value, date} = this.props
+    const { disabledDate, value, date } = this.props
     const style = {};
     const ndate = new Date(date);
 
@@ -33,7 +33,7 @@ export default class YearTable extends Component {
   }
 
   render() {
-    const {date} = this.props
+    const { date } = this.props
     const startYear = Math.floor(deconstructDate(date).year / 10) * 10;
 
     return (

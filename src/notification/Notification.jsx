@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import { Component, PropTypes, Animate, View } from '../../libs';
+import { Animate, Component, PropTypes, View } from '../../libs';
 
 const { Transition } = Animate
 
@@ -55,7 +55,7 @@ export default class Notification extends Component {
 
   typeClass(): string {
     const { type } = this.props
-    return type && typeMap[type] ? `el-icon-${ typeMap[type] }` : '';
+    return type && typeMap[type] ? `el-icon-${typeMap[type]}` : '';
   }
 
   render() {
@@ -77,7 +77,9 @@ export default class Notification extends Component {
       >
         <View show={visible}>
           <div
-            ref={(ele) => { this.rootDOM = ele; }}
+            ref={(ele) => {
+              this.rootDOM = ele;
+            }}
             className="el-notification"
             style={{
               top,

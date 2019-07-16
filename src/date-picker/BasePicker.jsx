@@ -3,12 +3,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { PropTypes, Component } from '../../libs';
+import { Component, PropTypes } from '../../libs';
 import { EventRegister } from '../../libs/internal'
 
 import Input from '../input'
-import { PLACEMENT_MAP, HAVE_TRIGGER_TYPES, TYPE_VALUE_RESOLVER_MAP, DEFAULT_FORMATS } from './constants'
-import { Errors, require_condition, IDGenerator } from '../../libs/utils';
+import { DEFAULT_FORMATS, HAVE_TRIGGER_TYPES, PLACEMENT_MAP, TYPE_VALUE_RESOLVER_MAP } from './constants'
+import { Errors, IDGenerator, require_condition } from '../../libs/utils';
 import { MountBody } from './MountBody'
 import type { BasePickerProps, ValidDateType } from './Types';
 
@@ -30,7 +30,7 @@ const valueEquals = function (a: any, b: any) {
   const aIsArray = Array.isArray(a)
   const bIsArray = Array.isArray(b)
 
-  let isEqual = (a, b)=>{ // equal if a, b date is equal or both is null or undefined
+  let isEqual = (a, b) => { // equal if a, b date is equal or both is null or undefined
     let equal = false
     if (a && b) equal = a.getTime() === b.getTime()
     else equal = a === b && a == null
@@ -49,6 +49,18 @@ const valueEquals = function (a: any, b: any) {
 
 export default class BasePicker extends Component {
   state: any;
+
+  constructor(props: BasePickerProps, _type: string, state: any = {}) {
+    require_condition(typeof _type === 'string')
+    super(props);
+
+    this.type = _type// type need to be set first
+    this.state = Object.assign({}, state, {
+      pickerVisible: false,
+    }, this.propsToState(props))
+
+    this.clickOutsideId = 'clickOutsideId_' + idGen.next()
+  }
 
   static get propTypes() {
     return {
@@ -75,24 +87,15 @@ export default class BasePicker extends Component {
     return {
       value: new Date(),
       // (thisReactElement)=>Unit
-      onFocus() { },
-      onBlur() { },
+      onFocus() {
+      },
+      onBlur() {
+      },
     }
   }
 
-  constructor(props: BasePickerProps, _type: string, state: any = {}) {
-    require_condition(typeof _type === 'string')
-    super(props);
-
-    this.type = _type// type need to be set first
-    this.state = Object.assign({}, state, {
-      pickerVisible: false,
-    }, this.propsToState(props))
-
-    this.clickOutsideId = 'clickOutsideId_' + idGen.next()
-  }
-
   // ---: start, abstract methods
+
   // (state, props)=>ReactElement
   pickerPanel(state: any, props: $Subtype<BasePickerProps>) {
     throw new Errors.MethodImplementationRequiredError(props)
@@ -101,6 +104,7 @@ export default class BasePicker extends Component {
   getFormatSeparator() {
     return undefined
   }
+
   // ---: end, abstract methods
 
   componentWillReceiveProps(nextProps: any) {
@@ -285,7 +289,8 @@ export default class BasePicker extends Component {
             onMouseLeave={() => {
               this.setState({ isShowClose: false })
             }}
-          ></i>
+          >
+          </i>
         )
       } else {
         return null
@@ -295,7 +300,7 @@ export default class BasePicker extends Component {
     const createPickerPanel = () => {
       if (pickerVisible) {
         /* eslint-disable */
-        let {placeholder, onFocus, onBlur, onChange, ...others} = this.props
+        let { placeholder, onFocus, onBlur, onChange, ...others } = this.props
         /* eslint-enable */
         return (
           <MountBody ref={e => this.pickerProxy = e}>
@@ -304,7 +309,7 @@ export default class BasePicker extends Component {
                 this.state,
                 {
                   ...others,
-                  ... {
+                  ...{
                     getPopperRefElement: () => ReactDOM.findDOMNode(this.refs.inputRoot),
                     popperMixinOption: {
                       placement: PLACEMENT_MAP[this.props.align] || PLACEMENT_MAP.left

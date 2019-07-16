@@ -1,6 +1,6 @@
 import { markNodeData, NODE_KEY } from './util';
 
-const reInitChecked = function(node) {
+const reInitChecked = function (node) {
   const siblings = node.childNodes;
 
   let all = true;
@@ -25,7 +25,7 @@ const reInitChecked = function(node) {
   }
 };
 
-const getPropertyFromData = function(node, prop) {
+const getPropertyFromData = function (node, prop) {
   const props = node.store.props;
   const data = node.data || {};
   const config = props[prop];
@@ -110,6 +110,20 @@ export default class Node {
     this.updateLeafState();
   }
 
+  get label() {
+    return getPropertyFromData(this, 'label');
+  }
+
+  get icon() {
+    return getPropertyFromData(this, 'icon');
+  }
+
+  get key() {
+    const nodeKey = this.store.key;
+    if (this.data) return this.data[nodeKey];
+    return null;
+  }
+
   setData(data) {
     if (!Array.isArray(data)) {
       markNodeData(this, data);
@@ -128,20 +142,6 @@ export default class Node {
     for (let i = 0, j = children.length; i < j; i++) {
       this.insertChild({ data: children[i] });
     }
-  }
-
-  get label() {
-    return getPropertyFromData(this, 'label');
-  }
-
-  get icon() {
-    return getPropertyFromData(this, 'icon');
-  }
-
-  get key() {
-    const nodeKey = this.store.key;
-    if (this.data) return this.data[nodeKey];
-    return null;
   }
 
   insertChild(child, index) {

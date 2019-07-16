@@ -49,7 +49,7 @@ export default class CascaderMenu extends Component {
   }
 
   select(item: any, menuIndex: number) {
-    let {activeValue} = this.state
+    let { activeValue } = this.state
     if (item.__IS__FLAT__OPTIONS) {
       activeValue = item.value;
     } else {
@@ -135,19 +135,23 @@ export default class CascaderMenu extends Component {
               click: 'onClick',
               hover: 'onMouseEnter'
             }[expandTrigger];
-            events[triggerEvent] = () => { this.activeItem(item, menuIndex); };
+            events[triggerEvent] = () => {
+              this.activeItem(item, menuIndex);
+            };
           } else {
-            events.onClick = () => { this.select(item, menuIndex); };
+            events.onClick = () => {
+              this.select(item, menuIndex);
+            };
           }
         }
 
         return (
           <li key={index} className={this.classNames({
-              'el-cascader-menu__item': true,
-              'el-cascader-menu__item--extensible': item.children,
-              'is-active': item.value === activeValue[menuIndex],
-              'is-disabled': item.disabled
-            })}
+            'el-cascader-menu__item': true,
+            'el-cascader-menu__item--extensible': item.children,
+            'is-active': item.value === activeValue[menuIndex],
+            'is-disabled': item.disabled
+          })}
             {...events}
           >
             {item.label}

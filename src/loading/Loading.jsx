@@ -62,7 +62,7 @@ export default class Loading extends Component {
 
     return (
       <div style={this.style(this.getStyle())} className={this.className()}>
-        { loading && (
+        {loading && (
           <div
             style={{
               display: 'block',

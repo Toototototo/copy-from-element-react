@@ -5,10 +5,7 @@ import { Component, PropTypes } from '../../libs';
 import { addResizeListener, removeResizeListener } from '../../libs/utils/resize-event';
 
 import Table from './Table';
-import type {
-  TableLayoutProps,
-  TableLayoutState,
-} from './Types';
+import type { TableLayoutProps, TableLayoutState, } from './Types';
 
 import { getScrollBarWidth, getValueByPath } from "./utils";
 
@@ -95,6 +92,7 @@ export default class TableLayout extends Component<TableLayoutProps, TableLayout
       layout: this
     };
   }
+
   scheduleLayout() {
     this.setState(this.caculateWidth(), () => {
       this.updateHeight();
@@ -178,7 +176,7 @@ export default class TableLayout extends Component<TableLayoutProps, TableLayout
       const tableHeight = this.el.clientHeight;
       const headerHeight = headerWrapper ? headerWrapper.offsetHeight : 0;
       const footerHeight = footerWrapper ? footerWrapper.offsetHeight : 0;
-      const bodyHeight = tableHeight - headerHeight- footerHeight + (footerWrapper ? 1 : 0);
+      const bodyHeight = tableHeight - headerHeight - footerHeight + (footerWrapper ? 1 : 0);
       const fixedBodyHeight = bodyHeight - (scrollX ? gutterWidth : 0);
       const viewportHeight = tableHeight - (scrollX && !noData ? gutterWidth : 0);
 
@@ -211,7 +209,9 @@ export default class TableLayout extends Component<TableLayoutProps, TableLayout
   render() {
     return (
       <Table
-        ref={(table) => { this.table = table; }}
+        ref={(table) => {
+          this.table = table;
+        }}
         {...this.props}
         layout={this.state}
       />

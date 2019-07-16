@@ -1,13 +1,15 @@
-import * as React from 'react'
-import { Alert } from 'element-react'
-import { Alert as AlertNext } from 'element-react/next'
+import * as React from 'react';
+import { Alert } from 'element-react';
+import { Alert as AlertNext } from 'element-react/next';
 
 class Component extends React.Component<{}, {}> {
-  onClose = () => { }
+  onClose = () => {
+  };
+
   render() {
     return (
       <div>
-        <Alert title="title" className="className" style={{ width: 100 }} />
+        <Alert title="title" className="className" style={{width: 100}} />
         <Alert title="title" />
         <Alert title="title" type="success" />
         <Alert title="title" type="info" />
@@ -19,7 +21,7 @@ class Component extends React.Component<{}, {}> {
         <Alert title="title" showIcon={false} />
         <Alert title="title" onClose={this.onClose} />
 
-        <AlertNext title="title" className="className" style={{ width: 100 }} />
+        <AlertNext title="title" className="className" style={{width: 100}} />
         <AlertNext title="title" type="success" />
         <AlertNext title="title" type="info" />
         <AlertNext title="title" type="warning" />
@@ -30,6 +32,6 @@ class Component extends React.Component<{}, {}> {
         <AlertNext title="title" showIcon={false} />
         <AlertNext title="title" onClose={this.onClose} />
       </div>
-    )
+    );
   }
 }

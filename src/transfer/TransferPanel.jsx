@@ -33,9 +33,6 @@ type State = {
 };
 
 export default class TransferPanel extends Component {
-  props: Props;
-  state: State;
-
   static propTypes = {
     data: PropTypes.array,
     renderContent: PropTypes.func,
@@ -48,13 +45,15 @@ export default class TransferPanel extends Component {
     onChange: PropTypes.func,
     checked: PropTypes.array
   };
-
   static defaultProps: defaultProps = {
     data: [],
     footerFormat: {},
     propsAlias: {},
-    onChange() {}
+    onChange() {
+    }
   };
+  props: Props;
+  state: State;
 
   constructor(props: Props) {
     super(props);
@@ -63,31 +62,6 @@ export default class TransferPanel extends Component {
       inputHover: false
     };
   }
-
-  handleMouseEnter = () => this.setState({ inputHover: true });
-
-  handleMouseLeave = () => this.setState({ inputHover: false });
-
-  clearQuery = () => {
-    if (this.inputIcon === 'circle-close') {
-      this.setState({ query: '' });
-    }
-  };
-
-  handleAllCheckedChange = (ischecked: boolean) => {
-    const checked = ischecked
-      ? this.checkableData.map(item => item[this.keyProp])
-      : [];
-    this.props.onChange(checked);
-  };
-
-  handleCheckedChange = (value: Array<Object>) => {
-    this.props.onChange(value);
-  };
-
-  handleInputChange = (value: string) => {
-    this.setState({ query: value });
-  };
 
   get allChecked(): boolean {
     const checkableDataKeys = this.checkableData.map(
@@ -119,15 +93,15 @@ export default class TransferPanel extends Component {
     if (noChecked && hasChecked) {
       return checkedLength > 0
         ? hasChecked
-            .replace(/\${checked}/g, checkedLength)
-            .replace(/\${total}/g, dataLength)
+          .replace(/\${checked}/g, checkedLength)
+          .replace(/\${total}/g, dataLength)
         : noChecked.replace(/\${total}/g, dataLength);
     } else {
       return checkedLength > 0
         ? i18n.t('el.transfer.hasCheckedFormat', {
-            total: dataLength,
-            checked: checkedLength
-          })
+          total: dataLength,
+          checked: checkedLength
+        })
         : i18n.t('el.transfer.noCheckedFormat', { total: dataLength });
     }
   }
@@ -159,6 +133,31 @@ export default class TransferPanel extends Component {
     return this.props.propsAlias.disabled;
   }
 
+  handleMouseEnter = () => this.setState({ inputHover: true });
+
+  handleMouseLeave = () => this.setState({ inputHover: false });
+
+  clearQuery = () => {
+    if (this.inputIcon === 'circle-close') {
+      this.setState({ query: '' });
+    }
+  };
+
+  handleAllCheckedChange = (ischecked: boolean) => {
+    const checked = ischecked
+      ? this.checkableData.map(item => item[this.keyProp])
+      : [];
+    this.props.onChange(checked);
+  };
+
+  handleCheckedChange = (value: Array<Object>) => {
+    this.props.onChange(value);
+  };
+
+  handleInputChange = (value: string) => {
+    this.setState({ query: value });
+  };
+
   render(): React.DOM {
     const {
       filterable,
@@ -174,18 +173,19 @@ export default class TransferPanel extends Component {
         <p className="el-transfer-panel__header">{title}</p>
 
         <div className="el-transfer-panel__body">
-          {filterable &&
-            <Input
-              className="el-transfer-panel__filter"
-              value={query}
-              size="small"
-              placeholder={placeholder}
-              icon={this.inputIcon}
-              onMouseEnter={this.handleMouseEnter}
-              onMouseLeave={this.handleMouseLeave}
-              onIconClick={this.clearQuery}
-              onChange={this.handleInputChange}
-            />}
+          {filterable && (
+          <Input
+            className="el-transfer-panel__filter"
+            value={query}
+            size="small"
+            placeholder={placeholder}
+            icon={this.inputIcon}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
+            onIconClick={this.clearQuery}
+            onChange={this.handleInputChange}
+          />
+)}
           <View show={!this.hasNoMatch && data.length > 0}>
             <Checkbox.Group
               value={checked}

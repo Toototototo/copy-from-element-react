@@ -99,7 +99,7 @@ class Dropdown extends Component {
     return (
       <div style={this.style()} className={this.className('el-dropdown')}>
         {
-          splitButton ?  (
+          splitButton ? (
             <Button.Group>
               <Button type={type} size={size} onClick={this.props.onClick.bind(this)}>
                 {this.props.children}

@@ -1,7 +1,6 @@
 /* @flow */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Component, PropTypes } from '../../libs';
 
 type State = {
@@ -122,26 +121,28 @@ export default class Pager extends Component {
 
     return (
       <ul onClick={this.onPagerClick.bind(this)} className="el-pager">
-        {pageCount > 0 &&
-          <li
-            className={this.classNames('number', { active: currentPage === 1 })}
-          >
-            1
-          </li>}
+        {pageCount > 0 && (
+        <li
+          className={this.classNames('number', { active: currentPage === 1 })}
+        >
+          1
+        </li>
+)}
 
-        {this.state.showPrevMore &&
-          <li
-            className={this.classNames(
-              'el-icon more btn-quickprev',
-              quickprevIconClass
-            )}
-            onMouseEnter={() => {
-              this.setState({ quickprevIconClass: 'el-icon-d-arrow-left' });
-            }}
-            onMouseLeave={() => {
-              this.setState({ quickprevIconClass: 'el-icon-more' });
-            }}
-          />}
+        {this.state.showPrevMore && (
+        <li
+          className={this.classNames(
+            'el-icon more btn-quickprev',
+            quickprevIconClass
+          )}
+          onMouseEnter={() => {
+            this.setState({ quickprevIconClass: 'el-icon-d-arrow-left' });
+          }}
+          onMouseLeave={() => {
+            this.setState({ quickprevIconClass: 'el-icon-more' });
+          }}
+        />
+)}
 
         {pagers.map((pager, idx) => {
           return (
@@ -156,28 +157,30 @@ export default class Pager extends Component {
           );
         })}
 
-        {this.state.showNextMore &&
-          <li
-            className={this.classNames(
-              'el-icon more btn-quicknext',
-              quicknextIconClass
-            )}
-            onMouseEnter={() => {
-              this.setState({ quicknextIconClass: 'el-icon-d-arrow-right' });
-            }}
-            onMouseLeave={() => {
-              this.setState({ quicknextIconClass: 'el-icon-more' });
-            }}
-          />}
+        {this.state.showNextMore && (
+        <li
+          className={this.classNames(
+            'el-icon more btn-quicknext',
+            quicknextIconClass
+          )}
+          onMouseEnter={() => {
+            this.setState({ quicknextIconClass: 'el-icon-d-arrow-right' });
+          }}
+          onMouseLeave={() => {
+            this.setState({ quicknextIconClass: 'el-icon-more' });
+          }}
+        />
+)}
 
-        {pageCount > 1 &&
-          <li
-            className={this.classNames('number', {
-              active: currentPage === pageCount
-            })}
-          >
-            {pageCount}
-          </li>}
+        {pageCount > 1 && (
+        <li
+          className={this.classNames('number', {
+            active: currentPage === pageCount
+          })}
+        >
+          {pageCount}
+        </li>
+)}
       </ul>
     );
   }

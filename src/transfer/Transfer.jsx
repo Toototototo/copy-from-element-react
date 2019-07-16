@@ -35,8 +35,6 @@ type State = {
 };
 
 export default class Transfer extends Component {
-  props: Props;
-  state: State;
   static propTypes = {
     data: PropTypes.array,
     titles: PropTypes.array,
@@ -54,7 +52,6 @@ export default class Transfer extends Component {
     leftFooter: PropTypes.node,
     rightFooter: PropTypes.node
   };
-
   static defaultProps = {
     data: [],
     titles: [],
@@ -69,8 +66,11 @@ export default class Transfer extends Component {
       key: 'key',
       disabled: 'disabled'
     },
-    onChange() {}
+    onChange() {
+    }
   };
+  props: Props;
+  state: State;
 
   constructor(props: Props) {
     super(props);
@@ -78,6 +78,16 @@ export default class Transfer extends Component {
       leftChecked: [],
       rightChecked: []
     };
+  }
+
+  get sourceData(): Array<Object> {
+    const { data, value, propsAlias } = this.props;
+    return data.filter(item => !value.includes(item[propsAlias.key]));
+  }
+
+  get targetData(): Array<Object> {
+    const { data, value, propsAlias } = this.props;
+    return data.filter(item => value.includes(item[propsAlias.key]));
   }
 
   componentWillMount() {
@@ -124,16 +134,6 @@ export default class Transfer extends Component {
     this.setState({ leftChecked: [] }, () =>
       this.props.onChange(currentValue, 'right', leftChecked));
   };
-
-  get sourceData(): Array<Object> {
-    const { data, value, propsAlias } = this.props;
-    return data.filter(item => !value.includes(item[propsAlias.key]));
-  }
-
-  get targetData(): Array<Object> {
-    const { data, value, propsAlias } = this.props;
-    return data.filter(item => value.includes(item[propsAlias.key]));
-  }
 
   render(): React.DOM {
     const {

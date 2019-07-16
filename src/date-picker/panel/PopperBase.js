@@ -1,15 +1,7 @@
-import { PropTypes, Component } from '../../../libs';
+import { Component, PropTypes } from '../../../libs';
 import { PopperReactMixin } from '../../../libs/utils'
 
-export class PopperBase extends Component{
-  static get propTypes() {
-    return {
-      //()=>HtmlElement
-      getPopperRefElement: PropTypes.func,
-      popperMixinOption: PropTypes.object
-    }
-  }
-
+export class PopperBase extends Component {
   constructor(props) {
     super(props)
 
@@ -17,5 +9,13 @@ export class PopperBase extends Component{
       boundariesPadding: 0,
       gpuAcceleration: false
     }, props.popperMixinOption));
+  }
+
+  static get propTypes() {
+    return {
+      //()=>HtmlElement
+      getPopperRefElement: PropTypes.func,
+      popperMixinOption: PropTypes.object
+    }
   }
 }

@@ -3,7 +3,7 @@
 import React from 'react';
 import { Component, PropTypes } from '../../../libs';
 import draggable from '../draggable';
-import type { SvPanelState, DragOptions } from '../Types';
+import type { DragOptions, SvPanelState } from '../Types';
 
 export default class SvPanel extends Component {
   state: SvPanelState;

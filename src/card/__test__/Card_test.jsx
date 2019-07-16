@@ -1,8 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
+import { shallow } from 'enzyme';
 
-import Card from '../';
+import Card from "..";
 
 describe('Card test', () => {
   it('render header', () => {
