@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { throttle } from 'throttle-debounce';
-import { Component, PropTypes } from '../../libs';
+import { PureComponent, PropTypes } from '../../libs';
 import Checkbox from '../checkbox';
 import FilterPannel from './FilterPannel';
 
@@ -9,7 +9,7 @@ import type { _Column, TableHeaderProps, } from './Types';
 
 const _document = (document: any);
 
-export default class TableHeader extends Component<TableHeaderProps> {
+export default class TableHeader extends PureComponent<TableHeaderProps> {
   static contextTypes = {
     tableStore: PropTypes.any,
     layout: PropTypes.any,
@@ -248,6 +248,7 @@ export default class TableHeader extends Component<TableHeaderProps> {
           {tableStoreState.columnRows.map((columns, rowIndex) => (
             <tr key={rowIndex}>
               {columns.map((column, cellIndex) => (
+                // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
                 <th
                   colSpan={column.colSpan}
                   rowSpan={column.rowSpan}

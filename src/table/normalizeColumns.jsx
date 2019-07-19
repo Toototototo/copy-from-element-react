@@ -1,10 +1,8 @@
-import * as React from 'react';
-import { getValueByPath } from "./utils";
-
+// eslint-disable-next-line flowtype/no-types-missing-file-annotation
 import type { _Column, Column, } from "./Types";
 
-function defaultRender(row: Object, column: _Column) {
-  return getValueByPath(row, column.property);
+function defaultRender(text) {
+  return text;
 }
 
 const defaults = {
@@ -46,6 +44,7 @@ const forced = {
 
 let columnIDSeed = 1;
 
+// eslint-disable-next-line flowtype/no-types-missing-file-annotation
 export default function normalizeColumns(columns: Array<Column>, tableIDSeed: number): Array<_Column> {
   return columns.map((column) => {
     let _column;

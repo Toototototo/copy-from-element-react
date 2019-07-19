@@ -5,7 +5,8 @@ import { getRowIdentity } from "./utils";
 import Checkbox from '../checkbox';
 
 import type { _Column, TableBodyProps } from "./Types";
-// import {toDate} from "../date-picker/utils/index";
+import ColGroup from "./ColGroup";
+import TableRow from "./TableRow";
 
 export default class TableBody extends Component<TableBodyProps> {
   static contextTypes = {
@@ -150,13 +151,86 @@ export default class TableBody extends Component<TableBodyProps> {
       )
     }
 
-    return column.render(row[rowKey], row, index);
+    const { columnKey } = column;
+    return column.render(row ? row[columnKey] : undefined, row, index);
   }
+
+  renderRows = (renderData, indent, ancestorKeys = []) => {
+    const { table } = this.context;
+    const { columnManager, components } = table;
+    const {
+      prefixCls,
+      childrenColumnName,
+      rowClassName,
+      rowRef,
+      onRowClick,
+      onRowDoubleClick,
+      onRowContextMenu,
+      onRowMouseEnter,
+      onRowMouseLeave,
+      onRow,
+    } = table.props;
+    const { getRowKey, fixed, expander, isAnyColumnsFixed } = this.props;
+
+    const rows = [];
+
+    for (let i = 0; i < renderData.length; i++) {
+      const record = renderData[i];
+      const key = getRowKey(record, i);
+      const className =
+        typeof rowClassName === 'string' ? rowClassName : rowClassName(record, i, indent);
+
+      const onHoverProps = {};
+      if (columnManager.isAnyColumnsFixed()) {
+        onHoverProps.onHover = this.handleRowHover;
+      }
+
+      let leafColumns;
+      if (fixed === 'left') {
+        leafColumns = columnManager.leftLeafColumns();
+      } else if (fixed === 'right') {
+        leafColumns = columnManager.rightLeafColumns();
+      } else {
+        leafColumns = this.getColumns(columnManager.leafColumns());
+      }
+
+      const rowPrefixCls = `${prefixCls}-row`;
+
+      const row = (
+        <TableRow
+          fixed={fixed}
+          indent={indent}
+          className={className}
+          record={record}
+          index={i}
+          prefixCls={rowPrefixCls}
+          childrenColumnName={childrenColumnName}
+          columns={leafColumns}
+          onRow={onRow}
+          onRowDoubleClick={onRowDoubleClick}
+          onRowContextMenu={onRowContextMenu}
+          onRowMouseEnter={onRowMouseEnter}
+          onRowMouseLeave={onRowMouseLeave}
+          {...onHoverProps}
+          rowKey={key}
+          ancestorKeys={ancestorKeys}
+          ref={rowRef(record, i, indent)}
+          components={components}
+          isAnyColumnsFixed={isAnyColumnsFixed}
+        />
+      );
+
+      rows.push(row);
+
+      expander.renderRows(this.renderRows, rows, record, i, indent, fixed, key, ancestorKeys);
+    }
+    return rows;
+  };
 
   render() {
     const { tableStoreState, layout, ...props } = this.props;
     const columnsHidden = tableStoreState.columns.map((column, index) => this.isColumnHidden(index));
-    const { tableStore } = props
+    const { tableStore } = this.context;
     return (
       <table
         className="el-table__body"
@@ -167,11 +241,7 @@ export default class TableBody extends Component<TableBodyProps> {
           border: 0
         })}
       >
-        <colgroup>
-          {tableStoreState.columns.map((column, index) => (
-            <col width={column.realWidth} style={{ width: column.realWidth }} key={index} />
-          ))}
-        </colgroup>
+        <ColGroup columns={tableStoreState.columns} />
         <tbody>
           {tableStoreState.data.map((row, rowIndex) => {
             const rowKey = this.getKeyOfRow(row, rowIndex);
