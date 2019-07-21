@@ -1,15 +1,15 @@
 // @flow
 import * as React from 'react';
 import { throttle } from 'throttle-debounce';
-import { Component, PropTypes } from '../../libs';
+import { PropTypes, PureComponent } from '../../libs';
 import Checkbox from '../checkbox';
 import FilterPannel from './FilterPannel';
 
-import type { _Column, TableHeaderProps, } from './Types';
+import type { _Column, TableHeaderProps } from './Types';
 
 const _document = (document: any);
 
-export default class TableHeader extends Component<TableHeaderProps> {
+export default class TableHeader extends PureComponent<TableHeaderProps> {
   static contextTypes = {
     tableStore: PropTypes.any,
     layout: PropTypes.any,
@@ -25,22 +25,26 @@ export default class TableHeader extends Component<TableHeaderProps> {
   }
 
   get columnsCount(): number {
-    return this.props.tableStoreState.columns.length;
+    const { tableStoreState } = this.props;
+    return tableStoreState.columns.length;
   }
 
   get leftFixedCount(): number {
-    return this.props.tableStoreState.fixedColumns.length;
+    const { tableStoreState } = this.props;
+    return tableStoreState.fixedColumns.length;
   }
 
   get rightFixedCount(): number {
-    return this.props.tableStoreState.rightFixedColumns.length;
+    const { tableStoreState } = this.props;
+    return tableStoreState.rightFixedColumns.length;
   }
 
   handleMouseMove(column: _Column, event: SyntheticMouseEvent<HTMLTableCellElement>) {
     if (!column.resizable) return;
     if (column.subColumns && column.subColumns.length) return;
+    const { border } = this.props;
 
-    if (!this.dragging && this.props.border) {
+    if (!this.dragging && border) {
       let target: any = event.target;
       while (target && target.tagName !== 'TH') {
         target = target.parentNode;
@@ -111,7 +115,8 @@ export default class TableHeader extends Component<TableHeaderProps> {
             columnEl.classList.remove('noclick');
           });
 
-          this.context.layout.scheduleLayout();
+          const { layout } = this.context;
+          layout.scheduleLayout();
           this.dispatchEvent('onHeaderDragEnd', columnWidth, oldWidth, column, event);
         }
       };
@@ -146,10 +151,12 @@ export default class TableHeader extends Component<TableHeaderProps> {
     if (target.classList.contains('noclick')) return;
 
     let order;
+    const { tableStoreState } = this.props;
+    const { tableStore } = this.context;
     if (givenOrder) {
       order = givenOrder;
     } else {
-      const { sortColumn, sortOrder } = this.props.tableStoreState;
+      const { sortColumn, sortOrder } = tableStoreState;
       if (column === sortColumn) {
         if (!sortOrder) {
           order = 'ascending';
@@ -160,7 +167,7 @@ export default class TableHeader extends Component<TableHeaderProps> {
         order = 'ascending';
       }
     }
-    this.context.tableStore.changeSortCondition(column, order);
+    tableStore.changeSortCondition(column, order);
 
     this.dispatchEvent('onHeaderClick', column, event)
   }
@@ -170,19 +177,21 @@ export default class TableHeader extends Component<TableHeaderProps> {
       event.stopPropagation();
       event.nativeEvent.stopImmediatePropagation();
     }
+    const { tableStore } = this.context;
 
-    this.context.tableStore.toggleFilterOpened(column);
+    tableStore.toggleFilterOpened(column);
 
     event && this.dispatchEvent('onHeaderClick', column, event)
   }
 
   dispatchEvent(name: string, ...args: Array<any>) {
-    const fn = this.props[name];
+    const { [name]: fn } = this.props;
     fn && fn(...args);
   }
 
   changeFilteredValue(column: _Column, value: any) {
-    this.context.tableStore.changeFilteredValue(column, value);
+    const { tableStore } = this.context;
+    tableStore.changeFilteredValue(column, value);
   }
 
   isCellHidden(index: number, columns: Array<_Column>): boolean {
@@ -202,6 +211,7 @@ export default class TableHeader extends Component<TableHeaderProps> {
 
   renderHeader(column: _Column): ?React.Node {
     const { type } = column;
+    const { tableStore } = this.context;
     if (type === 'expand') {
       return column.label || '';
     }
@@ -213,8 +223,8 @@ export default class TableHeader extends Component<TableHeaderProps> {
     if (type === 'selection') {
       return (
         <Checkbox
-          checked={this.context.tableStore.isAllSelected}
-          onChange={this.context.tableStore.toggleAllSelection}
+          checked={tableStore.isAllSelected}
+          onChange={tableStore.toggleAllSelection}
         />
       );
     }
@@ -224,7 +234,7 @@ export default class TableHeader extends Component<TableHeaderProps> {
 
   render() {
     const { tableStoreState, layout, fixed } = this.props;
-
+    console.log(this.props)
     return (
       <table
         className="el-table__header"
@@ -240,8 +250,10 @@ export default class TableHeader extends Component<TableHeaderProps> {
             <col width={column.realWidth} style={{ width: column.realWidth }} key={index} />
           ))}
           {!fixed && (
-            <col width={layout.scrollY ? layout.gutterWidth : 0}
-              style={{ width: layout.scrollY ? layout.gutterWidth : 0 }} />
+            <col
+              width={layout.scrollY ? layout.gutterWidth : 0}
+              style={{ width: layout.scrollY ? layout.gutterWidth : 0 }}
+            />
           )}
         </colgroup>
         <thead>
@@ -272,48 +284,48 @@ export default class TableHeader extends Component<TableHeaderProps> {
                   <div className="cell">
                     {this.renderHeader(column)}
                     {column.sortable && (
-                    <span
-                      className="caret-wrapper"
-                      onClick={this.handleSortClick.bind(this, column, null)}
-                    >
-                      <i
-                        className="sort-caret ascending"
-                        onClick={this.handleSortClick.bind(this, column, 'ascending')}
-                        />
-                      <i
-                        className="sort-caret descending"
-                        onClick={this.handleSortClick.bind(this, column, 'descending')}
-                        />
-                    </span>
-                  )}
-                    {column.filterable && (
-                    <FilterPannel
-                      visible={column.filterOpened}
-                      multiple={column.filterMultiple}
-                      filters={column.filters}
-                      filteredValue={column.filteredValue}
-                      placement={column.filterPlacement}
-                      onFilterChange={this.changeFilteredValue.bind(this, column)}
-                      toggleFilter={this.handleFilterClick.bind(this, column)}
-                    >
                       <span
-                        className="el-table__column-filter-trigger"
-                        onClick={this.handleFilterClick.bind(this, column)}
-                        >
+                        className="caret-wrapper"
+                        onClick={this.handleSortClick.bind(this, column, null)}
+                      >
                         <i
-                          className={this.classNames('el-icon-arrow-down', { 'el-icon-arrow-up': column.filterOpened })} />
+                          className="sort-caret ascending"
+                          onClick={this.handleSortClick.bind(this, column, 'ascending')}
+                          />
+                        <i
+                          className="sort-caret descending"
+                          onClick={this.handleSortClick.bind(this, column, 'descending')}
+                          />
                       </span>
-                    </FilterPannel>
-                  )}
+                    )}
+                    {column.filterable && (
+                      <FilterPannel
+                        visible={column.filterOpened}
+                        multiple={column.filterMultiple}
+                        filters={column.filters}
+                        filteredValue={column.filteredValue}
+                        placement={column.filterPlacement}
+                        onFilterChange={this.changeFilteredValue.bind(this, column)}
+                        toggleFilter={this.handleFilterClick.bind(this, column)}
+                      >
+                        <span
+                          className="el-table__column-filter-trigger"
+                          onClick={this.handleFilterClick.bind(this, column)}
+                          >
+                          <i
+                            className={this.classNames('el-icon-arrow-down', { 'el-icon-arrow-up': column.filterOpened })} />
+                        </span>
+                      </FilterPannel>
+                    )}
                   </div>
                 </th>
-            ))}
+              ))}
               {!fixed && (
-              <th
-                className="gutter"
-                style={{ width: layout.scrollY ? layout.gutterWidth : 0 }}
-              />
-            )}
+                <th
+                  className="gutter"
+                  style={{ width: layout.scrollY ? layout.gutterWidth : 0 }}
+                />
+              )}
             </tr>
         ))}
         </thead>

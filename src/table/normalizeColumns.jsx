@@ -1,10 +1,8 @@
-import * as React from 'react';
-import { getValueByPath } from "./utils";
-
+// @flow
 import type { _Column, Column, } from "./Types";
 
-function defaultRender(row: Object, column: _Column) {
-  return getValueByPath(row, column.property);
+function defaultRender(text: string) {
+  return text
 }
 
 const defaults = {

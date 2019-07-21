@@ -7,7 +7,7 @@ import TableLayout from './TableLayout';
 import type { _Column, Column, TableStoreProps, TableStoreState } from './Types';
 
 import normalizeColumns from './normalizeColumns';
-import { convertToRows, getColumns, getLeafColumns, getRowIdentity, getValueByPath } from "./utils";
+import { convertToRows, getColumns, getLeafColumns, getRowIdentity, getValueByPath } from './utils';
 
 let tableIDSeed = 1;
 
@@ -40,7 +40,7 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
     highlightCurrentRow: PropTypes.bool,
     currentRowKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.arrayOf(PropTypes.string), PropTypes.arrayOf(PropTypes.number)]),
     rowClassName: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-    rowStyle: PropTypes.func,
+    rowStyle: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     rowKey: PropTypes.oneOfType([PropTypes.func, PropTypes.string,]),
     emptyText: PropTypes.oneOfType([PropTypes.object, PropTypes.string,]),
     defaultExpandAll: PropTypes.bool,
@@ -65,6 +65,7 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
     highlightCurrentRow: false,
     showSummary: false,
     sumText: local.t('el.table.sumText'),
+    rowKey: 'key',
   };
 
   static childContextTypes = {
@@ -264,6 +265,10 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
 
   setCurrentRow(row: Object) {
     const { currentRowKey, rowKey } = this.props;
+    const { currentRow } = this.state;
+    if (getRowIdentity(currentRow, rowKey) === getRowIdentity(row, rowKey)) {
+      return;
+    }
     if (currentRowKey && !Array.isArray(currentRowKey)) {
       this.dispatchEvent('onCurrentChange', getRowIdentity(row, rowKey), currentRowKey);
       return;

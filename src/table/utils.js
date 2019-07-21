@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import type { _Column } from "./Types";
+import get from 'lodash/get'
 
 const _document = (document: any);
 
@@ -37,8 +38,7 @@ export function getScrollBarWidth(): ?number {
 }
 
 export function getValueByPath(data: Object, path: ?string): any {
-  if (typeof path !== 'string') return null;
-  return path.split('.').reduce((pre: Object, cur) => (pre || {})[cur], data);
+  return get(data, path);
 }
 
 export function getRowIdentity(row: Object, rowKey: any): any {

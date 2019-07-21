@@ -20,7 +20,7 @@ type State = {
   editorErrorMessage?: string
 };
 
-export default class MessageBox extends Component {
+class MessageBox extends Component {
   state: State;
 
   constructor(props: Object) {
@@ -241,3 +241,5 @@ MessageBox.defaultProps = {
   showCancelButton: false,
   showConfirmButton: true
 }
+
+export default MessageBox

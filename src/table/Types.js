@@ -80,10 +80,10 @@ export type TableStoreProps = {
   highlightCurrentRow: boolean,
   currentRowKey?: strOrNum | Array<strOrNum>,
   rowClassName?: ((row: Object, index: number) => string) | string,
-  rowStyle: ((row: Object, index: number) => Object) | Object,
-  rowKey: ((row: Object) => strOrNum) | string,
+  rowStyle?: ((row: Object, index: number) => Object) | Object,
+  rowKey?: ((row: Object) => strOrNum) | string,
   emptyText: string,
-  defaultExpandAll: boolean,
+  defaultExpandAll?: boolean,
   expandRowKeys?: Array<number | string>,
   defaultSort?: {
     prop: string,
