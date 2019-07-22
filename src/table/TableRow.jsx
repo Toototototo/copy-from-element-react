@@ -1,10 +1,15 @@
 // @flow
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import { PureComponent } from '../../libs';
 import TableCell from './TableCell';
 
 class TableRow extends PureComponent {
+  static contextTypes = {
+    tableStore: PropTypes.any,
+  };
+
   getRowStyle(row: Object, index: number): Object {
     const { rowStyle } = this.props;
     if (typeof rowStyle === 'function') {
@@ -23,16 +28,17 @@ class TableRow extends PureComponent {
   }
 
   render(): React.ReactNode {
-    const { expanded, row, rowIndex, tableStoreState, rowKey, columns = [], hiddenColumns = [], layout, ...props } = this.props;
+    const { expanded, row, rowIndex, tableStoreState, rowIdentity, columns = [], hiddenColumns = [], layout, ...props } = this.props;
+    const { tableStore } = this.context;
     if (expanded) {
       return [
         <tr
-          key={rowKey}
+          key={rowIdentity}
           style={this.getRowStyle(row, rowIndex)}
           className={this.className('el-table__row', {
             'el-table__row--striped': props.stripe && rowIndex % 2 === 1,
             'hover-row': tableStoreState.hoverRow === rowIndex,
-            'current-row': props.highlightCurrentRow && (props.currentRowKey === rowKey || tableStoreState.currentRow === row),
+            'current-row': props.highlightCurrentRow && (props.currentRowKey === rowIdentity || tableStoreState.currentRow === row),
           }, this.getRowClassName(row, rowIndex))}
           onMouseEnter={() => props.handleMouseEnter(rowIndex)}
           onMouseLeave={props.handleMouseLeave}
@@ -42,8 +48,9 @@ class TableRow extends PureComponent {
           {
             columns.map((col, index) => (
               <TableCell
+                rowIndex={rowIndex}
                 hidden={hiddenColumns[index]}
-                key={`${rowKey}-${col.key || col.dataIndex}`}
+                key={`${rowIdentity}-${col.key || col.dataIndex}`}
                 row={row}
                 column={col}
               />
@@ -53,7 +60,7 @@ class TableRow extends PureComponent {
             <td className="gutter" />
           )}
         </tr>,
-        <tr key={`${rowKey}Expanded`}>
+        <tr key={`${rowIdentity}-Expanded`}>
           <td
             colSpan={tableStoreState.columns.length}
             className="el-table__expanded-cell"
@@ -65,12 +72,12 @@ class TableRow extends PureComponent {
     }
     return (
       <tr
-        key={rowKey}
+        key={rowIdentity}
         style={this.getRowStyle(row, rowIndex)}
         className={this.className('el-table__row', {
           'el-table__row--striped': props.stripe && rowIndex % 2 === 1,
           'hover-row': tableStoreState.hoverRow === rowIndex,
-          'current-row': props.highlightCurrentRow && (props.currentRowKey === rowKey || tableStoreState.currentRow === row),
+          'current-row': props.highlightCurrentRow && (props.currentRowKey === rowIdentity || tableStoreState.currentRow === row),
         }, this.getRowClassName(row, rowIndex))}
         onMouseEnter={() => props.handleMouseEnter(rowIndex)}
         onMouseLeave={props.handleMouseLeave}
@@ -78,14 +85,27 @@ class TableRow extends PureComponent {
         onContextMenu={() => props.handleRowContextMenu(row)}
       >
         {
-          columns.map((col, index) => (
-            <TableCell
-              hidden={hiddenColumns[index]}
-              key={`${rowKey}-${col.key || col.dataIndex}`}
-              row={row}
-              column={col}
-            />
-          ))
+          columns.map((col, index) => {
+              let value;
+              if (col.type === 'selection') {
+                value = tableStore.isRowSelected(row, rowIdentity)
+              } else if (col.type === 'expand') {
+                value = tableStore.isRowExpanding(row, rowIdentity)
+              } else {
+                value = get(row, col.dataIndex)
+              }
+              return (
+                <TableCell
+                  value={value}
+                  rowIndex={rowIndex}
+                  hidden={hiddenColumns[index]}
+                  key={`${rowIdentity}-${col.key || col.dataIndex}`}
+                  row={row}
+                  column={col}
+                />
+              )
+            }
+          )
         }
         {!props.fixed && layout.scrollY && !!layout.gutterWidth && (
           <td className="gutter" />

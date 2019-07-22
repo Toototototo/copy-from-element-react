@@ -234,7 +234,6 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
 
   render() {
     const { tableStoreState, layout, fixed } = this.props;
-    console.log(this.props)
     return (
       <table
         className="el-table__header"
@@ -264,23 +263,23 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
                   colSpan={column.colSpan}
                   rowSpan={column.rowSpan}
                   className={this.className(
-                  tableStoreState.sortColumn === column && tableStoreState.sortOrder,
-                  column.headerAlign,
-                  column.className,
-                  column.labelClassName,
-                  column.columnKey,
-                  {
-                    'is-hidden': rowIndex === 0 && this.isCellHidden(cellIndex, columns),
-                    'is-leaf': !column.subColumns,
-                    'is-sortable': column.sortable,
-                  }
-                )}
+                    tableStoreState.sortColumn === column && tableStoreState.sortOrder,
+                    column.headerAlign,
+                    column.className,
+                    column.labelClassName,
+                    column.columnKey,
+                    {
+                      'is-hidden': rowIndex === 0 && this.isCellHidden(cellIndex, columns),
+                      'is-leaf': !column.subColumns,
+                      'is-sortable': column.sortable,
+                    }
+                  )}
                   onMouseMove={this.handleMouseMove.bind(this, column)}
                   onMouseDown={this.handleMouseDown.bind(this, column)}
                   onMouseOut={this.handleMouseOut}
                   onClick={this.handleHeaderClick.bind(this, column)}
                   key={cellIndex}
-              >
+                >
                   <div className="cell">
                     {this.renderHeader(column)}
                     {column.sortable && (

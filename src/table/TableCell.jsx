@@ -33,7 +33,13 @@ class TableCell extends PureComponent {
     fn && fn(...args);
   }
 
+  handleExpandClick(row: Object, rowKey: string | number) {
+    const { tableStore } = this.context;
+    tableStore.toggleRowExpanded(row, rowKey);
+  }
+
   renderCell = (row: Object, column: _Column, index: number, key: string | number): React.DOM => {
+    const { value } = this.props;
     const { type, selectable } = column;
     const { tableStore } = this.context;
     if (type === 'expand') {
@@ -41,7 +47,7 @@ class TableCell extends PureComponent {
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div
           className={this.classNames('el-table__expand-icon ', {
-            'el-table__expand-icon--expanded': tableStore.isRowExpanding(row, key)
+            'el-table__expand-icon--expanded': value
           })}
           onClick={this.handleExpandClick.bind(this, row, key)}
         >
@@ -55,21 +61,17 @@ class TableCell extends PureComponent {
     }
 
     if (type === 'selection') {
-      const isSelected = tableStore.isRowSelected(row, key);
       return (
         <Checkbox
-          checked={isSelected}
+          checked={value}
           disabled={selectable && !selectable(row, index)}
-          onChange={() => {
-            tableStore.toggleRowSelection(row, !isSelected);
-          }}
+          onChange={() => tableStore.toggleRowSelection(row, !value)}
         />
       )
     }
 
-    const { dataIndex } = column;
-    return column.render(row ? row[dataIndex] : undefined, row, index);
-  }
+    return column.render(value, row, index);
+  };
 
   render(): React.ReactNode {
     const { row = {}, column = {}, hidden, rowIdentity, rowIndex } = this.props;
@@ -97,7 +99,8 @@ TableCell.propTypes = {
   tableStoreState: PropTypes.any,
   hidden: PropTypes.bool,
   rowIndex: PropTypes.number,
-  rowIdentity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  rowIdentity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.any,
 };
 
 export default TableCell;

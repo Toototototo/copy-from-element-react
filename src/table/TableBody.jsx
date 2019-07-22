@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { PureComponent, PropTypes } from '../../libs';
+import { PropTypes, PureComponent } from '../../libs';
 import { getRowIdentity } from './utils';
 
 import type { TableBodyProps } from './Types';
@@ -10,7 +10,6 @@ import TableRow from './TableRow';
 export default class TableBody extends PureComponent<TableBodyProps> {
   static contextTypes = {
     tableStore: PropTypes.any,
-    layout: PropTypes.any,
   };
 
   constructor(props: TableBodyProps) {
@@ -76,15 +75,10 @@ export default class TableBody extends PureComponent<TableBodyProps> {
     return null;
   }
 
-  handleExpandClick(row: Object, rowKey: string | number) {
-    const { tableStore } = this.context;
-    tableStore.toggleRowExpanded(row, rowKey);
-  }
-
   handleClick = (row: Object) => {
     const { tableStore } = this.context;
     tableStore.setCurrentRow(row);
-  }
+  };
 
   getTableRows = () => {
     const { tableStoreState, ...props } = this.props;
@@ -97,6 +91,7 @@ export default class TableBody extends PureComponent<TableBodyProps> {
           tableStoreState={tableStoreState}
           hiddenColumns={this.columnsHidden}
           key={rowIdentity}
+          rowIdentity={rowIdentity}
           rowIndex={index}
           handleMouseEnter={this.handleMouseEnter}
           handleMouseLeave={this.handleMouseLeave}

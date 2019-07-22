@@ -6,7 +6,7 @@
 
 基础的表格展示用法。
 
-:::demo 当`Table`元素中注入`data`和`columns` 对象数组后，在`column`中用`prop`属性来对应对象中的键名即可填入数据，用`label`属性来定义表格的列名。可以使用`width`属性来定义列宽。
+:::demo 当`Table`元素中注入`data`和`columns` 对象数组后，在`column`中用`dataIndex`属性来对应对象中的键名即可填入数据，用`label`属性来定义表格的列名。可以使用`width`属性来定义列宽。
 ```js
 constructor(props) {
   super(props);
@@ -15,17 +15,17 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 180
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -90,17 +90,17 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 180
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -147,17 +147,17 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 180
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -207,17 +207,17 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 180
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -287,17 +287,17 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 180
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -363,33 +363,33 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 150,
         fixed: 'left'
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 160
       },
       {
         label: "省份",
-        prop: "province",
+        dataIndex: "province",
         width: 160
       },
       {
         label: "地址",
-        prop: "address",
+        dataIndex: "address",
         width: 400
       },
       {
         label: "邮编",
-        prop: "zip",
+        dataIndex: "zip",
         width: 120
       },
       {
         label: "操作",
-        prop: "zip",
+        dataIndex: "zip",
         fixed: 'right',
         width: 100,
         render: ()=>{
@@ -462,30 +462,30 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 150,
         fixed: 'left',
         align: 'center'
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 160,
         align: 'right'
       },
       {
         label: "省份",
-        prop: "province",
+        dataIndex: "province",
         width: 160
       },
       {
         label: "地址",
-        prop: "address",
+        dataIndex: "address",
         width: 400
       },
       {
         label: "邮编",
-        prop: "zip",
+        dataIndex: "zip",
         width: 120
       }
     ],
@@ -569,30 +569,30 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 150,
         fixed: 'left',
         align: 'center'
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 160,
         align: 'right'
       },
       {
         label: "省份",
-        prop: "province",
+        dataIndex: "province",
         width: 160
       },
       {
         label: "地址",
-        prop: "address",
+        dataIndex: "address",
         width: 400
       },
       {
         label: "邮编",
-        prop: "zip",
+        dataIndex: "zip",
         width: 120
       },
       {
@@ -692,7 +692,7 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 150
       },
       {
@@ -700,7 +700,7 @@ constructor(props) {
         subColumns: [
           {
             label: "姓名",
-            prop: "name",
+            dataIndex: "name",
             width: 160
           },
           {
@@ -708,17 +708,17 @@ constructor(props) {
             subColumns: [
               {
                 label: "省份",
-                prop: "province",
+                dataIndex: "province",
                 width: 160
               },
               {
                 label: "城市",
-                prop: "address",
+                dataIndex: "address",
                 width: 400
               },
               {
                 label: "邮编",
-                prop: "zip",
+                dataIndex: "zip",
                 width: 120
               }
             ]
@@ -809,9 +809,9 @@ constructor(props) {
       },
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 150,
-        render: function(data){
+        render: function(text, data){
           return (
           <span>
             <Icon name="time"/>
@@ -821,15 +821,15 @@ constructor(props) {
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 160,
-        render: function(data){
+        render: function(text, data){
           return <Tag>{data.name}</Tag>
         }
       },
       {
         label: "操作",
-        prop: "address",
+        dataIndex: "address",
         render: function(){
           return (
             <span>
@@ -938,17 +938,17 @@ constructor(props) {
       },
       {
         label: "商品 ID",
-        prop: "id",
+        dataIndex: "id",
         width: 150
       },
       {
         label: "商品名称",
-        prop: "name",
+        dataIndex: "name",
         width: 160
       },
       {
         label: "描述",
-        prop: "desc"
+        dataIndex: "desc"
       }
     ],
     data: [{
@@ -1018,17 +1018,17 @@ constructor(props) {
       },
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 150
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 160
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -1116,17 +1116,17 @@ constructor(props) {
       },
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 150
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 160
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -1230,19 +1230,19 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 180,
         sortable: true
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180,
         sortable: 'custom'
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       }
     ],
     data: [{
@@ -1267,7 +1267,7 @@ constructor(props) {
 handleSort(data){
   console.log('自定义');
   console.log(data.column);
-  console.log(data.prop);
+  console.log(data.dataIndex);
   console.log(data.order);
 }
 render() {
@@ -1297,21 +1297,21 @@ constructor(props) {
     columns: [
       {
         label: "日期",
-        prop: "date",
+        dataIndex: "date",
         width: 180
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180
       },
       {
         label: "地址",
-        prop: "address"
+        dataIndex: "address"
       },
       {
         label: '标签',
-        prop: 'tag',
+        dataIndex: 'tag',
         width: 100,
         filters: [{text: '家', value: '家'}, {text: '公司', value: '公司'}],
         filterMethod(value, row) {
@@ -1377,25 +1377,25 @@ constructor(props) {
     columns: [
       {
         label: "ID",
-        prop: "id",
+        dataIndex: "id",
         width: 180
       },
       {
         label: "姓名",
-        prop: "name",
+        dataIndex: "name",
         width: 180
       },
       {
         label: "数值 1",
-        prop: "amount1"
+        dataIndex: "amount1"
       },
       {
         label: "数值 2",
-        prop: "amount2"
+        dataIndex: "amount2"
       },
       {
         label: "数值 3",
-        prop: "amount3"
+        dataIndex: "amount3"
       }
     ],
     data: [{
@@ -1493,7 +1493,7 @@ render() {
 | emptyText | 空数据时显示的文本内容 | string | - | - |
 | defaultExpandAll | 是否默认展开所有行，当 Table 中存在 type="expand" 的 Column 的时候有效 | boolean | — | false |
 | expandRowKeys | 可以通过该属性设置 Table 目前的展开行，需要设置 row-key 属性才能使用，该属性为展开行的 keys 数组。| array | — | |
-| defaultSort | 默认的排序列的prop和顺序。它的`prop`属性指定默认的排序的列，`order`指定默认排序的顺序| Object | `order`: ascending, descending | 如果只指定了`prop`, 没有指定`order`, 则默认顺序是ascending |
+| defaultSort | 默认的排序列的prop和顺序。它的`dataIndex`属性指定默认的排序的列，`order`指定默认排序的顺序| Object | `order`: ascending, descending | 如果只指定了`dataIndex`, 没有指定`order`, 则默认顺序是ascending |
 | showSummary | 是否在表尾显示合计行 | boolean | - | false |
 | sumText | 合计行第一列的文本 | string | - | 合计 |
 | summeryMethod | 自定义的合计计算方法 | Function({ columns, data }) | - | - |
@@ -1514,7 +1514,7 @@ render() {
 | onRowContextMenu | 当某一行被鼠标右键点击时会触发该事件 | row, event |
 | onRowDbClick | 当某一行被双击时会触发该事件 | row, event |
 | onHeaderClick | 当某一列的表头被点击时会触发该事件 | column, event |
-| onSortChange | 当表格的排序条件发生变化的时候会触发该事件 | { column, prop, order } |
+| onSortChange | 当表格的排序条件发生变化的时候会触发该事件 | { column, dataIndex, order } |
 | onFilterChange | 当表格的筛选条件发生变化的时候会触发该事件，参数的值是一个对象，对象的 key 是 column 的 columnKey，对应的 value 为用户选择的筛选条件的数组。 | filters |
 | onCurrentChange | 当表格的当前行发生变化的时候会触发该事件，如果要高亮当前行，请打开表格的 highlight-current-row 属性 | currentRow, oldCurrentRow |
 | onHeaderDragEnd | 当拖动表头改变了列的宽度的时候会触发该事件 | newWidth, oldWidth, column, event |
@@ -1533,7 +1533,7 @@ render() {
 | type | 对应列的类型。如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 1 开始计算）；如果设置了 expand 则显示为一个可展开的按钮 | string | selection/index/expand | — |
 | columnKey | column 的 key，如果需要使用 onFilterChange 事件，则需要此属性标识是哪个 column 的筛选条件 | string | — | — |
 | label | 显示的标题 | string | — | — |
-| prop | 对应列内容的字段名，也可以使用 property 属性 | string | — | — |
+| dataIndex | 对应列内容的字段名，也可以使用 property 属性 | string | — | — |
 | width | 对应列的宽度 | string | — | — |
 | minWidth | 对应列的最小宽度，与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列 | string | — | — |
 | fixed | 列是否固定在左侧或者右侧，true 表示固定在左侧 | string, boolean | true, left, right | - |

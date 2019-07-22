@@ -94,14 +94,14 @@ export default class TableLayout extends Component<TableLayoutProps, TableLayout
   }
 
   scheduleLayout() {
-    this.setState(this.caculateWidth(), () => {
+    this.setState(this.calculateWidth(), () => {
       this.updateHeight();
       this.updateScrollY();
     });
   }
 
   // horizontal direction layout
-  caculateWidth(): Object {
+  calculateWidth(): Object {
     const { tableStoreState: { columns, fixedColumns, rightFixedColumns }, fit } = this.props;
     const { gutterWidth } = this.state;
     const bodyMinWidth = columns.reduce((pre, col) => pre + (col.width || col.minWidth), 0);

@@ -6,7 +6,8 @@ class Test extends React.Component {
     {
       label: 'selection',
       dataIndex: 'selection',
-      type: 'selection'
+      type: 'selection',
+      width: 48,
     },
     {
       label: '日期',
