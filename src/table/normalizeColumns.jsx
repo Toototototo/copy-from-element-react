@@ -81,6 +81,8 @@ export default function normalizeColumns(columns: Array<Column>, tableIDSeed: nu
         filterMultiple: true
       }, column, {
         columnKey: column.columnKey || id,
+        dataIndex: column.dataIndex,
+        key: column.key,
         width,
         minWidth,
         realWidth: width || minWidth,

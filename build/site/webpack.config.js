@@ -48,6 +48,9 @@ module.exports = {
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', 'sass-loader']
     }, {
+      test: /\.less$/,
+      use: ['style-loader', 'css-loader', 'less-loader'],
+    }, {
       test: /\.(ttf|eot|svg|woff|woff2)(\?.+)?$/,
       loader: 'file-loader?name=[hash:12].[ext]'
     }, {
