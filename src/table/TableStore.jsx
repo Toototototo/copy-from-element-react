@@ -173,8 +173,9 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
     }
 
     _columns = [].concat(fixedColumns, _columns.filter(column => !column.fixed), rightFixedColumns);
+    const stateValue = { ...this.state };
 
-    this.setState(Object.assign(this.state || {}, {
+    this.setState(Object.assign(stateValue || {}, {
       fixedColumns,
       rightFixedColumns,
       columnRows: convertToRows(_columns),
@@ -193,7 +194,8 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
     hoverRow = hoverRow && data.includes(hoverRow) ? hoverRow : null;
     currentRow = currentRow && data.includes(currentRow) ? currentRow : null;
     const [firstColumn = {}] = columns;
-    if (this._isMounted && data !== this.props.data && !firstColumn.reserveSelection) {
+    const { data: propsData } = this.props;
+    if (this._isMounted && data !== propsData && !firstColumn.reserveSelection) {
       selectedRows = [];
     } else {
       selectedRows = selectedRows && selectedRows.filter(row => data.includes(row)) || [];
@@ -205,7 +207,8 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
       expandingRows = expandingRows.filter(row => data.includes(row));
     }
 
-    this.setState(Object.assign(this.state, {
+    const stateValue = { ...this.state };
+    this.setState(Object.assign(stateValue, {
       data: filteredData,
       filteredData,
       hoverRow,
@@ -213,9 +216,9 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
       expandingRows,
       selectedRows,
     }));
-    if ((!this._isMounted || data !== this.props.data) && defaultSort) {
+    if ((!this._isMounted || data !== propsData) && defaultSort) {
       const { prop, order = 'ascending' } = defaultSort;
-      const sortColumn = columns.find(column => column.property === prop);
+      const sortColumn = columns.find(column => column.dataIndex === prop);
       this.changeSortCondition(sortColumn, order, false);
     } else {
       this.changeSortCondition(null, null, false);
@@ -223,7 +226,8 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
   }
 
   setHoverRow(index: number) {
-    if (!this.state.isComplex) return;
+    const { isComplex } = this.state;
+    if (!isComplex) return;
     this.setState({
       hoverRow: index
     });
@@ -321,8 +325,9 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
 
       return { selectedRows };
     }, () => {
-      this.dispatchEvent('onSelect', this.state.selectedRows, row);
-      this.dispatchEvent('onSelectChange', this.state.selectedRows);
+      const { selectedRows } = this.state;
+      this.dispatchEvent('onSelect', selectedRows, row);
+      this.dispatchEvent('onSelectChange', selectedRows);
     });
   }
 
@@ -374,9 +379,10 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
   }
 
   changeSortCondition(column: ?_Column, order: ?string, shouldDispatchEvent?: boolean = true) {
-    if (!column) ({ sortColumn: column, sortOrder: order } = this.state)
+    if (!column) ({ sortColumn: column, sortOrder: order } = this.state);
+    const { filteredData = [] } = this.props;
 
-    const data = this.state.filteredData.slice();
+    const data = filteredData.slice();
     if (!column) {
       this.setState({
         data
@@ -384,7 +390,7 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
       return;
     }
 
-    const { sortMethod, property, sortable } = column;
+    const { sortMethod, dataIndex, sortable } = column;
     let sortedData;
     if (!order || sortable === 'custom') {
       sortedData = data;
@@ -394,8 +400,8 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
         sortedData = data.sort((a, b) => sortMethod(a, b) ? flag : -flag);
       } else {
         sortedData = data.sort((a, b) => {
-          const aVal = getValueByPath(a, property);
-          const bVal = getValueByPath(b, property);
+          const aVal = getValueByPath(a, dataIndex);
+          const bVal = getValueByPath(b, dataIndex);
           return aVal === bVal ? 0 : aVal > bVal ? flag : -flag;
         });
       }
@@ -403,7 +409,7 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
     let sortSet = () => {
       shouldDispatchEvent && this.dispatchEvent('onSortChange',
         column && order ?
-          { column, prop: column.property, order } :
+          { column, prop: column.dataIndex, order } :
           { column: null, prop: null, order: null }
       )
     }
@@ -429,8 +435,10 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
 
   changeFilteredValue(column: _Column, value: string | number) {
     column.filteredValue = value;
-    const filteredData = filterData(this.props.data.slice(), this.state.columns);
-    this.setState(Object.assign(this.state, {
+    const { data, columns = [] } = this.props;
+    const stateValue = { ...this.state };
+    const filteredData = filterData(data.slice(), columns);
+    this.setState(Object.assign(stateValue, {
       filteredData
     }), () => {
       this.dispatchEvent('onFilterChange', { [column.columnKey]: value })
@@ -439,12 +447,13 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
   }
 
   dispatchEvent(name: string, ...args: Array<any>) {
-    const fn = this.props[name];
+    const { [name]: fn } = this.props;
     fn && fn(...args);
   }
 
   render() {
-    const renderExpanded = (this.state.columns.find(column => column.type === 'expand') || {}).expandPannel;
+    const { columns = [] } = this.state;
+    const renderExpanded = (columns.find(column => column.type === 'expand') || {}).expandPannel;
     return (
       <TableLayout
         {...this.props}

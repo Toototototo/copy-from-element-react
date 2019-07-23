@@ -6,10 +6,6 @@ import { PureComponent } from '../../libs';
 import TableCell from './TableCell';
 
 class TableRow extends PureComponent {
-  static contextTypes = {
-    tableStore: PropTypes.any,
-  };
-
   getRowStyle(row: Object, index: number): Object {
     const { rowStyle } = this.props;
     if (typeof rowStyle === 'function') {
@@ -28,44 +24,58 @@ class TableRow extends PureComponent {
   }
 
   render(): React.ReactNode {
-    const { expanded, row, rowIndex, tableStoreState, rowIdentity, columns = [], hiddenColumns = [], layout, ...props } = this.props;
-    const { tableStore } = this.context;
+    const {
+      expanded, row, rowIndex, rowIdentity, columns = [], selected, showGutter,
+      hiddenColumns = [], stripe, handleMouseEnter, handleMouseLeave, handleClick,
+      handleRowContextMenu, renderExpanded, highlightCurrentRow, isCurrent, isHover,
+    } = this.props;
     if (expanded) {
       return [
         <tr
           key={rowIdentity}
           style={this.getRowStyle(row, rowIndex)}
           className={this.className('el-table__row', {
-            'el-table__row--striped': props.stripe && rowIndex % 2 === 1,
-            'hover-row': tableStoreState.hoverRow === rowIndex,
-            'current-row': props.highlightCurrentRow && (props.currentRowKey === rowIdentity || tableStoreState.currentRow === row),
+            'el-table__row--striped': stripe && rowIndex % 2 === 1,
+            'hover-row': isHover,
+            'current-row': highlightCurrentRow && isCurrent,
           }, this.getRowClassName(row, rowIndex))}
-          onMouseEnter={() => props.handleMouseEnter(rowIndex)}
-          onMouseLeave={props.handleMouseLeave}
-          onClick={() => props.handleClick(row)}
-          onContextMenu={() => props.handleRowContextMenu(row)}
+          onMouseEnter={() => handleMouseEnter(rowIndex)}
+          onMouseLeave={handleMouseLeave}
+          onClick={() => handleClick(row)}
+          onContextMenu={() => handleRowContextMenu(row)}
         >
           {
-            columns.map((col, index) => (
-              <TableCell
-                rowIndex={rowIndex}
-                hidden={hiddenColumns[index]}
-                key={`${rowIdentity}-${col.key || col.dataIndex}`}
-                row={row}
-                column={col}
-              />
-            ))
+            columns.map((col, index) => {
+              let value;
+              if (col.type === 'selection') {
+                value = selected;
+              } else if (col.type === 'expand') {
+                value = true;
+              } else {
+                value = get(row, col.dataIndex);
+              }
+              return (
+                <TableCell
+                  value={value}
+                  rowIndex={rowIndex}
+                  hidden={hiddenColumns[index]}
+                  key={`${rowIdentity}-${col.key || col.dataIndex}`}
+                  row={row}
+                  column={col}
+                />
+              );
+            })
           }
-          {!props.fixed && layout.scrollY && !!layout.gutterWidth && (
+          {showGutter && (
             <td className="gutter" />
           )}
         </tr>,
         <tr key={`${rowIdentity}-Expanded`}>
           <td
-            colSpan={tableStoreState.columns.length}
+            colSpan={columns.length}
             className="el-table__expanded-cell"
           >
-            {typeof props.renderExpanded === 'function' && props.renderExpanded(row, rowIndex)}
+            {typeof renderExpanded === 'function' && renderExpanded(row, rowIndex)}
           </td>
         </tr>,
       ];
@@ -75,22 +85,22 @@ class TableRow extends PureComponent {
         key={rowIdentity}
         style={this.getRowStyle(row, rowIndex)}
         className={this.className('el-table__row', {
-          'el-table__row--striped': props.stripe && rowIndex % 2 === 1,
-          'hover-row': tableStoreState.hoverRow === rowIndex,
-          'current-row': props.highlightCurrentRow && (props.currentRowKey === rowIdentity || tableStoreState.currentRow === row),
+          'el-table__row--striped': stripe && rowIndex % 2 === 1,
+          'hover-row': isHover,
+          'current-row': highlightCurrentRow && isCurrent,
         }, this.getRowClassName(row, rowIndex))}
-        onMouseEnter={() => props.handleMouseEnter(rowIndex)}
-        onMouseLeave={props.handleMouseLeave}
-        onClick={() => props.handleClick(row)}
-        onContextMenu={() => props.handleRowContextMenu(row)}
+        onMouseEnter={() => handleMouseEnter(rowIndex)}
+        onMouseLeave={handleMouseLeave}
+        onClick={() => handleClick(row)}
+        onContextMenu={() => handleRowContextMenu(row)}
       >
         {
           columns.map((col, index) => {
               let value;
               if (col.type === 'selection') {
-                value = tableStore.isRowSelected(row, rowIdentity)
+                value = selected;
               } else if (col.type === 'expand') {
-                value = tableStore.isRowExpanding(row, rowIdentity)
+                value = false;
               } else {
                 value = get(row, col.dataIndex)
               }
@@ -107,7 +117,7 @@ class TableRow extends PureComponent {
             }
           )
         }
-        {!props.fixed && layout.scrollY && !!layout.gutterWidth && (
+        {showGutter && (
           <td className="gutter" />
         )}
       </tr>
@@ -116,15 +126,25 @@ class TableRow extends PureComponent {
 }
 
 TableRow.propTypes = {
+  selected: PropTypes.bool,
   expanded: PropTypes.bool,
-  tableStoreState: PropTypes.any,
   rowStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   rowClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   columns: PropTypes.arrayOf(PropTypes.any),
   row: PropTypes.object,
-  rowKey: PropTypes.string,
+  rowIdentity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   rowIndex: PropTypes.number,
-  layout: PropTypes.object,
+  hiddenColumns: PropTypes.arrayOf(PropTypes.bool),
+  stripe: PropTypes.bool,
+  handleMouseEnter: PropTypes.func,
+  handleMouseLeave: PropTypes.func,
+  handleClick: PropTypes.func,
+  handleRowContextMenu: PropTypes.func,
+  showGutter: PropTypes.bool,
+  renderExpanded: PropTypes.func,
+  highlightCurrentRow: PropTypes.bool,
+  isCurrent: PropTypes.bool,
+  isHover: PropTypes.bool,
 };
 
 export default TableRow;

@@ -732,6 +732,7 @@ declare namespace ElementReact {
   interface TableColumn {
     type?: string,
     columnKey?: string,
+    dataIndex?: string,
     label?: string | React.ReactNode,
     prop?: string,
     property?: string,

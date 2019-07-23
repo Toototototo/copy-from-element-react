@@ -1,0 +1,154 @@
+.pc-check-panel {
+  position: relative;
+
+  .pc-drop-menu {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background: #fff;
+    border: solid 1px #ddd;
+
+    .pc-drop-title {
+      padding: 2px 10px;
+      font: 600 14px/30px;
+      font-family: 微软雅黑, serif;
+      text-align: left;
+      border-bottom: solid 1px #ddd;
+
+      span {
+        display: block;
+        float: right;
+        cursor: pointer;
+      }
+
+      &::after {
+        display: table;
+        clear: both;
+        content: '';
+      }
+    }
+
+    .pc-drop-content {
+      padding: 10px 10px 0 10px;
+      border-bottom: solid 1px #ddd;
+
+      h3 {
+        font: 500 14px/20px;
+        font-family: 微软雅黑, serif;
+      }
+
+      .pc-color-content {
+        height: 373px;
+      }
+
+      ul {
+        padding-left: 15px;
+        list-style: none;
+
+        li {
+          float: left;
+          box-sizing: border-box;
+          width: 48px;
+          margin-right: 10px;
+          margin-bottom: 2px;
+          padding: 1px 1px;
+          color: #fff;
+          font-size: 8px;
+          text-align: center;
+          list-style: none;
+          border: solid 1px #ddd;
+          cursor: pointer;
+
+          &.pc-red {
+            background: @sys-skin-red;
+
+            &:hover,
+            &.active {
+              box-shadow: 0 0 5px @sys-skin-red;
+            }
+          }
+
+          &.pc-cyan {
+            background: @sys-skin-cyan;
+
+            &:hover,
+            &.active {
+              box-shadow: 0 0 5px @sys-skin-cyan;
+            }
+          }
+
+          &.pc-coffee {
+            background: @sys-skin-coffee;
+
+            &:hover,
+            &.active {
+              box-shadow: 0 0 5px @sys-skin-coffee;
+            }
+          }
+
+          &.pc-blue {
+            background: @sys-skin-blue;
+
+            &:hover,
+            &.active {
+              box-shadow: 0 0 5px @sys-skin-blue;
+            }
+          }
+
+          &.pc-skyBlue {
+            background: @sys-skin-skyBlue;
+
+            &:hover,
+            &.active {
+              box-shadow: 0 0 5px @sys-skin-skyBlue;
+            }
+          }
+
+          &.pc-darkBlue {
+            background: @sys-skin-darkBlue;
+
+            &:hover,
+            &.active {
+              box-shadow: 0 0 5px @sys-skin-darkBlue;
+            }
+          }
+
+          &.pc-blackish {
+            background: @sys-skin-blackishGreen;
+
+            &:hover,
+            &.active {
+              box-shadow: 0 0 5px @sys-skin-blackishGreen;
+            }
+          }
+
+          &:hover,
+          &.active {
+            font-size: 16px;
+            border: solid 1px #fff;
+          }
+        }
+
+        &::after {
+          display: table;
+          clear: both;
+          content: '';
+        }
+      }
+    }
+  }
+
+  .colorBlock {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-top: 5px;
+    margin-right: 8px;
+  }
+}
+
+.pc-drop-content-customize {
+  text-align: center;
+}

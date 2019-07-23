@@ -1290,7 +1290,8 @@ render() {
 
 :::demo 在列中设置`filters` `filterMethod`属性即可开启该列的筛选，filters 是一个数组，`filterMethod`是一个方法，它用于决定某些数据是否显示，会传入两个参数：`value`和`row`。
 ```js
-constructor(props) {
+constructor(props)
+{
   super(props);
 
   this.state = {
@@ -1317,7 +1318,7 @@ constructor(props) {
         filterMethod(value, row) {
                   return row.tag === value;
                 },
-        render: (data, column)=>{
+        render: (text, data, index)=>{
           if(data['tag'] == '家'){
             return <Tag type="primary">{data['tag']}</Tag>
           }else if(data['tag'] == '公司'){
@@ -1350,7 +1351,8 @@ constructor(props) {
   }
 }
 
-render() {
+render()
+{
   return (
     <Table
       style={{width: '100%'}}

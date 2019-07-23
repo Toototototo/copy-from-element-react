@@ -81,14 +81,30 @@ export default class TableBody extends PureComponent<TableBodyProps> {
   };
 
   getTableRows = () => {
-    const { tableStoreState, ...props } = this.props;
-    const { data = [], columns = [] } = tableStoreState;
+    const { tableStoreState, highlightCurrentRow, layout, stripe, renderExpanded, fixed, currentRowKey, rowClassName, rowStyle } = this.props;
+    const { tableStore } = this.context;
+    const { data = [], columns = [], hoverRow, currentRow } = tableStoreState;
+    const showGutter = (!fixed && layout.scrollY && !!layout.gutterWidth);
     return data.map((item, index) => {
       const rowIdentity = this.getKeyOfRow(item);
+      const expanded = tableStore.isRowExpanding(item, rowIdentity);
+      const selected = tableStore.isRowSelected(item, rowIdentity);
+      const isCurrent = (currentRowKey === rowIdentity || currentRow === item);
+      const isHover = hoverRow === index;
       return (
         <TableRow
-          {...props}
-          tableStoreState={tableStoreState}
+          rowStyle={rowStyle}
+          rowClassName={rowClassName}
+          isCurrent={isCurrent}
+          showGutter={showGutter}
+          selected={selected}
+          isHover={isHover}
+          expanded={expanded}
+          fixed={fixed}
+          layout={layout}
+          stripe={stripe}
+          renderExpanded={renderExpanded}
+          highlightCurrentRow={highlightCurrentRow}
           hiddenColumns={this.columnsHidden}
           key={rowIdentity}
           rowIdentity={rowIdentity}
@@ -117,9 +133,7 @@ export default class TableBody extends PureComponent<TableBodyProps> {
         })}
       >
         <ColGroup columns={tableStoreState.columns} />
-        <tbody>
-        {this.getTableRows()}
-        </tbody>
+        <tbody>{this.getTableRows()}</tbody>
       </table>
     );
   }

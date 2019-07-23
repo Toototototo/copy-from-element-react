@@ -42,6 +42,10 @@ new WebpackDevServer(webpack({
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
         test: /\.(eot|svg|ttf|woff|woff2)(\?.+)?$/,
         loader: 'file-loader'
       },

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export default function ColGroup({ columns = [] }) {
   const cols = columns.map(
-    col => <col width={col.realWidth} style={{ width: col.realWidth }} key={col.key || col.dataIndex} />
+    col => <col width={col.realWidth} style={{ width: col.realWidth }} key={col.key || col.dataIndex || col.type} />
   );
   return (
     <colgroup>{cols}</colgroup>
