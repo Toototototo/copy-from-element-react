@@ -5,9 +5,9 @@ import { Component, PropTypes } from '../../libs';
 import { addResizeListener, removeResizeListener } from '../../libs/utils/resize-event';
 
 import Table from './Table';
-import type { TableLayoutProps, TableLayoutState, } from './Types';
+import type { TableLayoutProps, TableLayoutState } from './Types';
 
-import { getScrollBarWidth, getValueByPath } from "./utils";
+import { getScrollBarWidth, getValueByPath } from './utils';
 
 export default class TableLayout extends Component<TableLayoutProps, TableLayoutState> {
   static childContextTypes = {
@@ -17,15 +17,22 @@ export default class TableLayout extends Component<TableLayoutProps, TableLayout
   constructor(props: TableLayoutProps) {
     super(props);
     this.state = {
+      /* eslint-disable-next-line react/no-unused-state */
       height: props.height || props.maxHeight || null, // Table's height or maxHeight prop
       gutterWidth: getScrollBarWidth(), // scrollBar width
+      /* eslint-disable-next-line react/no-unused-state */
       tableHeight: null, // Table's real height
+      /* eslint-disable-next-line react/no-unused-state */
       headerHeight: null, // header's height of Table
+      /* eslint-disable-next-line react/no-unused-state */
       bodyHeight: null, // body's height of Table
+      /* eslint-disable-next-line react/no-unused-state */
       footerHeight: null, // footer's height of Table
       fixedBodyHeight: null, // fixed body's height of Table
+      /* eslint-disable-next-line react/no-unused-state */
       viewportHeight: null, // Table's real height without y scroll bar height
       scrollX: null, // has x scroll bar
+      /* eslint-disable-next-line react/no-unused-state */
       scrollY: null, // has y scroll bar
     };
 
@@ -42,7 +49,8 @@ export default class TableLayout extends Component<TableLayoutProps, TableLayout
   }
 
   componentWillReceiveProps(nextProps: TableLayoutProps) {
-    const preHeight = this.props.height || this.props.maxHeight;
+    const { height, maxHeight } = this.props;
+    const preHeight = height || maxHeight;
     const nextHeight = nextProps.height || nextProps.maxHeight;
     if (preHeight !== nextHeight) {
       this.setState({
