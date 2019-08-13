@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 // @flow
 import * as React from 'react';
 import { throttle } from 'throttle-debounce';
@@ -245,11 +246,12 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
         })}
       >
         <colgroup>
-          {tableStoreState.columns.map((column, index) => (
-            <col width={column.realWidth} style={{ width: column.realWidth }} key={index} />
+          {tableStoreState.columns.map(column => (
+            <col width={column.realWidth} style={{ width: column.realWidth }} key={column.key || column.dataIndex || column.type} />
           ))}
           {!fixed && (
             <col
+              key='gutter'
               width={layout.scrollY ? layout.gutterWidth : 0}
               style={{ width: layout.scrollY ? layout.gutterWidth : 0 }}
             />
@@ -259,6 +261,7 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
           {tableStoreState.columnRows.map((columns, rowIndex) => (
             <tr key={rowIndex}>
               {columns.map((column, cellIndex) => (
+                // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
                 <th
                   colSpan={column.colSpan}
                   rowSpan={column.rowSpan}
@@ -283,6 +286,7 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
                   <div className="cell">
                     {this.renderHeader(column)}
                     {column.sortable && (
+                      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                       <span
                         className="caret-wrapper"
                         onClick={this.handleSortClick.bind(this, column, null)}

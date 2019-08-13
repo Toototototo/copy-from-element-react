@@ -107,7 +107,7 @@ export default class Table extends Component<TableProps, TableState> {
     const { tableStoreState, layout, ...props } = this.props;
     const { isHidden } = this.state;
     const { scrollX, scrollY } = layout;
-
+console.log('this.props', this.props);
     return (
       <div
         style={this.style({

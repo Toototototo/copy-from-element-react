@@ -29,34 +29,42 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
     }, {
+      key: '2',
       date: '2016-05-04',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1517 弄'
     }, {
+      key: '3',
       date: '2016-05-01',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1519 弄'
     }, {
+      key: '4',
       date: '2016-05-03',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1516 弄'
     },{
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
     }, {
+      key: '6',
       date: '2016-05-04',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1517 弄'
     }, {
+      key: '7',
       date: '2016-05-01',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1519 弄'
     }, {
+      key: '8',
       date: '2016-05-03',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1516 弄'
@@ -104,18 +112,22 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
     }, {
+      key: '2',
       date: '2016-05-04',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1517 弄'
     }, {
+      key: '3',
       date: '2016-05-01',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1519 弄'
     }, {
+      key: '4',
       date: '2016-05-03',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1516 弄'
@@ -161,18 +173,22 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
     }, {
+      key: '2',
       date: '2016-05-04',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1517 弄'
     }, {
+      key: '3',
       date: '2016-05-01',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1519 弄'
     }, {
+      key: '4',
       date: '2016-05-03',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1516 弄'
@@ -221,18 +237,22 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
     }, {
+      key: '2',
       date: '2016-05-04',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1517 弄'
     }, {
+      key: '3',
       date: '2016-05-01',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1519 弄'
     }, {
+      key: '4',
       date: '2016-05-03',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1516 弄'
@@ -301,34 +321,42 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
     }, {
+      key: '2',
       date: '2016-05-04',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1517 弄'
     }, {
+      key: '3',
       date: '2016-05-01',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1519 弄'
     }, {
+      key: '4',
       date: '2016-05-03',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1516 弄'
     },{
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1518 弄'
     }, {
+      key: '6',
       date: '2016-05-04',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1517 弄'
     }, {
+      key: '7',
       date: '2016-05-01',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1519 弄'
     }, {
+      key: '8',
       date: '2016-05-03',
       name: '王小虎',
       address: '上海市普陀区金沙江路 1516 弄'
@@ -389,7 +417,7 @@ constructor(props) {
       },
       {
         label: "操作",
-        dataIndex: "zip",
+        dataIndex: "process",
         fixed: 'right',
         width: 100,
         render: ()=>{
@@ -398,6 +426,7 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -405,6 +434,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     },{
+      key: '2',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -412,6 +442,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     },{
+      key: '3',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -419,6 +450,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     },{
+      key: '4',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -426,6 +458,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     },{
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -490,6 +523,7 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '0',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -497,6 +531,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -504,6 +539,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '2',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -511,6 +547,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '3',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -518,6 +555,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '4',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -525,6 +563,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -532,6 +571,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '6',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -596,6 +636,7 @@ constructor(props) {
         width: 120
       },
       {
+        key: 'process',
         label: "操作",
         width: 120,
         fixed: 'right',
@@ -605,6 +646,7 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '0',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -612,6 +654,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -619,6 +662,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '2',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -626,6 +670,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '3',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -633,6 +678,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '4',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -640,6 +686,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -647,6 +694,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '6',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -727,6 +775,7 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '0',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -734,6 +783,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -741,6 +791,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '2',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -748,6 +799,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '3',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -755,6 +807,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '4',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -762,6 +815,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -769,6 +823,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
     }, {
+      key: '6',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -841,6 +896,7 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '0',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -848,6 +904,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -855,6 +912,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '2',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -862,6 +920,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '3',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -869,6 +928,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '4',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -876,6 +936,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -883,6 +944,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '6',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -994,6 +1056,7 @@ render() {
       columns={this.state.columns}
       data={this.state.data}
       border={false}
+      rowKey='id'
       onCurrentChange={item=>{console.log(item)}}
     />
   )
@@ -1032,6 +1095,7 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1039,6 +1103,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '2',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1046,6 +1111,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '3',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1053,6 +1119,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '4',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1060,6 +1127,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1067,6 +1135,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '6',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1074,6 +1143,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '7',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1130,6 +1200,7 @@ constructor(props) {
       }
     ],
     data: [{
+      key: '1',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1137,6 +1208,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '2',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1144,6 +1216,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '3',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1151,6 +1224,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '4',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1158,6 +1232,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '5',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1165,6 +1240,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '6',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1172,6 +1248,7 @@ constructor(props) {
       address: '上海市普陀区金沙江路 1518 弄',
       zip: 200333
      }, {
+      key: '7',
       date: '2016-05-02',
       name: '王小虎',
       province: '上海',
@@ -1277,6 +1354,7 @@ render() {
       columns={this.state.columns}
       data={this.state.data}
       border={true}
+      rowKey='name'
       onSortChange={this.handleSort.bind(this)}
     />
   )
@@ -1359,6 +1437,7 @@ render()
       columns={this.state.columns}
       data={this.state.data}
       border={true}
+      rowKey='date'
     />
   )
 }
@@ -1443,6 +1522,7 @@ render() {
         columns={this.state.columns}
         data={this.state.data}
         border={true}
+        rowKey='id'
       />
       <Table
         style={{width: '100%', marginTop: 20}}
@@ -1451,6 +1531,7 @@ render() {
         columns={this.state.columns}
         data={this.state.data}
         sumText='总价'
+        rowKey='id'
         summaryMethod={(columns, data)=>{
           const dataList = [];
           for(var i=0; i < columns.length; i++){
