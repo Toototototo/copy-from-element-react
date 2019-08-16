@@ -91,7 +91,7 @@ class TableRow extends PureComponent {
         }, this.getRowClassName(row, rowIndex))}
         onMouseEnter={() => handleMouseEnter(rowIndex)}
         onMouseLeave={handleMouseLeave}
-        onClick={() => handleClick(row)}
+        onClick={() => handleClick(row, rowIndex)}
         onContextMenu={() => handleRowContextMenu(row)}
       >
         {

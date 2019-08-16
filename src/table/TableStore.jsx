@@ -263,9 +263,10 @@ export default class TableStore extends Component<TableStoreProps, TableStoreSta
     return expandingRows.includes(row);
   }
 
-  setCurrentRow(row: Object) {
+  setCurrentRow(row: Object, index: number) {
     const { currentRowKey, rowKey } = this.props;
     const { currentRow } = this.state;
+    this.dispatchEvent('onRowClick', row, index);
     if (getRowIdentity(currentRow, rowKey) === getRowIdentity(row, rowKey)) {
       return;
     }

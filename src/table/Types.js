@@ -82,6 +82,7 @@ export type TableStoreProps = {
   rowClassName?: ((row: Object, index: number) => string) | string,
   rowStyle?: ((row: Object, index: number) => Object) | Object,
   rowKey?: ((row: Object) => strOrNum) | string,
+  onRowClick?: (row: Object, index: number) => void,
   emptyText: string,
   defaultExpandAll?: boolean,
   expandRowKeys?: Array<number | string>,

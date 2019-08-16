@@ -782,6 +782,7 @@ declare namespace ElementReact {
     onSelectAll?: (selectedRowKeys: string[] | number[]) => void
     onSelectChange?: (selectedRowKeys: string[] | number[]) => void
     onSelect?: (selectedRowKeys: string[] | number[], row: any) => void
+    onRowClick?: (row: any, index: number) => void
   }
 
   export class Table extends ElementReactLibs.Component<TableProps, {}> {

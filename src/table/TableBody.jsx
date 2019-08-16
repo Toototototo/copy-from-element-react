@@ -75,9 +75,9 @@ export default class TableBody extends PureComponent<TableBodyProps> {
     return null;
   }
 
-  handleClick = (row: Object) => {
+  handleClick = (row: Object, index: number) => {
     const { tableStore } = this.context;
-    tableStore.setCurrentRow(row);
+    tableStore.setCurrentRow(row, index);
   };
 
   getTableRows = () => {
