@@ -75,6 +75,9 @@ constructor(props) {
 render() {
   return (
     <Table
+      onRow={() => ({
+        onClick: console.log
+      })}
       style={{width: '100%'}}
       columns={this.state.columns}
       maxHeight={200}
