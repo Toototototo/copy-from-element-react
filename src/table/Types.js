@@ -1,5 +1,5 @@
 // @flow
-export type strOrNum = string | number;
+export type strOrNum = string | number
 
 export type Column = {
   type?: string,
@@ -27,7 +27,7 @@ export type Column = {
   filterMethod?: (value: any, row: Object) => boolean,
   filteredValue?: Array<strOrNum> | strOrNum,
   subColumns?: Array<Column>
-};
+}
 
 export type _Column = {
   id: string,
@@ -64,7 +64,7 @@ export type _Column = {
   colSpan: number,
   level: number,
   subColumns?: Array<_Column>
-};
+}
 
 export type TableStoreProps = {
   style?: Object,
@@ -82,19 +82,19 @@ export type TableStoreProps = {
   rowClassName?: ((row: Object, index: number) => string) | string,
   rowStyle?: ((row: Object, index: number) => Object) | Object,
   rowKey?: ((row: Object) => strOrNum) | string,
-  onRowClick?: (row: Object, index: number) => void,
+  onRow?: () => Object,
   emptyText: string,
   defaultExpandAll?: boolean,
   expandRowKeys?: Array<number | string>,
   defaultSort?: {
     prop: string,
-    order?: 'ascending' | 'descending',
+    order?: 'ascending' | 'descending'
   },
   tooltipEffect?: 'dark' | 'light',
   showSummary: boolean,
   sumText: string,
-  summaryMethod?: ({ column: Array<Column>, data: Array<Object> }) => any,
-};
+  summaryMethod?: ({ column: Array<Column>, data: Array<Object> }) => any
+}
 
 export type TableStoreState = {
   sortedData: Array<Object>,
@@ -104,12 +104,13 @@ export type TableStoreState = {
   columnRows: Array<Array<_Column>>,
   columns: Array<_Column>,
   isComplex: boolean,
-  defaultExpandAll: boolean,
-};
+  defaultExpandAll: boolean
+}
 
-export type TableLayoutProps =
-  TableStoreProps
-  & { tableStoreState: TableStoreState, renderExpanded?: (row: Object, rowIndex: number) => Object };
+export type TableLayoutProps = TableStoreProps & {
+  tableStoreState: TableStoreState,
+  renderExpanded?: (row: Object, rowIndex: number) => Object
+}
 
 export type TableLayoutState = {
   height?: strOrNum,
@@ -121,17 +122,16 @@ export type TableLayoutState = {
   fixedBodyHeight?: number,
   viewportHeight?: number,
   scrollX?: boolean,
-  scrollY?: boolean,
-};
+  scrollY?: boolean
+}
 
-export type TableProps = TableLayoutProps & { layout: TableLayoutState };
+export type TableProps = TableLayoutProps & { layout: TableLayoutState }
 
-export type TableState = {};
+export type TableState = {}
 
-export type TableHeaderProps = TableProps & { fixed: true | 'left' | 'right' };
-export type TableBodyProps = TableHeaderProps;
-export type TableFooterProps = TableHeaderProps;
-
+export type TableHeaderProps = TableProps & { fixed: true | 'left' | 'right' }
+export type TableBodyProps = TableHeaderProps
+export type TableFooterProps = TableHeaderProps
 
 export type FilterProps = {
   visible: boolean,
@@ -144,5 +144,5 @@ export type FilterProps = {
 }
 
 export type FilterState = {
-  filteredValue: Array<any>,
+  filteredValue: Array<any>
 }

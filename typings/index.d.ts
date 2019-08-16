@@ -1,103 +1,103 @@
-declare module "element-react" {
-  export import i18n = ElementReact.i18n;
-  export import Alert = ElementReact.Alert;
-  export import Button = ElementReact.Button;
-  export import Card = ElementReact.Card;
-  export import Layout = ElementReact.Layout;
-  export import Loading = ElementReact.Loading;
-  export import Message = ElementReact.Message;
-  export import MessageBox = ElementReact.MessageBox;
-  export import Notification = ElementReact.Notification;
-  export import Radio = ElementReact.Radio;
-  export import Dialog = ElementReact.Dialog;
-  export import Rate = ElementReact.Rate;
-  export import Progress = ElementReact.Progress;
-  export import Badge = ElementReact.Badge;
-  export import Tabs = ElementReact.Tabs;
-  export import Tree = ElementReact.Tree;
-  export import Input = ElementReact.Input;
-  export import Icon = ElementReact.Icon;
-  export import Menu = ElementReact.Menu;
-  export import Steps = ElementReact.Steps;
-  export import Breadcrumb = ElementReact.Breadcrumb;
-  export import Tooltip = ElementReact.Tooltip;
-  export import InputNumber = ElementReact.InputNumber;
-  export import Checkbox = ElementReact.Checkbox;
-  export import Slider = ElementReact.Slider;
-  export import Table = ElementReact.Table;
-  export import TableColumn = ElementReact.TableColumn;
-  export import Switch = ElementReact.Switch;
-  export import Form = ElementReact.Form;
-  export import Upload = ElementReact.Upload;
-  export import Tag = ElementReact.Tag;
-  export import Select = ElementReact.Select;
-  export import Dropdown = ElementReact.Dropdown;
-  export import Popover = ElementReact.Popover;
-  export import Pagination = ElementReact.Pagination;
-  export import AutoComplete = ElementReact.AutoComplete;
-  export import TimeSelect = ElementReact.TimeSelect;
-  export import TimePicker = ElementReact.TimePicker;
-  export import TimeRangePicker = ElementReact.TimeRangePicker;
-  export import DatePicker = ElementReact.DatePicker;
-  export import DateRangePicker = ElementReact.DateRangePicker;
-  export import Carousel = ElementReact.Carousel;
-  export import Collapse = ElementReact.Collapse;
-  export import ColorPicker = ElementReact.ColorPicker;
-  export import Cascader = ElementReact.Cascader;
-  export import Transfer = ElementReact.Transfer;
+declare module 'element-react' {
+  export import i18n = ElementReact.i18n
+  export import Alert = ElementReact.Alert
+  export import Button = ElementReact.Button
+  export import Card = ElementReact.Card
+  export import Layout = ElementReact.Layout
+  export import Loading = ElementReact.Loading
+  export import Message = ElementReact.Message
+  export import MessageBox = ElementReact.MessageBox
+  export import Notification = ElementReact.Notification
+  export import Radio = ElementReact.Radio
+  export import Dialog = ElementReact.Dialog
+  export import Rate = ElementReact.Rate
+  export import Progress = ElementReact.Progress
+  export import Badge = ElementReact.Badge
+  export import Tabs = ElementReact.Tabs
+  export import Tree = ElementReact.Tree
+  export import Input = ElementReact.Input
+  export import Icon = ElementReact.Icon
+  export import Menu = ElementReact.Menu
+  export import Steps = ElementReact.Steps
+  export import Breadcrumb = ElementReact.Breadcrumb
+  export import Tooltip = ElementReact.Tooltip
+  export import InputNumber = ElementReact.InputNumber
+  export import Checkbox = ElementReact.Checkbox
+  export import Slider = ElementReact.Slider
+  export import Table = ElementReact.Table
+  export import TableColumn = ElementReact.TableColumn
+  export import Switch = ElementReact.Switch
+  export import Form = ElementReact.Form
+  export import Upload = ElementReact.Upload
+  export import Tag = ElementReact.Tag
+  export import Select = ElementReact.Select
+  export import Dropdown = ElementReact.Dropdown
+  export import Popover = ElementReact.Popover
+  export import Pagination = ElementReact.Pagination
+  export import AutoComplete = ElementReact.AutoComplete
+  export import TimeSelect = ElementReact.TimeSelect
+  export import TimePicker = ElementReact.TimePicker
+  export import TimeRangePicker = ElementReact.TimeRangePicker
+  export import DatePicker = ElementReact.DatePicker
+  export import DateRangePicker = ElementReact.DateRangePicker
+  export import Carousel = ElementReact.Carousel
+  export import Collapse = ElementReact.Collapse
+  export import ColorPicker = ElementReact.ColorPicker
+  export import Cascader = ElementReact.Cascader
+  export import Transfer = ElementReact.Transfer
 }
 
-declare module "element-react/next" {
-  export import i18n = ElementReact.i18n;
-  export import Alert = ElementReact.Alert;
-  export import Button = ElementReact.Button;
-  export import Card = ElementReact.Card;
-  export import Layout = ElementReact.Layout;
-  export import Loading = ElementReact.Loading;
-  export import Message = ElementReact.Message;
-  export import MessageBox = ElementReact.MessageBox;
-  export import Notification = ElementReact.Notification;
-  export import Radio = ElementReact.Radio;
-  export import Dialog = ElementReact.Dialog;
-  export import Rate = ElementReact.Rate;
-  export import Progress = ElementReact.Progress;
-  export import Badge = ElementReact.Badge;
-  export import Tabs = ElementReact.Tabs;
-  export import Tree = ElementReact.Tree;
-  export import Input = ElementReact.Input;
-  export import Icon = ElementReact.Icon;
-  export import Menu = ElementReact.Menu;
-  export import Steps = ElementReact.Steps;
-  export import Breadcrumb = ElementReact.Breadcrumb;
-  export import Tooltip = ElementReact.Tooltip;
-  export import InputNumber = ElementReact.InputNumber;
-  export import Checkbox = ElementReact.Checkbox;
-  export import Slider = ElementReact.Slider;
-  export import Table = ElementReact.Table;
-  export import Switch = ElementReact.Switch;
-  export import Form = ElementReact.Form;
-  export import Upload = ElementReact.Upload;
-  export import Tag = ElementReact.Tag;
-  export import Select = ElementReact.Select;
-  export import Dropdown = ElementReact.Dropdown;
-  export import Popover = ElementReact.Popover;
-  export import Pagination = ElementReact.Pagination;
-  export import AutoComplete = ElementReact.AutoComplete;
-  export import TimeSelect = ElementReact.TimeSelect;
-  export import TimePicker = ElementReact.TimePicker;
-  export import TimeRangePicker = ElementReact.TimeRangePicker;
-  export import DatePicker = ElementReact.DatePicker;
-  export import DateRangePicker = ElementReact.DateRangePicker;
-  export import Carousel = ElementReact.Carousel;
-  export import Collapse = ElementReact.Collapse;
-  export import ColorPicker = ElementReact.ColorPicker;
-  export import Cascader = ElementReact.Cascader;
-  export import Transfer = ElementReact.Transfer;
+declare module 'element-react/next' {
+  export import i18n = ElementReact.i18n
+  export import Alert = ElementReact.Alert
+  export import Button = ElementReact.Button
+  export import Card = ElementReact.Card
+  export import Layout = ElementReact.Layout
+  export import Loading = ElementReact.Loading
+  export import Message = ElementReact.Message
+  export import MessageBox = ElementReact.MessageBox
+  export import Notification = ElementReact.Notification
+  export import Radio = ElementReact.Radio
+  export import Dialog = ElementReact.Dialog
+  export import Rate = ElementReact.Rate
+  export import Progress = ElementReact.Progress
+  export import Badge = ElementReact.Badge
+  export import Tabs = ElementReact.Tabs
+  export import Tree = ElementReact.Tree
+  export import Input = ElementReact.Input
+  export import Icon = ElementReact.Icon
+  export import Menu = ElementReact.Menu
+  export import Steps = ElementReact.Steps
+  export import Breadcrumb = ElementReact.Breadcrumb
+  export import Tooltip = ElementReact.Tooltip
+  export import InputNumber = ElementReact.InputNumber
+  export import Checkbox = ElementReact.Checkbox
+  export import Slider = ElementReact.Slider
+  export import Table = ElementReact.Table
+  export import Switch = ElementReact.Switch
+  export import Form = ElementReact.Form
+  export import Upload = ElementReact.Upload
+  export import Tag = ElementReact.Tag
+  export import Select = ElementReact.Select
+  export import Dropdown = ElementReact.Dropdown
+  export import Popover = ElementReact.Popover
+  export import Pagination = ElementReact.Pagination
+  export import AutoComplete = ElementReact.AutoComplete
+  export import TimeSelect = ElementReact.TimeSelect
+  export import TimePicker = ElementReact.TimePicker
+  export import TimeRangePicker = ElementReact.TimeRangePicker
+  export import DatePicker = ElementReact.DatePicker
+  export import DateRangePicker = ElementReact.DateRangePicker
+  export import Carousel = ElementReact.Carousel
+  export import Collapse = ElementReact.Collapse
+  export import ColorPicker = ElementReact.ColorPicker
+  export import Cascader = ElementReact.Cascader
+  export import Transfer = ElementReact.Transfer
 }
 
 declare namespace ElementReact {
   type typeColor = 'success' | 'info' | 'warning'
-  type SortOrder = 'descend' | 'ascend';
+  type SortOrder = 'descend' | 'ascend'
   type I18nLang = any
 
   // i18n
@@ -109,7 +109,7 @@ declare namespace ElementReact {
     t(path: string, options: any): string
   }
 
-  export const i18n: I18n;
+  export const i18n: I18n
 
   // Alert
   interface AlertProps extends ElementReactLibs.ComponentProps<{}> {
@@ -123,8 +123,7 @@ declare namespace ElementReact {
     onClose?(): void
   }
 
-  export class Alert extends ElementReactLibs.Component<AlertProps, {}> {
-  }
+  export class Alert extends ElementReactLibs.Component<AlertProps, {}> {}
 
   // Button
   interface ButtonProps extends ElementReactLibs.ComponentProps<{}> {
@@ -139,11 +138,10 @@ declare namespace ElementReact {
     onClick?(e: React.SyntheticEvent<HTMLButtonElement>): void
   }
 
-  class ButtonGroup extends ElementReactLibs.Component<{}, {}> {
-  }
+  class ButtonGroup extends ElementReactLibs.Component<{}, {}> {}
 
   export class Button extends ElementReactLibs.Component<ButtonProps, {}> {
-    static Group: typeof ButtonGroup;
+    static Group: typeof ButtonGroup
   }
 
   // Card
@@ -152,8 +150,7 @@ declare namespace ElementReact {
     bodyStyle?: React.CSSProperties
   }
 
-  export class Card extends ElementReactLibs.Component<CardProps, {}> {
-  }
+  export class Card extends ElementReactLibs.Component<CardProps, {}> {}
 
   // Layout
   interface RowProps extends ElementReactLibs.ComponentProps<{}> {
@@ -163,8 +160,7 @@ declare namespace ElementReact {
     align?: 'top' | 'middle' | 'bottom'
   }
 
-  class Row extends ElementReactLibs.Component<RowProps, {}> {
-  }
+  class Row extends ElementReactLibs.Component<RowProps, {}> {}
 
   interface ColProps extends ElementReactLibs.ComponentProps<{}> {
     span: number | string
@@ -178,13 +174,12 @@ declare namespace ElementReact {
     lg?: number | string | Object
   }
 
-  class Col extends ElementReactLibs.Component<ColProps, {}> {
-  }
+  class Col extends ElementReactLibs.Component<ColProps, {}> {}
 
   export const Layout: {
     Row: typeof Row
     Col: typeof Col
-  };
+  }
 
   // Loading
   interface LoadingProps extends ElementReactLibs.ComponentProps<{}> {
@@ -193,8 +188,7 @@ declare namespace ElementReact {
     text?: string
   }
 
-  export class Loading extends ElementReactLibs.Component<LoadingProps, {}> {
-  }
+  export class Loading extends ElementReactLibs.Component<LoadingProps, {}> {}
 
   // Message
   type Message = any
@@ -210,7 +204,10 @@ declare namespace ElementReact {
     onClose?(message?: Message): void
   }
 
-  type MessageFunction = (options: string | MessageOptions, type?: typeColor | 'error') => void
+  type MessageFunction = (
+    options: string | MessageOptions,
+    type?: typeColor | 'error'
+  ) => void
   type MessageObject = {
     success(options: string | MessageOptions): void
     info(options: string | MessageOptions): void
@@ -218,7 +215,7 @@ declare namespace ElementReact {
     error(options: string | MessageOptions): void
     close(): void
   }
-  export const Message: MessageFunction & MessageObject;
+  export const Message: MessageFunction & MessageObject
 
   // MessageBox
   interface NextOptions {
@@ -249,7 +246,7 @@ declare namespace ElementReact {
     prompt(message: string, props?: NextOptions): Promise<void>
     prompt(message: string, title?: string, props?: NextOptions): Promise<void>
     msgbox(options?: NextOptions): Promise<void>
-  };
+  }
 
   // Notification
   interface NotificationOptions {
@@ -265,7 +262,10 @@ declare namespace ElementReact {
     onClose?(): void
   }
 
-  type NotificationFunction = (options: string | NotificationOptions, type?: typeColor | 'error') => void
+  type NotificationFunction = (
+    options: string | NotificationOptions,
+    type?: typeColor | 'error'
+  ) => void
   type NotificationObject = {
     success(options: string | NotificationOptions): void
     info(options: string | NotificationOptions): void
@@ -273,7 +273,7 @@ declare namespace ElementReact {
     error(options: string | NotificationOptions): void
     close(): void
   }
-  export const Notification: NotificationFunction & NotificationObject;
+  export const Notification: NotificationFunction & NotificationObject
 
   // Radio
   interface RadioProps extends ElementReactLibs.ComponentProps<{}> {
@@ -301,15 +301,13 @@ declare namespace ElementReact {
     name?: string
   }
 
-  class RadioGroup extends ElementReactLibs.Component<RadioGroupProps, {}> {
-  }
+  class RadioGroup extends ElementReactLibs.Component<RadioGroupProps, {}> {}
 
-  class RadioButton extends ElementReactLibs.Component<RadioButtonProps, {}> {
-  }
+  class RadioButton extends ElementReactLibs.Component<RadioButtonProps, {}> {}
 
   export class Radio extends ElementReactLibs.Component<RadioProps, {}> {
-    static Group: typeof RadioGroup;
-    static Button: typeof RadioButton;
+    static Group: typeof RadioGroup
+    static Button: typeof RadioButton
   }
 
   // Dialog
@@ -331,21 +329,20 @@ declare namespace ElementReact {
     opClose?(...args: any): any
   }
 
-  interface DialogBodyProps extends ElementReactLibs.ComponentProps<{}> {
-  }
+  interface DialogBodyProps extends ElementReactLibs.ComponentProps<{}> {}
 
-  interface DialogFooterProps extends ElementReactLibs.ComponentProps<{}> {
-  }
+  interface DialogFooterProps extends ElementReactLibs.ComponentProps<{}> {}
 
-  class DialogBody extends ElementReactLibs.Component<DialogBodyProps, {}> {
-  }
+  class DialogBody extends ElementReactLibs.Component<DialogBodyProps, {}> {}
 
-  class DialogFooter extends ElementReactLibs.Component<DialogFooterProps, {}> {
-  }
+  class DialogFooter extends ElementReactLibs.Component<
+    DialogFooterProps,
+    {}
+  > {}
 
   export class Dialog extends ElementReactLibs.Component<DialogProps, {}> {
-    static Body: typeof DialogBody;
-    static Footer: typeof DialogFooter;
+    static Body: typeof DialogBody
+    static Footer: typeof DialogFooter
   }
 
   // Rate
@@ -370,8 +367,7 @@ declare namespace ElementReact {
     onChange?(value?: number): void
   }
 
-  export class Rate extends ElementReactLibs.Component<RateProps, {}> {
-  }
+  export class Rate extends ElementReactLibs.Component<RateProps, {}> {}
 
   // Progress
   interface ProgressProps extends ElementReactLibs.ComponentProps<{}> {
@@ -384,8 +380,7 @@ declare namespace ElementReact {
     showText?: boolean
   }
 
-  export class Progress extends ElementReactLibs.Component<ProgressProps, {}> {
-  }
+  export class Progress extends ElementReactLibs.Component<ProgressProps, {}> {}
 
   // Badge
   interface BadgeProps extends ElementReactLibs.ComponentProps<{}> {
@@ -394,8 +389,7 @@ declare namespace ElementReact {
     isDot?: boolean
   }
 
-  export class Badge extends ElementReactLibs.Component<BadgeProps, {}> {
-  }
+  export class Badge extends ElementReactLibs.Component<BadgeProps, {}> {}
 
   // Tabs
   interface TabsProps extends ElementReactLibs.ComponentProps<{}> {
@@ -423,11 +417,10 @@ declare namespace ElementReact {
     closable?: boolean
   }
 
-  class TabsPane extends ElementReactLibs.Component<TabsPaneProps, {}> {
-  }
+  class TabsPane extends ElementReactLibs.Component<TabsPaneProps, {}> {}
 
   export class Tabs extends ElementReactLibs.Component<TabsProps, {}> {
-    static Pane: typeof TabsPane;
+    static Pane: typeof TabsPane
   }
 
   // Tree
@@ -443,19 +436,23 @@ declare namespace ElementReact {
     expandOnClickNode?: boolean
     isShowCheckbox?: boolean
     accordion?: boolean
-    indent?: number,
+    indent?: number
     nodeKey?: string
     options?: {
       children?: string
       label?: string
       icon?: string
-    },
+    }
     lazy?: boolean
     highlightCurrent?: boolean
 
     filterNodeMethod?(value?: any, data?: any, node?: any): boolean
 
-    renderContent?(nodeModel?: any, data?: any, store?: any): React.ReactElement<any>
+    renderContent?(
+      nodeModel?: any,
+      data?: any,
+      store?: any
+    ): React.ReactElement<any>
 
     load?(node?: any, resolve?: any): void
 
@@ -531,16 +528,14 @@ declare namespace ElementReact {
     inputSelect?(item?: any): void
   }
 
-  export class Input extends ElementReactLibs.Component<InputProps, {}> {
-  }
+  export class Input extends ElementReactLibs.Component<InputProps, {}> {}
 
   // Icon
   interface IconProps extends ElementReactLibs.ComponentProps<{}> {
     name: string
   }
 
-  export class Icon extends ElementReactLibs.Component<IconProps, {}> {
-  }
+  export class Icon extends ElementReactLibs.Component<IconProps, {}> {}
 
   // Menu
   type menuIndex = string // 这里代码里面标注的 flowtype 是 number
@@ -573,19 +568,19 @@ declare namespace ElementReact {
     title: string
   }
 
-  class SubMenu extends ElementReactLibs.Component<SubMenuProps, {}> {
-  }
+  class SubMenu extends ElementReactLibs.Component<SubMenuProps, {}> {}
 
-  class MenuItem extends ElementReactLibs.Component<MenuItemProps, {}> {
-  }
+  class MenuItem extends ElementReactLibs.Component<MenuItemProps, {}> {}
 
-  class MenuItemGroup extends ElementReactLibs.Component<MenuItemGroupProps, {}> {
-  }
+  class MenuItemGroup extends ElementReactLibs.Component<
+    MenuItemGroupProps,
+    {}
+  > {}
 
   export class Menu extends ElementReactLibs.Component<MenuProps, {}> {
-    static SubMenu: typeof SubMenu;
-    static Item: typeof MenuItem;
-    static ItemGroup: typeof MenuItemGroup;
+    static SubMenu: typeof SubMenu
+    static Item: typeof MenuItem
+    static ItemGroup: typeof MenuItemGroup
   }
 
   // Steps
@@ -610,11 +605,10 @@ declare namespace ElementReact {
     stepNumber?: number
   }
 
-  class Step extends ElementReactLibs.Component<StepProps, {}> {
-  }
+  class Step extends ElementReactLibs.Component<StepProps, {}> {}
 
   export class Steps extends ElementReactLibs.Component<StepsProps, {}> {
-    static Step: typeof Step;
+    static Step: typeof Step
   }
 
   // Breadcrumb
@@ -622,21 +616,37 @@ declare namespace ElementReact {
     separator?: string
   }
 
-  interface BreadcrumbItemProps extends ElementReactLibs.ComponentProps<{}> {
-  }
+  interface BreadcrumbItemProps extends ElementReactLibs.ComponentProps<{}> {}
 
-  class BreadcrumbItem extends ElementReactLibs.Component<BreadcrumbItemProps, {}> {
-  }
+  class BreadcrumbItem extends ElementReactLibs.Component<
+    BreadcrumbItemProps,
+    {}
+  > {}
 
-  export class Breadcrumb extends ElementReactLibs.Component<BreadcrumbProps, {}> {
-    static Item: typeof BreadcrumbItem;
+  export class Breadcrumb extends ElementReactLibs.Component<
+    BreadcrumbProps,
+    {}
+  > {
+    static Item: typeof BreadcrumbItem
   }
 
   // Tooltip
   interface TooltipProps extends ElementReactLibs.ComponentProps<{}> {
     effect?: 'dark' | 'light'
     content?: string | React.ReactElement<any>
-    placement?: 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'
+    placement?:
+      | 'top'
+      | 'top-start'
+      | 'top-end'
+      | 'bottom'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'left'
+      | 'left-start'
+      | 'left-end'
+      | 'right'
+      | 'right-start'
+      | 'right-end'
     disabled?: boolean
     transition?: string
     visibleArrow?: boolean
@@ -645,8 +655,7 @@ declare namespace ElementReact {
     visible?: boolean
   }
 
-  export class Tooltip extends ElementReactLibs.Component<TooltipProps, {}> {
-  }
+  export class Tooltip extends ElementReactLibs.Component<TooltipProps, {}> {}
 
   // InputNumber
   interface InputNumberProps extends ElementReactLibs.ComponentProps<{}> {
@@ -662,8 +671,10 @@ declare namespace ElementReact {
     onChange?(value?: number): void
   }
 
-  export class InputNumber extends ElementReactLibs.Component<InputNumberProps, {}> {
-  }
+  export class InputNumber extends ElementReactLibs.Component<
+    InputNumberProps,
+    {}
+  > {}
 
   // Checkbox
   interface CheckboxProps extends ElementReactLibs.ComponentProps<{}> {
@@ -689,18 +700,21 @@ declare namespace ElementReact {
     onChange?(value?: any): void
   }
 
-  interface CheckboxButtonProps extends ElementReactLibs.ComponentProps<{}> {
-  }
+  interface CheckboxButtonProps extends ElementReactLibs.ComponentProps<{}> {}
 
-  class CheckboxGroup extends ElementReactLibs.Component<CheckboxGroupProps, {}> {
-  }
+  class CheckboxGroup extends ElementReactLibs.Component<
+    CheckboxGroupProps,
+    {}
+  > {}
 
-  class CheckboxButton extends ElementReactLibs.Component<CheckboxButtonProps, {}> {
-  }
+  class CheckboxButton extends ElementReactLibs.Component<
+    CheckboxButtonProps,
+    {}
+  > {}
 
   export class Checkbox extends ElementReactLibs.Component<CheckboxProps, {}> {
-    static Group: typeof CheckboxGroup;
-    static Button: typeof CheckboxButton;
+    static Group: typeof CheckboxGroup
+    static Button: typeof CheckboxButton
   }
 
   // Slider
@@ -723,38 +737,41 @@ declare namespace ElementReact {
     onChange?(value: any): void
   }
 
-  export class Slider extends ElementReactLibs.Component<SliderProps, {}> {
-  }
+  export class Slider extends ElementReactLibs.Component<SliderProps, {}> {}
 
   // Table
-  export type strOrNum = string | number;
+  export type strOrNum = string | number
 
   interface TableColumn {
-    type?: string,
-    columnKey?: string,
-    dataIndex?: string,
-    label?: string | React.ReactNode,
-    prop?: string,
-    property?: string,
-    width?: number | string,
-    minWidth?: number | string,
-    fixed?: boolean | ('left' | 'right'),
-    render?: (row: Object, column: TableColumn, index: number) => React.ReactNode,
-    renderHeader?: () => void,
-    sortable?: boolean | 'custom',
-    sortMethod?: (a: any, b: any, sortOrder?: SortOrder) => number,
-    resizable: boolean,
-    align?: 'left' | 'center' | 'right',
-    headerAlign?: 'left' | 'center' | 'right',
-    className?: string,
-    labelClassName?: string,
-    selectable?: (row: Object, index: number) => boolean,
-    reserveSelection?: boolean,
-    filters?: Array<{ text: any, value: any }>,
-    filterPlacement?: string,
-    filterMultiple?: boolean,
-    filterMethod?: (value: any, row: Object) => boolean,
-    filteredValue?: Array<strOrNum> | strOrNum,
+    type?: string
+    columnKey?: string
+    dataIndex?: string
+    label?: string | React.ReactNode
+    prop?: string
+    property?: string
+    width?: number | string
+    minWidth?: number | string
+    fixed?: boolean | ('left' | 'right')
+    render?: (
+      row: Object,
+      column: TableColumn,
+      index: number
+    ) => React.ReactNode
+    renderHeader?: () => void
+    sortable?: boolean | 'custom'
+    sortMethod?: (a: any, b: any, sortOrder?: SortOrder) => number
+    resizable: boolean
+    align?: 'left' | 'center' | 'right'
+    headerAlign?: 'left' | 'center' | 'right'
+    className?: string
+    labelClassName?: string
+    selectable?: (row: Object, index: number) => boolean
+    reserveSelection?: boolean
+    filters?: Array<{ text: any; value: any }>
+    filterPlacement?: string
+    filterMultiple?: boolean
+    filterMethod?: (value: any, row: Object) => boolean
+    filteredValue?: Array<strOrNum> | strOrNum
     subColumns?: Array<TableColumn>
   }
 
@@ -769,7 +786,9 @@ declare namespace ElementReact {
     fit?: boolean
     showHeader?: boolean
     rowClassName?: ((row?: any, index?: number) => string) | string
-    rowStyle?: React.CSSProperties | ((row?: any, index?: number) => React.CSSProperties)
+    rowStyle?:
+      | React.CSSProperties
+      | ((row?: any, index?: number) => React.CSSProperties)
     highlightCurrentRow?: boolean
     rowKey?: string | ((row: any) => string)
     emptyText?: string | React.ReactNode
@@ -777,16 +796,18 @@ declare namespace ElementReact {
     expandRowKeys?: string[] | number[]
     showSummary?: boolean
     sumText?: React.ReactNode | string
-    summaryMethod?: ((params: { columns: TableColumn[], data: any[] }) => React.ReactNode | string)
+    summaryMethod?: (params: {
+      columns: TableColumn[]
+      data: any[]
+    }) => React.ReactNode | string
     onCurrentChange?: () => void
     onSelectAll?: (selectedRowKeys: string[] | number[]) => void
     onSelectChange?: (selectedRowKeys: string[] | number[]) => void
     onSelect?: (selectedRowKeys: string[] | number[], row: any) => void
-    onRowClick?: (row: any, index: number) => void
+    onRow?: () => Object
   }
 
-  export class Table extends ElementReactLibs.Component<TableProps, {}> {
-  }
+  export class Table extends ElementReactLibs.Component<TableProps, {}> {}
 
   // Switch
   interface SwitchProps extends ElementReactLibs.ComponentProps<{}> {
@@ -806,8 +827,7 @@ declare namespace ElementReact {
     onChange?(value: number | string | boolean): void
   }
 
-  export class Switch extends ElementReactLibs.Component<SwitchProps, {}> {
-  }
+  export class Switch extends ElementReactLibs.Component<SwitchProps, {}> {}
 
   // Form
   interface FormProps extends ElementReactLibs.ComponentProps<{}> {
@@ -827,11 +847,10 @@ declare namespace ElementReact {
     rules?: Object | any[]
   }
 
-  class FormItem extends ElementReactLibs.Component<FormItemProps, {}> {
-  }
+  class FormItem extends ElementReactLibs.Component<FormItemProps, {}> {}
 
   export class Form extends ElementReactLibs.Component<FormProps, {}> {
-    static Item: typeof FormItem;
+    static Item: typeof FormItem
 
     validate(cb?: (valid: boolean) => void): void
 
@@ -873,22 +892,20 @@ declare namespace ElementReact {
     onChange?(file?: any, fileList?: any[]): void
   }
 
-  export class Upload extends ElementReactLibs.Component<UploadProps, {}> {
-  }
+  export class Upload extends ElementReactLibs.Component<UploadProps, {}> {}
 
   // Tag
   interface TagProps extends ElementReactLibs.ComponentProps<{}> {
     closable?: boolean
     type?: 'primary' | 'gray' | 'success' | 'warning' | 'danger'
-    hit?: boolean,
-    color?: string,
+    hit?: boolean
+    color?: string
     closeTransition?: boolean
 
     onClose?(): void
   }
 
-  export class Tag extends ElementReactLibs.Component<TagProps, {}> {
-  }
+  export class Tag extends ElementReactLibs.Component<TagProps, {}> {}
 
   // Select
   interface SelectProps extends ElementReactLibs.ComponentProps<{}> {
@@ -921,15 +938,19 @@ declare namespace ElementReact {
     label?: string
   }
 
-  class SelectOption extends ElementReactLibs.Component<SelectOptionProps, {}> {
-  }
+  class SelectOption extends ElementReactLibs.Component<
+    SelectOptionProps,
+    {}
+  > {}
 
-  class SelectOptionGroup extends ElementReactLibs.Component<SelectOptionGroupProps, {}> {
-  }
+  class SelectOptionGroup extends ElementReactLibs.Component<
+    SelectOptionGroupProps,
+    {}
+  > {}
 
   export class Select extends ElementReactLibs.Component<SelectProps, {}> {
-    static Option: typeof SelectOption;
-    static OptionGroup: typeof SelectOptionGroup;
+    static Option: typeof SelectOption
+    static OptionGroup: typeof SelectOptionGroup
   }
 
   // Dropdown
@@ -947,8 +968,7 @@ declare namespace ElementReact {
     onCommand?(command?: string, instance?: any): void
   }
 
-  interface DropdownMenuProps extends ElementReactLibs.ComponentProps<{}> {
-  }
+  interface DropdownMenuProps extends ElementReactLibs.ComponentProps<{}> {}
 
   interface DropdownItemProps extends ElementReactLibs.ComponentProps<{}> {
     command?: string
@@ -956,21 +976,37 @@ declare namespace ElementReact {
     divided?: boolean
   }
 
-  class DropdownMenu extends ElementReactLibs.Component<DropdownMenuProps, {}> {
-  }
+  class DropdownMenu extends ElementReactLibs.Component<
+    DropdownMenuProps,
+    {}
+  > {}
 
-  class DropdownItem extends ElementReactLibs.Component<DropdownItemProps, {}> {
-  }
+  class DropdownItem extends ElementReactLibs.Component<
+    DropdownItemProps,
+    {}
+  > {}
 
   export class Dropdown extends ElementReactLibs.Component<DropdownProps, {}> {
-    static Menu: typeof DropdownMenu;
-    static Item: typeof DropdownItem;
+    static Menu: typeof DropdownMenu
+    static Item: typeof DropdownItem
   }
 
   // Popover
   interface PopoverProps extends ElementReactLibs.ComponentProps<{}> {
     width?: number | string
-    placement?: 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end'
+    placement?:
+      | 'top'
+      | 'top-start'
+      | 'top-end'
+      | 'bottom'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'left'
+      | 'left-start'
+      | 'left-end'
+      | 'right'
+      | 'right-start'
+      | 'right-end'
     trigger?: 'click' | 'focus' | 'hover'
     title?: string
     content?: React.ReactElement<any> | string
@@ -980,8 +1016,7 @@ declare namespace ElementReact {
     visibleArrow?: boolean
   }
 
-  export class Popover extends ElementReactLibs.Component<PopoverProps, {}> {
-  }
+  export class Popover extends ElementReactLibs.Component<PopoverProps, {}> {}
 
   // Pagination
   interface PaginationProps extends ElementReactLibs.ComponentProps<{}> {
@@ -990,7 +1025,7 @@ declare namespace ElementReact {
     total?: number
     pageCount?: number
     currentPage?: number
-    layout?: string,
+    layout?: string
     pageSizes?: number[]
 
     onCurrentChange?(currentPage?: number): void
@@ -998,8 +1033,10 @@ declare namespace ElementReact {
     onSizeChange?(size?: number): void
   }
 
-  export class Pagination extends ElementReactLibs.Component<PaginationProps, {}> {
-  }
+  export class Pagination extends ElementReactLibs.Component<
+    PaginationProps,
+    {}
+  > {}
 
   // AutoComplete
   interface AutoCompleteProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1014,15 +1051,20 @@ declare namespace ElementReact {
     append?: React.ReactElement<any>
     prepend?: React.ReactElement<any>
 
-    fetchSuggestions?(queryString?: string, callback?: (data?: any[]) => void): void
+    fetchSuggestions?(
+      queryString?: string,
+      callback?: (data?: any[]) => void
+    ): void
 
     onSelect?(item?: any): void
 
     onIconClick?(): void
   }
 
-  export class AutoComplete extends ElementReactLibs.Component<AutoCompleteProps, {}> {
-  }
+  export class AutoComplete extends ElementReactLibs.Component<
+    AutoCompleteProps,
+    {}
+  > {}
 
   // TimeSelect
   interface TimeSelectProps extends ElementReactLibs.DatePickerBaseProps {
@@ -1034,8 +1076,10 @@ declare namespace ElementReact {
     value?: ElementReactLibs.dateType
   }
 
-  export class TimeSelect extends ElementReactLibs.DatePickerBaseComponet<TimeSelectProps, {}> {
-  }
+  export class TimeSelect extends ElementReactLibs.DatePickerBaseComponet<
+    TimeSelectProps,
+    {}
+  > {}
 
   // TimePicker
   interface TimePickerProps extends ElementReactLibs.DatePickerBaseProps {
@@ -1043,8 +1087,10 @@ declare namespace ElementReact {
     value?: ElementReactLibs.dateType
   }
 
-  export class TimePicker extends ElementReactLibs.DatePickerBaseComponet<TimePickerProps, {}> {
-  }
+  export class TimePicker extends ElementReactLibs.DatePickerBaseComponet<
+    TimePickerProps,
+    {}
+  > {}
 
   // TimeRangePicker
   interface TimeRangePickerProps extends ElementReactLibs.DatePickerBaseProps {
@@ -1053,25 +1099,31 @@ declare namespace ElementReact {
     rangeSeparator?: string
   }
 
-  export class TimeRangePicker extends ElementReactLibs.DatePickerBaseComponet<TimeRangePickerProps, {}> {
-  }
+  export class TimeRangePicker extends ElementReactLibs.DatePickerBaseComponet<
+    TimeRangePickerProps,
+    {}
+  > {}
 
   // DatePicker
   interface DatePickerProps extends ElementReactLibs.DatePanelProps {
     value?: ElementReactLibs.dateType
   }
 
-  export class DatePicker extends ElementReactLibs.DatePickerBaseComponet<DatePickerProps, {}> {
-  }
+  export class DatePicker extends ElementReactLibs.DatePickerBaseComponet<
+    DatePickerProps,
+    {}
+  > {}
 
   // DateRangePicker
   interface DateRangePickerProps extends ElementReactLibs.DatePanelProps {
     value?: ElementReactLibs.dateType[]
-    rangeSeparator?: string,
+    rangeSeparator?: string
   }
 
-  export class DateRangePicker extends ElementReactLibs.DatePickerBaseComponet<DateRangePickerProps, {}> {
-  }
+  export class DateRangePicker extends ElementReactLibs.DatePickerBaseComponet<
+    DateRangePickerProps,
+    {}
+  > {}
 
   // Carousel
   interface CarouselProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1092,11 +1144,13 @@ declare namespace ElementReact {
     name?: string
   }
 
-  class CarouselItem extends ElementReactLibs.Component<CarouselItemProps, {}> {
-  }
+  class CarouselItem extends ElementReactLibs.Component<
+    CarouselItemProps,
+    {}
+  > {}
 
   export class Carousel extends ElementReactLibs.Component<CarouselProps, {}> {
-    static Item: typeof CarouselItem;
+    static Item: typeof CarouselItem
 
     setActiveItem(index: number): void
 
@@ -1121,11 +1175,13 @@ declare namespace ElementReact {
     onClick?(item?: any): void
   }
 
-  class CollapseItem extends ElementReactLibs.Component<CollapseItemProps, {}> {
-  }
+  class CollapseItem extends ElementReactLibs.Component<
+    CollapseItemProps,
+    {}
+  > {}
 
   export class Collapse extends ElementReactLibs.Component<CollapseProps, {}> {
-    static Item: typeof CollapseItem;
+    static Item: typeof CollapseItem
   }
 
   // ColorPicker
@@ -1137,8 +1193,10 @@ declare namespace ElementReact {
     onChange?(color?: string): void
   }
 
-  export class ColorPicker extends ElementReactLibs.Component<ColorPickerProps, {}> {
-  }
+  export class ColorPicker extends ElementReactLibs.Component<
+    ColorPickerProps,
+    {}
+  > {}
 
   // Cascader
   interface CascaderProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1166,12 +1224,11 @@ declare namespace ElementReact {
     onChange?(value?: any): void
   }
 
-  export class Cascader extends ElementReactLibs.Component<CascaderProps, {}> {
-  }
+  export class Cascader extends ElementReactLibs.Component<CascaderProps, {}> {}
 
   // Transfer
   interface TransferProps extends ElementReactLibs.ComponentProps<{}> {
-    data?: { key: string, label: string, disabled: boolean }[]
+    data?: { key: string; label: string; disabled: boolean }[]
     titles?: string[]
     buttonTexts?: string[]
     filterPlaceholder?: string
@@ -1198,8 +1255,7 @@ declare namespace ElementReact {
     onChange?(value?: any, drection?: string, movedKeys?: any[]): void
   }
 
-  export class Transfer extends ElementReactLibs.Component<TransferProps, {}> {
-  }
+  export class Transfer extends ElementReactLibs.Component<TransferProps, {}> {}
 }
 
 declare namespace ElementReactLibs {
@@ -1250,127 +1306,126 @@ declare namespace ElementReactLibs {
     disabledDate?(date?: Date, type?: SelectionMode): boolean
   }
 
-  class DatePickerBaseComponet<P, S> extends React.Component<P, S> {
-  }
+  class DatePickerBaseComponet<P, S> extends React.Component<P, S> {}
 }
 
-declare module "element-react/src/locale/lang/bg" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/bg' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/ca" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/ca' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/cz" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/cz' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/da" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/da' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/de" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/de' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/el" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/el' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/en" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/en' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/es" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/es' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/fa" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/fa' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/fi" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/fi' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/fr" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/fr' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/id" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/id' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/it" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/it' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/ja" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/ja' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/ko" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/ko' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/nb-NO" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/nb-NO' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/nl" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/nl' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/pl" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/pl' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/pt-br" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/pt-br' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/pt" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/pt' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/ru-RU" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/ru-RU' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/sk" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/sk' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/sv-SE" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/sv-SE' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/th" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/th' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/tk" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/tk' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/tr-TR" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/tr-TR' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/ua" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/ua' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/vi" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/vi' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/zh-CN" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/zh-CN' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
-declare module "element-react/src/locale/lang/zh-TW" {
-  const lang: ElementReact.I18nLang;
-  export default lang;
+declare module 'element-react/src/locale/lang/zh-TW' {
+  const lang: ElementReact.I18nLang
+  export default lang
 }
