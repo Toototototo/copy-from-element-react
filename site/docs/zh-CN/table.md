@@ -1286,6 +1286,9 @@ render() {
         height={250}
         onSelectChange={(selection) => { console.log(selection) }}
         onSelectAll={(selection) => { console.log(selection) }}
+        onRowChange={(...args) => console.log('onRowChange', args)}
+        onRowSelect={(...args) => console.log('onRowSelect', args)}
+        onRowSelectAll={(...args) => console.log('onRowSelectAll', args)}
       />
       <div style={{marginTop: '20px'}}>
         <Button onClick={() => this.toggleSelection([ data[1], data[2] ])}>切换第二、第三行的选中状态</Button>

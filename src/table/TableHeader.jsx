@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // @flow
-import * as React from 'react';
-import { throttle } from 'throttle-debounce';
-import { PropTypes, PureComponent } from '../../libs';
-import Checkbox from '../checkbox';
-import FilterPannel from './FilterPannel';
+import * as React from "react";
+import { throttle } from "throttle-debounce";
+import { PropTypes, PureComponent } from "../../libs";
+import Checkbox from "../checkbox";
+import FilterPannel from "./FilterPannel";
 
-import type { _Column, TableHeaderProps } from './Types';
+import type { _Column, TableHeaderProps } from "./Types";
 
 const _document = (document: any);
 
@@ -14,15 +14,17 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
   static contextTypes = {
     tableStore: PropTypes.any,
     layout: PropTypes.any,
-    table: PropTypes.any,
+    table: PropTypes.any
   };
 
   constructor(props: TableHeaderProps) {
     super(props);
 
-    ['handleHeaderClick', 'handleFilterClick', 'handleSortClick'].forEach((fn) => {
-      this[fn] = throttle(300, true, this[fn])
-    })
+    ["handleHeaderClick", "handleFilterClick", "handleSortClick"].forEach(
+      fn => {
+        this[fn] = throttle(300, true, this[fn]);
+      }
+    );
   }
 
   get columnsCount(): number {
@@ -40,30 +42,36 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
     return tableStoreState.rightFixedColumns.length;
   }
 
-  handleMouseMove(column: _Column, event: SyntheticMouseEvent<HTMLTableCellElement>) {
+  handleMouseMove(
+    column: _Column,
+    event: SyntheticMouseEvent<HTMLTableCellElement>
+  ) {
     if (!column.resizable) return;
     if (column.subColumns && column.subColumns.length) return;
     const { border } = this.props;
 
     if (!this.dragging && border) {
       let target: any = event.target;
-      while (target && target.tagName !== 'TH') {
+      while (target && target.tagName !== "TH") {
         target = target.parentNode;
       }
 
       const rect = target.getBoundingClientRect();
       const bodyStyle = _document.body.style;
       if (rect.width > 12 && rect.right - event.pageX < 8) {
-        bodyStyle.cursor = 'col-resize';
+        bodyStyle.cursor = "col-resize";
         this.draggingColumn = column;
       } else {
-        bodyStyle.cursor = '';
+        bodyStyle.cursor = "";
         this.draggingColumn = null;
       }
     }
   }
 
-  handleMouseDown(column: _Column, event: SyntheticMouseEvent<HTMLTableCellElement>) {
+  handleMouseDown(
+    column: _Column,
+    event: SyntheticMouseEvent<HTMLTableCellElement>
+  ) {
     if (this.draggingColumn) {
       this.dragging = true;
 
@@ -72,19 +80,19 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
       const { el: tableEl, resizeProxy } = table;
       const tableLeft = tableEl.getBoundingClientRect().left;
       let columnEl: Object = event.target;
-      while (columnEl && columnEl.tagName !== 'TH') {
+      while (columnEl && columnEl.tagName !== "TH") {
         columnEl = columnEl.parentNode;
       }
       const columnRect = columnEl.getBoundingClientRect();
       const minLeft = columnRect.left - tableLeft + 30;
-      columnEl.classList.add('noclick');
+      columnEl.classList.add("noclick");
 
       const startMouseLeft = event.clientX;
       const startLeft = columnRect.right - tableLeft;
       const startColumnLeft = columnRect.left - tableLeft;
 
-      resizeProxy.style.visibility = 'visible';
-      resizeProxy.style.left = startLeft + 'px';
+      resizeProxy.style.visibility = "visible";
+      resizeProxy.style.left = startLeft + "px";
 
       _document.onselectstart = () => false;
       _document.ondragstart = () => false;
@@ -93,7 +101,7 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
         const deltaLeft = event.clientX - startMouseLeft;
         const proxyLeft = startLeft + deltaLeft;
 
-        resizeProxy.style.left = Math.max(minLeft, proxyLeft) + 'px';
+        resizeProxy.style.left = Math.max(minLeft, proxyLeft) + "px";
       };
 
       const handleMouseUp = (event: MouseEvent) => {
@@ -106,24 +114,30 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
           this.dragging = false;
           this.draggingColumn = null;
 
-          _document.body.style.cursor = '';
-          resizeProxy.style.visibility = 'hidden';
-          _document.removeEventListener('mousemove', handleMouseMove);
-          _document.removeEventListener('mouseup', handleMouseUp);
+          _document.body.style.cursor = "";
+          resizeProxy.style.visibility = "hidden";
+          _document.removeEventListener("mousemove", handleMouseMove);
+          _document.removeEventListener("mouseup", handleMouseUp);
           _document.onselectstart = null;
           _document.ondragstart = null;
           setTimeout(() => {
-            columnEl.classList.remove('noclick');
+            columnEl.classList.remove("noclick");
           });
 
           const { layout } = this.context;
           layout.scheduleLayout();
-          this.dispatchEvent('onHeaderDragEnd', columnWidth, oldWidth, column, event);
+          this.dispatchEvent(
+            "onHeaderDragEnd",
+            columnWidth,
+            oldWidth,
+            column,
+            event
+          );
         }
       };
 
-      _document.addEventListener('mousemove', handleMouseMove);
-      _document.addEventListener('mouseup', handleMouseUp);
+      _document.addEventListener("mousemove", handleMouseMove);
+      _document.addEventListener("mouseup", handleMouseUp);
     }
   }
 
@@ -131,25 +145,32 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
     _document.body.style.cursor = "";
   }
 
-  handleHeaderClick(column: _Column, event: SyntheticEvent<HTMLTableCellElement>) {
+  handleHeaderClick(
+    column: _Column,
+    event: SyntheticEvent<HTMLTableCellElement>
+  ) {
     if (column.sortable && !column.filters) {
       this.handleSortClick(column, null, event);
     } else if (column.filters && !column.sortable) {
       this.handleFilterClick(column, event);
     } else {
-      this.dispatchEvent('onHeaderClick', column, event)
+      this.dispatchEvent("onHeaderClick", column, event);
     }
   }
 
-  handleSortClick(column: _Column, givenOrder: ?string, event: SyntheticEvent<any>) {
+  handleSortClick(
+    column: _Column,
+    givenOrder: ?string,
+    event: SyntheticEvent<any>
+  ) {
     event.stopPropagation();
     event.nativeEvent.stopImmediatePropagation();
 
     let target: Object = event.target;
-    while (target && target.tagName !== 'TH') {
+    while (target && target.tagName !== "TH") {
       target = target.parentNode;
     }
-    if (target.classList.contains('noclick')) return;
+    if (target.classList.contains("noclick")) return;
 
     let order;
     const { tableStoreState } = this.props;
@@ -160,17 +181,17 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
       const { sortColumn, sortOrder } = tableStoreState;
       if (column === sortColumn) {
         if (!sortOrder) {
-          order = 'ascending';
+          order = "ascending";
         } else {
-          order = sortOrder === 'ascending' ? 'descending' : null;
+          order = sortOrder === "ascending" ? "descending" : null;
         }
       } else {
-        order = 'ascending';
+        order = "ascending";
       }
     }
     tableStore.changeSortCondition(column, order);
 
-    this.dispatchEvent('onHeaderClick', column, event)
+    this.dispatchEvent("onHeaderClick", column, event);
   }
 
   handleFilterClick(column: _Column, event?: SyntheticEvent<any>) {
@@ -182,7 +203,7 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
 
     tableStore.toggleFilterOpened(column);
 
-    event && this.dispatchEvent('onHeaderClick', column, event)
+    event && this.dispatchEvent("onHeaderClick", column, event);
   }
 
   dispatchEvent(name: string, ...args: Array<any>) {
@@ -197,35 +218,39 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
 
   isCellHidden(index: number, columns: Array<_Column>): boolean {
     const { fixed } = this.props;
-    if (fixed === true || fixed === 'left') {
+    if (fixed === true || fixed === "left") {
       return index >= this.leftFixedCount;
-    } else if (fixed === 'right') {
+    } else if (fixed === "right") {
       let before = 0;
       for (let i = 0; i < index; i++) {
         before += columns[i].colSpan;
       }
       return before < this.columnsCount - this.rightFixedCount;
     } else {
-      return (index < this.leftFixedCount) || (index >= this.columnsCount - this.rightFixedCount);
+      return (
+        index < this.leftFixedCount ||
+        index >= this.columnsCount - this.rightFixedCount
+      );
     }
   }
 
   renderHeader(column: _Column): ?React.Node {
     const { type } = column;
     const { tableStore } = this.context;
-    if (type === 'expand') {
-      return column.label || '';
+    if (type === "expand") {
+      return column.label || "";
     }
 
-    if (type === 'index') {
-      return column.label || '#';
+    if (type === "index") {
+      return column.label || "#";
     }
 
-    if (type === 'selection') {
+    if (type === "selection") {
       return (
         <Checkbox
+          indeterminate={tableStore.isIndeterminate}
           checked={tableStore.isAllSelected}
-          onChange={tableStore.toggleAllSelection}
+          onChange={v => tableStore.toggleAllSelection(v)}
         />
       );
     }
@@ -247,11 +272,15 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
       >
         <colgroup>
           {tableStoreState.columns.map(column => (
-            <col width={column.realWidth} style={{ width: column.realWidth }} key={column.key || column.dataIndex || column.type} />
+            <col
+              width={column.realWidth}
+              style={{ width: column.realWidth }}
+              key={column.key || column.dataIndex || column.type}
+            />
           ))}
           {!fixed && (
             <col
-              key='gutter'
+              key="gutter"
               width={layout.scrollY ? layout.gutterWidth : 0}
               style={{ width: layout.scrollY ? layout.gutterWidth : 0 }}
             />
@@ -266,15 +295,17 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
                   colSpan={column.colSpan}
                   rowSpan={column.rowSpan}
                   className={this.className(
-                    tableStoreState.sortColumn === column && tableStoreState.sortOrder,
+                    tableStoreState.sortColumn === column &&
+                      tableStoreState.sortOrder,
                     column.headerAlign,
                     column.className,
                     column.labelClassName,
                     column.columnKey,
                     {
-                      'is-hidden': rowIndex === 0 && this.isCellHidden(cellIndex, columns),
-                      'is-leaf': !column.subColumns,
-                      'is-sortable': column.sortable,
+                      "is-hidden":
+                        rowIndex === 0 && this.isCellHidden(cellIndex, columns),
+                      "is-leaf": !column.subColumns,
+                      "is-sortable": column.sortable
                     }
                   )}
                   onMouseMove={this.handleMouseMove.bind(this, column)}
@@ -293,12 +324,20 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
                       >
                         <i
                           className="sort-caret ascending"
-                          onClick={this.handleSortClick.bind(this, column, 'ascending')}
-                          />
+                          onClick={this.handleSortClick.bind(
+                            this,
+                            column,
+                            "ascending"
+                          )}
+                        />
                         <i
                           className="sort-caret descending"
-                          onClick={this.handleSortClick.bind(this, column, 'descending')}
-                          />
+                          onClick={this.handleSortClick.bind(
+                            this,
+                            column,
+                            "descending"
+                          )}
+                        />
                       </span>
                     )}
                     {column.filterable && (
@@ -308,15 +347,21 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
                         filters={column.filters}
                         filteredValue={column.filteredValue}
                         placement={column.filterPlacement}
-                        onFilterChange={this.changeFilteredValue.bind(this, column)}
+                        onFilterChange={this.changeFilteredValue.bind(
+                          this,
+                          column
+                        )}
                         toggleFilter={this.handleFilterClick.bind(this, column)}
                       >
                         <span
                           className="el-table__column-filter-trigger"
                           onClick={this.handleFilterClick.bind(this, column)}
-                          >
+                        >
                           <i
-                            className={this.classNames('el-icon-arrow-down', { 'el-icon-arrow-up': column.filterOpened })} />
+                            className={this.classNames("el-icon-arrow-down", {
+                              "el-icon-arrow-up": column.filterOpened
+                            })}
+                          />
                         </span>
                       </FilterPannel>
                     )}
@@ -330,7 +375,7 @@ export default class TableHeader extends PureComponent<TableHeaderProps> {
                 />
               )}
             </tr>
-        ))}
+          ))}
         </thead>
       </table>
     );
