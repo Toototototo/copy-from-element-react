@@ -123,7 +123,7 @@ declare namespace ElementReact {
     onClose?(): void
   }
 
-  export class Alert extends ElementReactLibs.Component<AlertProps, {}> {}
+  export class Alert extends ElementReactLibs.Component<AlertProps, {}> { }
 
   // Button
   interface ButtonProps extends ElementReactLibs.ComponentProps<{}> {
@@ -138,7 +138,7 @@ declare namespace ElementReact {
     onClick?(e: React.SyntheticEvent<HTMLButtonElement>): void
   }
 
-  class ButtonGroup extends ElementReactLibs.Component<{}, {}> {}
+  class ButtonGroup extends ElementReactLibs.Component<{}, {}> { }
 
   export class Button extends ElementReactLibs.Component<ButtonProps, {}> {
     static Group: typeof ButtonGroup
@@ -150,7 +150,7 @@ declare namespace ElementReact {
     bodyStyle?: React.CSSProperties
   }
 
-  export class Card extends ElementReactLibs.Component<CardProps, {}> {}
+  export class Card extends ElementReactLibs.Component<CardProps, {}> { }
 
   // Layout
   interface RowProps extends ElementReactLibs.ComponentProps<{}> {
@@ -160,7 +160,7 @@ declare namespace ElementReact {
     align?: 'top' | 'middle' | 'bottom'
   }
 
-  class Row extends ElementReactLibs.Component<RowProps, {}> {}
+  class Row extends ElementReactLibs.Component<RowProps, {}> { }
 
   interface ColProps extends ElementReactLibs.ComponentProps<{}> {
     span: number | string
@@ -174,7 +174,7 @@ declare namespace ElementReact {
     lg?: number | string | Object
   }
 
-  class Col extends ElementReactLibs.Component<ColProps, {}> {}
+  class Col extends ElementReactLibs.Component<ColProps, {}> { }
 
   export const Layout: {
     Row: typeof Row
@@ -188,7 +188,7 @@ declare namespace ElementReact {
     text?: string
   }
 
-  export class Loading extends ElementReactLibs.Component<LoadingProps, {}> {}
+  export class Loading extends ElementReactLibs.Component<LoadingProps, {}> { }
 
   // Message
   type Message = any
@@ -301,9 +301,9 @@ declare namespace ElementReact {
     name?: string
   }
 
-  class RadioGroup extends ElementReactLibs.Component<RadioGroupProps, {}> {}
+  class RadioGroup extends ElementReactLibs.Component<RadioGroupProps, {}> { }
 
-  class RadioButton extends ElementReactLibs.Component<RadioButtonProps, {}> {}
+  class RadioButton extends ElementReactLibs.Component<RadioButtonProps, {}> { }
 
   export class Radio extends ElementReactLibs.Component<RadioProps, {}> {
     static Group: typeof RadioGroup
@@ -329,16 +329,16 @@ declare namespace ElementReact {
     opClose?(...args: any): any
   }
 
-  interface DialogBodyProps extends ElementReactLibs.ComponentProps<{}> {}
+  interface DialogBodyProps extends ElementReactLibs.ComponentProps<{}> { }
 
-  interface DialogFooterProps extends ElementReactLibs.ComponentProps<{}> {}
+  interface DialogFooterProps extends ElementReactLibs.ComponentProps<{}> { }
 
-  class DialogBody extends ElementReactLibs.Component<DialogBodyProps, {}> {}
+  class DialogBody extends ElementReactLibs.Component<DialogBodyProps, {}> { }
 
   class DialogFooter extends ElementReactLibs.Component<
     DialogFooterProps,
     {}
-  > {}
+    > { }
 
   export class Dialog extends ElementReactLibs.Component<DialogProps, {}> {
     static Body: typeof DialogBody
@@ -367,7 +367,7 @@ declare namespace ElementReact {
     onChange?(value?: number): void
   }
 
-  export class Rate extends ElementReactLibs.Component<RateProps, {}> {}
+  export class Rate extends ElementReactLibs.Component<RateProps, {}> { }
 
   // Progress
   interface ProgressProps extends ElementReactLibs.ComponentProps<{}> {
@@ -380,7 +380,7 @@ declare namespace ElementReact {
     showText?: boolean
   }
 
-  export class Progress extends ElementReactLibs.Component<ProgressProps, {}> {}
+  export class Progress extends ElementReactLibs.Component<ProgressProps, {}> { }
 
   // Badge
   interface BadgeProps extends ElementReactLibs.ComponentProps<{}> {
@@ -389,7 +389,7 @@ declare namespace ElementReact {
     isDot?: boolean
   }
 
-  export class Badge extends ElementReactLibs.Component<BadgeProps, {}> {}
+  export class Badge extends ElementReactLibs.Component<BadgeProps, {}> { }
 
   // Tabs
   interface TabsProps extends ElementReactLibs.ComponentProps<{}> {
@@ -417,7 +417,7 @@ declare namespace ElementReact {
     closable?: boolean
   }
 
-  class TabsPane extends ElementReactLibs.Component<TabsPaneProps, {}> {}
+  class TabsPane extends ElementReactLibs.Component<TabsPaneProps, {}> { }
 
   export class Tabs extends ElementReactLibs.Component<TabsProps, {}> {
     static Pane: typeof TabsPane
@@ -528,14 +528,14 @@ declare namespace ElementReact {
     inputSelect?(item?: any): void
   }
 
-  export class Input extends ElementReactLibs.Component<InputProps, {}> {}
+  export class Input extends ElementReactLibs.Component<InputProps, {}> { }
 
   // Icon
   interface IconProps extends ElementReactLibs.ComponentProps<{}> {
     name: string
   }
 
-  export class Icon extends ElementReactLibs.Component<IconProps, {}> {}
+  export class Icon extends ElementReactLibs.Component<IconProps, {}> { }
 
   // Menu
   type menuIndex = string // 这里代码里面标注的 flowtype 是 number
@@ -568,14 +568,14 @@ declare namespace ElementReact {
     title: string
   }
 
-  class SubMenu extends ElementReactLibs.Component<SubMenuProps, {}> {}
+  class SubMenu extends ElementReactLibs.Component<SubMenuProps, {}> { }
 
-  class MenuItem extends ElementReactLibs.Component<MenuItemProps, {}> {}
+  class MenuItem extends ElementReactLibs.Component<MenuItemProps, {}> { }
 
   class MenuItemGroup extends ElementReactLibs.Component<
     MenuItemGroupProps,
     {}
-  > {}
+    > { }
 
   export class Menu extends ElementReactLibs.Component<MenuProps, {}> {
     static SubMenu: typeof SubMenu
@@ -605,7 +605,7 @@ declare namespace ElementReact {
     stepNumber?: number
   }
 
-  class Step extends ElementReactLibs.Component<StepProps, {}> {}
+  class Step extends ElementReactLibs.Component<StepProps, {}> { }
 
   export class Steps extends ElementReactLibs.Component<StepsProps, {}> {
     static Step: typeof Step
@@ -616,17 +616,17 @@ declare namespace ElementReact {
     separator?: string
   }
 
-  interface BreadcrumbItemProps extends ElementReactLibs.ComponentProps<{}> {}
+  interface BreadcrumbItemProps extends ElementReactLibs.ComponentProps<{}> { }
 
   class BreadcrumbItem extends ElementReactLibs.Component<
     BreadcrumbItemProps,
     {}
-  > {}
+    > { }
 
   export class Breadcrumb extends ElementReactLibs.Component<
     BreadcrumbProps,
     {}
-  > {
+    > {
     static Item: typeof BreadcrumbItem
   }
 
@@ -635,18 +635,18 @@ declare namespace ElementReact {
     effect?: 'dark' | 'light'
     content?: string | React.ReactElement<any>
     placement?:
-      | 'top'
-      | 'top-start'
-      | 'top-end'
-      | 'bottom'
-      | 'bottom-start'
-      | 'bottom-end'
-      | 'left'
-      | 'left-start'
-      | 'left-end'
-      | 'right'
-      | 'right-start'
-      | 'right-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
     disabled?: boolean
     transition?: string
     visibleArrow?: boolean
@@ -655,7 +655,7 @@ declare namespace ElementReact {
     visible?: boolean
   }
 
-  export class Tooltip extends ElementReactLibs.Component<TooltipProps, {}> {}
+  export class Tooltip extends ElementReactLibs.Component<TooltipProps, {}> { }
 
   // InputNumber
   interface InputNumberProps extends ElementReactLibs.ComponentProps<{}> {
@@ -674,7 +674,7 @@ declare namespace ElementReact {
   export class InputNumber extends ElementReactLibs.Component<
     InputNumberProps,
     {}
-  > {}
+    > { }
 
   // Checkbox
   interface CheckboxProps extends ElementReactLibs.ComponentProps<{}> {
@@ -700,17 +700,17 @@ declare namespace ElementReact {
     onChange?(value?: any): void
   }
 
-  interface CheckboxButtonProps extends ElementReactLibs.ComponentProps<{}> {}
+  interface CheckboxButtonProps extends ElementReactLibs.ComponentProps<{}> { }
 
   class CheckboxGroup extends ElementReactLibs.Component<
     CheckboxGroupProps,
     {}
-  > {}
+    > { }
 
   class CheckboxButton extends ElementReactLibs.Component<
     CheckboxButtonProps,
     {}
-  > {}
+    > { }
 
   export class Checkbox extends ElementReactLibs.Component<CheckboxProps, {}> {
     static Group: typeof CheckboxGroup
@@ -737,7 +737,7 @@ declare namespace ElementReact {
     onChange?(value: any): void
   }
 
-  export class Slider extends ElementReactLibs.Component<SliderProps, {}> {}
+  export class Slider extends ElementReactLibs.Component<SliderProps, {}> { }
 
   // Table
   export type strOrNum = string | number
@@ -787,8 +787,8 @@ declare namespace ElementReact {
     showHeader?: boolean
     rowClassName?: ((row?: any, index?: number) => string) | string
     rowStyle?:
-      | React.CSSProperties
-      | ((row?: any, index?: number) => React.CSSProperties)
+    | React.CSSProperties
+    | ((row?: any, index?: number) => React.CSSProperties)
     highlightCurrentRow?: boolean
     rowKey?: string | ((row: any) => string)
     emptyText?: string | React.ReactNode
@@ -804,10 +804,13 @@ declare namespace ElementReact {
     onSelectAll?: (selectedRowKeys: string[] | number[]) => void
     onSelectChange?: (selectedRowKeys: string[] | number[]) => void
     onSelect?: (selectedRowKeys: string[] | number[], row: any) => void
+    onRowChange?: (selectedRowKeys: string[] | number[], selectedRow: any[]) => void
+    onRowSelect?: (row: any, selected: boolean, selectedRow: any[], event: any) => void
+    onRowSelectAll?: (selected: boolean, selectedRows: any[], changeRows: any[]) => void
     onRow?: () => Object
   }
 
-  export class Table extends ElementReactLibs.Component<TableProps, {}> {}
+  export class Table extends ElementReactLibs.Component<TableProps, {}> { }
 
   // Switch
   interface SwitchProps extends ElementReactLibs.ComponentProps<{}> {
@@ -827,7 +830,7 @@ declare namespace ElementReact {
     onChange?(value: number | string | boolean): void
   }
 
-  export class Switch extends ElementReactLibs.Component<SwitchProps, {}> {}
+  export class Switch extends ElementReactLibs.Component<SwitchProps, {}> { }
 
   // Form
   interface FormProps extends ElementReactLibs.ComponentProps<{}> {
@@ -847,7 +850,7 @@ declare namespace ElementReact {
     rules?: Object | any[]
   }
 
-  class FormItem extends ElementReactLibs.Component<FormItemProps, {}> {}
+  class FormItem extends ElementReactLibs.Component<FormItemProps, {}> { }
 
   export class Form extends ElementReactLibs.Component<FormProps, {}> {
     static Item: typeof FormItem
@@ -892,7 +895,7 @@ declare namespace ElementReact {
     onChange?(file?: any, fileList?: any[]): void
   }
 
-  export class Upload extends ElementReactLibs.Component<UploadProps, {}> {}
+  export class Upload extends ElementReactLibs.Component<UploadProps, {}> { }
 
   // Tag
   interface TagProps extends ElementReactLibs.ComponentProps<{}> {
@@ -905,7 +908,7 @@ declare namespace ElementReact {
     onClose?(): void
   }
 
-  export class Tag extends ElementReactLibs.Component<TagProps, {}> {}
+  export class Tag extends ElementReactLibs.Component<TagProps, {}> { }
 
   // Select
   interface SelectProps extends ElementReactLibs.ComponentProps<{}> {
@@ -941,12 +944,12 @@ declare namespace ElementReact {
   class SelectOption extends ElementReactLibs.Component<
     SelectOptionProps,
     {}
-  > {}
+    > { }
 
   class SelectOptionGroup extends ElementReactLibs.Component<
     SelectOptionGroupProps,
     {}
-  > {}
+    > { }
 
   export class Select extends ElementReactLibs.Component<SelectProps, {}> {
     static Option: typeof SelectOption
@@ -968,7 +971,7 @@ declare namespace ElementReact {
     onCommand?(command?: string, instance?: any): void
   }
 
-  interface DropdownMenuProps extends ElementReactLibs.ComponentProps<{}> {}
+  interface DropdownMenuProps extends ElementReactLibs.ComponentProps<{}> { }
 
   interface DropdownItemProps extends ElementReactLibs.ComponentProps<{}> {
     command?: string
@@ -979,12 +982,12 @@ declare namespace ElementReact {
   class DropdownMenu extends ElementReactLibs.Component<
     DropdownMenuProps,
     {}
-  > {}
+    > { }
 
   class DropdownItem extends ElementReactLibs.Component<
     DropdownItemProps,
     {}
-  > {}
+    > { }
 
   export class Dropdown extends ElementReactLibs.Component<DropdownProps, {}> {
     static Menu: typeof DropdownMenu
@@ -995,18 +998,18 @@ declare namespace ElementReact {
   interface PopoverProps extends ElementReactLibs.ComponentProps<{}> {
     width?: number | string
     placement?:
-      | 'top'
-      | 'top-start'
-      | 'top-end'
-      | 'bottom'
-      | 'bottom-start'
-      | 'bottom-end'
-      | 'left'
-      | 'left-start'
-      | 'left-end'
-      | 'right'
-      | 'right-start'
-      | 'right-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
     trigger?: 'click' | 'focus' | 'hover'
     title?: string
     content?: React.ReactElement<any> | string
@@ -1016,7 +1019,7 @@ declare namespace ElementReact {
     visibleArrow?: boolean
   }
 
-  export class Popover extends ElementReactLibs.Component<PopoverProps, {}> {}
+  export class Popover extends ElementReactLibs.Component<PopoverProps, {}> { }
 
   // Pagination
   interface PaginationProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1036,7 +1039,7 @@ declare namespace ElementReact {
   export class Pagination extends ElementReactLibs.Component<
     PaginationProps,
     {}
-  > {}
+    > { }
 
   // AutoComplete
   interface AutoCompleteProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1064,7 +1067,7 @@ declare namespace ElementReact {
   export class AutoComplete extends ElementReactLibs.Component<
     AutoCompleteProps,
     {}
-  > {}
+    > { }
 
   // TimeSelect
   interface TimeSelectProps extends ElementReactLibs.DatePickerBaseProps {
@@ -1079,7 +1082,7 @@ declare namespace ElementReact {
   export class TimeSelect extends ElementReactLibs.DatePickerBaseComponet<
     TimeSelectProps,
     {}
-  > {}
+    > { }
 
   // TimePicker
   interface TimePickerProps extends ElementReactLibs.DatePickerBaseProps {
@@ -1090,7 +1093,7 @@ declare namespace ElementReact {
   export class TimePicker extends ElementReactLibs.DatePickerBaseComponet<
     TimePickerProps,
     {}
-  > {}
+    > { }
 
   // TimeRangePicker
   interface TimeRangePickerProps extends ElementReactLibs.DatePickerBaseProps {
@@ -1102,7 +1105,7 @@ declare namespace ElementReact {
   export class TimeRangePicker extends ElementReactLibs.DatePickerBaseComponet<
     TimeRangePickerProps,
     {}
-  > {}
+    > { }
 
   // DatePicker
   interface DatePickerProps extends ElementReactLibs.DatePanelProps {
@@ -1112,7 +1115,7 @@ declare namespace ElementReact {
   export class DatePicker extends ElementReactLibs.DatePickerBaseComponet<
     DatePickerProps,
     {}
-  > {}
+    > { }
 
   // DateRangePicker
   interface DateRangePickerProps extends ElementReactLibs.DatePanelProps {
@@ -1123,7 +1126,7 @@ declare namespace ElementReact {
   export class DateRangePicker extends ElementReactLibs.DatePickerBaseComponet<
     DateRangePickerProps,
     {}
-  > {}
+    > { }
 
   // Carousel
   interface CarouselProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1147,7 +1150,7 @@ declare namespace ElementReact {
   class CarouselItem extends ElementReactLibs.Component<
     CarouselItemProps,
     {}
-  > {}
+    > { }
 
   export class Carousel extends ElementReactLibs.Component<CarouselProps, {}> {
     static Item: typeof CarouselItem
@@ -1178,7 +1181,7 @@ declare namespace ElementReact {
   class CollapseItem extends ElementReactLibs.Component<
     CollapseItemProps,
     {}
-  > {}
+    > { }
 
   export class Collapse extends ElementReactLibs.Component<CollapseProps, {}> {
     static Item: typeof CollapseItem
@@ -1196,7 +1199,7 @@ declare namespace ElementReact {
   export class ColorPicker extends ElementReactLibs.Component<
     ColorPickerProps,
     {}
-  > {}
+    > { }
 
   // Cascader
   interface CascaderProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1224,7 +1227,7 @@ declare namespace ElementReact {
     onChange?(value?: any): void
   }
 
-  export class Cascader extends ElementReactLibs.Component<CascaderProps, {}> {}
+  export class Cascader extends ElementReactLibs.Component<CascaderProps, {}> { }
 
   // Transfer
   interface TransferProps extends ElementReactLibs.ComponentProps<{}> {
@@ -1255,7 +1258,7 @@ declare namespace ElementReact {
     onChange?(value?: any, drection?: string, movedKeys?: any[]): void
   }
 
-  export class Transfer extends ElementReactLibs.Component<TransferProps, {}> {}
+  export class Transfer extends ElementReactLibs.Component<TransferProps, {}> { }
 }
 
 declare namespace ElementReactLibs {
@@ -1306,7 +1309,7 @@ declare namespace ElementReactLibs {
     disabledDate?(date?: Date, type?: SelectionMode): boolean
   }
 
-  class DatePickerBaseComponet<P, S> extends React.Component<P, S> {}
+  class DatePickerBaseComponet<P, S> extends React.Component<P, S> { }
 }
 
 declare module 'element-react/src/locale/lang/bg' {
