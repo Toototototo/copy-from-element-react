@@ -491,7 +491,7 @@ export default class TableStore extends Component<
         isSelected,
         newCurrentRowKey.map(key =>
           data.find(d => getRowIdentity(d, rowKey) === key)
-        )
+        ),
         changeRows,
       );
       return;
