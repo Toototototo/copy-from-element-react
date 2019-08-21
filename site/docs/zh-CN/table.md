@@ -1284,6 +1284,9 @@ render() {
         data={data}
         border={true}
         height={250}
+        onRow={() => ({
+          onClick: console.log
+        })}
         onSelectChange={(selection) => { console.log(selection) }}
         onSelectAll={(selection) => { console.log(selection) }}
         onRowChange={(...args) => console.log('onRowChange', args)}

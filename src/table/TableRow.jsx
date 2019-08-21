@@ -1,9 +1,9 @@
 // @flow
-import React from 'react'
-import PropTypes from 'prop-types'
-import get from 'lodash/get'
-import { PureComponent } from '../../libs'
-import TableCell from './TableCell'
+import React from 'react';
+import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import { PureComponent } from '../../libs';
+import TableCell from './TableCell';
 
 const fns = ['handleMouseEnter', 'onMouseLeave', 'onClick', 'onContextMenu']
 
@@ -55,12 +55,18 @@ class TableRow extends PureComponent {
           rowEventsHandler[fn] = (
             event: SyntheticEvent<HTMLTableRowElement>
           ) => {
-            handlers[fn](row, rowIndex, event)
+            if (!event.target.className.toString().includes('checkbox')) {
+              handlers[fn](row, rowIndex, event);
+            }
             propsFn && propsFn(row, rowIndex, event)
           }
         } else {
-          rowEventsHandler[fn] = (event: SyntheticEvent<HTMLTableRowElement>) =>
+          rowEventsHandler[fn] = (event: SyntheticEvent<HTMLTableRowElement>) => {
+            if (event.target.className.toString().includes('checkbox')) {
+              return
+            }
             handlers[fn](row, rowIndex, event)
+          }
         }
       })
     }
@@ -78,7 +84,6 @@ class TableRow extends PureComponent {
             },
             this.getRowClassName(row, rowIndex)
           )}
-          {...rowEventsHandler}
         >
           {columns.map((col, index) => {
             let value
